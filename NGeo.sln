@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGeo", "NGeo\NGeo.csproj", "{C03AD2E1-4728-477D-BC7A-4F0E92A2F9C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7180D76F-6485-4EB7-9F7B-9DBF7337BEE1}"
+	ProjectSection(SolutionItems) = preProject
+		changelog.txt = changelog.txt
+		CodeCoverage.testsettings = CodeCoverage.testsettings
+		Local.testsettings = Local.testsettings
+		NGeo.vsmdi = NGeo.vsmdi
+		README.md = README.md
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGeo.Tests", "NGeo.Tests\NGeo.Tests.csproj", "{9FB42065-E9AA-43AA-902B-449099A082BF}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = NGeo.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C03AD2E1-4728-477D-BC7A-4F0E92A2F9C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03AD2E1-4728-477D-BC7A-4F0E92A2F9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03AD2E1-4728-477D-BC7A-4F0E92A2F9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03AD2E1-4728-477D-BC7A-4F0E92A2F9C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB42065-E9AA-43AA-902B-449099A082BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB42065-E9AA-43AA-902B-449099A082BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB42065-E9AA-43AA-902B-449099A082BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB42065-E9AA-43AA-902B-449099A082BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

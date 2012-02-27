@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>NGeo</id>
+        <version>$version$</version>
+        <title>NGeo</title>
+        <authors>Dan Ludwig</authors>
+        <owners>The UCosmic Consortium</owners>
+        <licenseUrl>http://ngeo.codeplex.com/license</licenseUrl>
+        <projectUrl>http://ngeo.codeplex.com</projectUrl>
+        <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>
+            NGeo is a client library that makes it easier to invoke
+            GeoNames, Yahoo! GeoPlanet, and Yahoo! PlaceFinder services from .NET code.
+        </description>
+        <releaseNotes>Version 1.3.1 fixes a bug with GeoPlaces throwing an exception that '' cannot be converted to int.</releaseNotes>
+        <copyright>Copyright © UCosmic Consortium 2011</copyright>
+        <tags>GeoNames, GeoPlanet, PlaceFinder, Yahoo</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="content\*.*" target="content\" />
+    </files>
+</package>

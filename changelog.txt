@@ -1,0 +1,49 @@
+1.3.1
+- Fix bug with PlaceFinder throwing exceptions when '' cannot be parsed into int
+
+1.3
+- Fix bug with GeoPlanet Admin properties being empty strings when they should be null.
+- Change release versioning scheme to major/minor instead of build/revision
+
+0.3.10.0
+- Added support for the GeoPlanet counties/admin2s service.
+
+0.3.9.1
+- Fix bug: GeoPlanet states/admin1s service should return null when service returns 404
+
+0.3.9.0
+- Added support for the GeoPlanet states/admin1s service.
+
+0.3.8.0
+- Added support for the GeoPlanet continents service.
+
+0.3.7.0
+- GeoNames Toponym should be null when Get operation returns empty result (geoname id is zero)
+- IConsumeXyz interfaces implement IDisposable
+- GeoPlanet Place implements ToString override
+- GeoPlanet services use &count=0 argument to remove result limitations
+- GeoPlanet ConcordanceNamespace complete refactor from ConcordanceCategory (method arguments)
+- GeoNames language argument removed from Hierarchy operation
+- GeoNames default style arguments changed to match service results
+- GeoNames Hierarchy operation returns null when the Items list is null
+
+0.3.6.0
+- Fix bug with GeoPlanet Postal property being empty string when it should be null.
+
+0.3.5.0
+- Added support for GeoPlanet belongtos service.
+
+0.3.4.0
+- Client can invoke service for single GeoPlanet placetype instead of all placetypes. 
+- Renamed ConcordanceCategory to ConcordanceNamespace to match Yahoo domain.
+
+0.3.3.0
+- Toponym & Country contain null values instead of empty or whitespace strings
+- Country box coordinate properties renamed to 
+
+0.3.2.0
+- Renamed NGeo.Yahoo.PlaceFinder.Results to NGeo.Yahoo.PlaceFinder.ResultSet to closer match Yahoo PlaceFinder domain.
+- Renamed other classes and property names as part of PlaceFinder refactor.
+- Internalized Flags and GFlags to make the client more fluent / intuitive.
+- Made Json classes in the GeoPlanet namespace internal.
+

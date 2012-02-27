@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9FB42065-E9AA-43AA-902B-449099A082BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NGeo</RootNamespace>
+    <AssemblyName>NGeo.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Should">
+      <HintPath>..\packages\Should.1.1.12.0\lib\Should.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="ExtensionMethodTests.cs" />
+    <Compile Include="GeoNames\AlternateNameTests.cs" />
+    <Compile Include="GeoNames\CountryTests.cs" />
+    <Compile Include="GeoNames\GeoNamesClientTests.cs" />
+    <Compile Include="GeoNames\ResultsTests.cs" />
+    <Compile Include="GeoNames\HierarchyTests.cs" />
+    <Compile Include="GeoNames\IConsumeGeoNamesTests.cs" />
+    <Compile Include="GeoNames\IInvokeGeoNamesServicesTests.cs" />
+    <Compile Include="GeoNames\NearbyPlaceNameFinderTests.cs" />
+    <Compile Include="GeoNames\ResultStyleTests.cs" />
+    <Compile Include="GeoNames\TimeZoneTests.cs" />
+    <Compile Include="GeoNames\ToponymTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Yahoo\GeoPlanet\ConcordanceNamespaceTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\AdminTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\BoundingBoxTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\ConcordanceResponseTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\GeoPlanetClientTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\IConsumeGeoPlanetTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\IInvokeGeoPlanetServicesTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\Json\JsonConverterTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\RequestViewTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PlaceTypessResponseTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PlaceTypesTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\LocalityTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\Json\JsonPlaceTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\Json\JsonAdminAttributesTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\Json\JsonLocalityAttributes.cs" />
+    <Compile Include="Yahoo\GeoPlanet\Json\JsonPlaceTypeAttributesTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\Json\JsonPlaceTypeTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PlaceResponseTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PlacesResponseTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PlacesTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PlaceTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PlaceTypeTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\PointTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\BoundingBoxTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByExtensionsTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByFullyParsedAddressTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByWoeIdTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByMultilineAddressTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByFreeformTextTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\IConsumePlaceFinderTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\IInvokePlaceFinderServicesTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByCoordinatesTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByNameTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceFinderClientTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\QualityDescriptionTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\QualityCategoryTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\QualityExtensionsTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\GFlagTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\FlagTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceByTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\ResponseTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\ResultSetTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\ResultTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NGeo\NGeo.csproj">
+      <Project>{C03AD2E1-4728-477D-BC7A-4F0E92A2F9C4}</Project>
+      <Name>NGeo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

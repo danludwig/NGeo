@@ -1,6 +1,9 @@
 # NGeo
 NGeo makes it easier for users of geographic data to invoke GeoNames and Yahoo! GeoPlanet / PlaceFinder services. You'll no longer have to write your own GeoNames, GeoPlanet, or PlaceFinder clients. It's developed in ASP.NET 4.0, and uses WCF ServiceModel libraries to deserialize JSON data into Plain Old C# Objects.
 
+## License
+This software is subject to the terms of the [Microsoft Public License (Ms-PL)](http://www.opensource.org/licenses/MS-PL).
+
 ## How can I use it?
     using (var geoNamesClient = new NGeo.GeoNames.GeoNamesClient())
     {

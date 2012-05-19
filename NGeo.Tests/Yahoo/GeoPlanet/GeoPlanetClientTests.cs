@@ -32,6 +32,53 @@ namespace NGeo.Yahoo.GeoPlanet
         }
 
         [TestMethod]
+        public void Yahoo_GeoPlanet_GeoPlanetClient_Places_ShouldReturnAtLeast1Result_ForQuery_Sfo()
+        {
+            using (var geoPlanetClient = new GeoPlanetClient())
+            {
+                var places = geoPlanetClient.Places("SFO", AppId);
+
+                places.ShouldNotBeNull();
+                places.Items.Count.ShouldBeInRange(1, int.MaxValue);
+            }
+        }
+
+        [TestMethod]
+        public void Yahoo_GeoPlanet_GeoPlanetClient_Places_ShouldReturnMoreThan1Result_ForQuery_Ca()
+        {
+            using (var geoPlanetClient = new GeoPlanetClient())
+            {
+                var places = geoPlanetClient.Places("CA", AppId);
+
+                places.ShouldNotBeNull();
+                places.Items.Count.ShouldBeInRange(2, int.MaxValue);
+            }
+        }
+
+        [TestMethod]
+        public void Yahoo_GeoPlanet_GeoPlanetClient_Places_ShouldReturnEmpty_WhenNoResultsAreFound()
+        {
+            using (var geoPlanetClient = new GeoPlanetClient())
+            {
+                var places = geoPlanetClient.Places("asdfdfmdlfjkdlajsdlfasdfjdjfdlajlsdflasdjf", AppId);
+
+                places.ShouldNotBeNull();
+                places.Items.Count.ShouldEqual(0);
+            }
+        }
+
+        [TestMethod]
+        public void Yahoo_GeoPlanet_GeoPlanetClient_Places_ShouldReturnNull_WhenArgumentExceptionIsThrown()
+        {
+            using (var geoPlanetClient = new GeoPlanetClient())
+            {
+                var places = geoPlanetClient.Places("", AppId);
+
+                places.ShouldBeNull();
+            }
+        }
+
+        [TestMethod]
         public void Yahoo_GeoPlanet_GeoPlanetClient_Parent_ShouldReturn1Result_ForWoeId2380358()
         {
             using (var geoPlanetClient = new GeoPlanetClient())

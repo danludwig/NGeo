@@ -6,6 +6,8 @@ namespace NGeo.Yahoo.GeoPlanet
     {
         Place Place(int woeId, string appId, RequestView view = RequestView.Long);
 
+        Places Places(string query, string appId, RequestView view = RequestView.Long);
+
         Place Parent(int woeId, string appId, RequestView view = RequestView.Long);
 
         Places Ancestors(int woeId, string appId, RequestView view = RequestView.Short);

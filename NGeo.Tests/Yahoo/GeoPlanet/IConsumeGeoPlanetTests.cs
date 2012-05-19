@@ -26,6 +26,16 @@ namespace NGeo.Yahoo.GeoPlanet
         }
 
         [TestMethod]
+        public void Yahoo_GeoPlanet_Places_ShouldBeInterfaceMethod()
+        {
+            var contract = new Mock<IConsumeGeoPlanet>();
+            contract.Setup(m => m.Places(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<RequestView>()))
+                .Returns(new Places());
+            var results = contract.Object.Places("test", null);
+            results.ShouldNotBeNull();
+        }
+
+        [TestMethod]
         public void Yahoo_GeoPlanet_Parent_ShouldBeInterfaceMethod()
         {
             var contract = new Mock<IConsumeGeoPlanet>();

@@ -29,6 +29,7 @@ namespace NGeo.Yahoo.GeoPlanet
 
             var placesResponseOperations = new Dictionary<string, Expression<Func<IInvokeGeoPlanetServices, PlacesResponse>>>
             {
+                { "places", p => p.Places(default(string), default(string), default(RequestView)) },
                 { "ancestors", p => p.Ancestors(default(string), default(string), default(RequestView)) },
                 { "belongtos", p => p.BelongTos(default(string), default(string), default(RequestView)) },
                 { "countries", p => p.Countries(default(string), default(RequestView)) },
@@ -63,6 +64,21 @@ namespace NGeo.Yahoo.GeoPlanet
             attributes.ShouldNotBeNull();
             attributes.Length.ShouldEqual(1);
             attributes[0].UriTemplate.ShouldEqual("place/{woeId}?format=json&view={view}&appid={appId}");
+            attributes[0].RequestFormat.ShouldEqual(WebMessageFormat.Json);
+            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
+            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
+        }
+
+        [TestMethod]
+        public void Yahoo_GeoPlanet_IInvokeGeoPlanetServices_Places_ShouldHaveWebInvokeAttribute()
+        {
+            Expression<Func<IInvokeGeoPlanetServices, PlacesResponse>> method = p => p.Places(default(string),
+                default(string), default(RequestView));
+            var attributes = method.GetAttributes<IInvokeGeoPlanetServices, PlacesResponse, WebGetAttribute>();
+
+            attributes.ShouldNotBeNull();
+            attributes.Length.ShouldEqual(1);
+            attributes[0].UriTemplate.ShouldEqual("places.q({query});count=0?format=json&view={view}&appid={appId}");
             attributes[0].RequestFormat.ShouldEqual(WebMessageFormat.Json);
             attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
             attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);

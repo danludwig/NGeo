@@ -15,6 +15,15 @@ namespace NGeo.Yahoo.GeoPlanet
         )]
         PlaceResponse Place(string woeId, string appId, RequestView view);
 
+        [OperationContract(Name = "places")]
+        [WebGet(
+            UriTemplate = "places.q({query});count=0?format=json&view={view}&appid={appId}",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare
+        )]
+        PlacesResponse Places(string query, string appId, RequestView view);
+
         [OperationContract(Name = "parent")]
         [WebGet(
             UriTemplate = "place/{woeId}/parent?format=json&view={view}&appid={appId}",

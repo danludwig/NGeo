@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
@@ -16,6 +18,26 @@ namespace NGeo.Yahoo.GeoPlanet
                 return response.Result.ToPlace();
             }
             catch (EndpointNotFoundException)
+            {
+                return null;
+            }
+        }
+
+        public Places Places(string query, string appId, RequestView view = RequestView.Long)
+        {
+            try
+            {
+                var response = Channel.Places(query, appId, view);
+                var results = response.Results;
+                if (results != null)
+                    results.Items = new ReadOnlyCollection<Place>(
+                        results.JsonItems != null
+                            ? results.JsonItems.ToPlaces()
+                            : new List<Place>()
+                    );
+                return results;
+            }
+            catch (ArgumentException)
             {
                 return null;
             }

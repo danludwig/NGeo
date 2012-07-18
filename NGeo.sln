@@ -5,6 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGeo", "NGeo\NGeo.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7180D76F-6485-4EB7-9F7B-9DBF7337BEE1}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		changelog.txt = changelog.txt
 		CodeCoverage.testsettings = CodeCoverage.testsettings
 		Local.testsettings = Local.testsettings
@@ -19,6 +20,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{54B672
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{007BF774-1259-4AB2-94F4-72098D4F1290}"
+	ProjectSection(SolutionItems) = preProject
+		nupkgs\NGeo.1.3.1.nupkg = nupkgs\NGeo.1.3.1.nupkg
+		nupkgs\NGeo.1.4.nupkg = nupkgs\NGeo.1.4.nupkg
 	EndProjectSection
 EndProject
 Global
@@ -41,5 +48,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{007BF774-1259-4AB2-94F4-72098D4F1290} = {7180D76F-6485-4EB7-9F7B-9DBF7337BEE1}
 	EndGlobalSection
 EndGlobal

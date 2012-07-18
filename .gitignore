@@ -34,8 +34,33 @@ Packages/
 #Allow NuGet.exe
 !NuGet.exe
 
+#Ignore generated nupkg files
+*.nupkg
+
+#Allow released nupkg files
+!NGeo.1.3.1.nupkg
+!NGeo.1.4.nupkg
+!NGeo.1.5.nupkg
+
+#Ignore local testsettings
+Local.testsettings
+
 #Allow R# .DotSettings
 !*.csproj.DotSettings
+
+#Ignore Azure build csdef & Pubxml files
+ServiceDefinition.build.csdef
+*.azurePubxml
+UCosmic.Www.Mvc.Publish.xml
+
+#Ignore WebDeploy publish profile
+*.Publish.xml
+
+#Ignore email files delivered to specified pickup directory
+*.eml
+
+#Allow chromedriver.exe
+!chromedriver.exe
 
 #Ignore private folder
 /Private/

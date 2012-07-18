@@ -60,6 +60,8 @@
   <ItemGroup>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GeoNames\AlternateName.cs" />
+    <Compile Include="GeoNames\GeoPlanetContainer.cs" />
+    <Compile Include="GeoNames\IContainGeoNames.cs" />
     <Compile Include="GeoNames\Country.cs" />
     <Compile Include="GeoNames\GeoNamesClient.cs" />
     <Compile Include="GeoNames\Results.cs" />
@@ -77,7 +79,9 @@
     <Compile Include="Yahoo\GeoPlanet\BoundingBox.cs" />
     <Compile Include="Yahoo\GeoPlanet\ConcordanceResponse.cs" />
     <Compile Include="Yahoo\GeoPlanet\GeoPlanetClient.cs" />
+    <Compile Include="Yahoo\GeoPlanet\GeoPlanetContainer.cs" />
     <Compile Include="Yahoo\GeoPlanet\IConsumeGeoPlanet.cs" />
+    <Compile Include="Yahoo\GeoPlanet\IContainGeoPlanet.cs" />
     <Compile Include="Yahoo\GeoPlanet\IInvokeGeoPlanetServices.cs" />
     <Compile Include="Yahoo\GeoPlanet\Json\JsonAdminAttributes.cs" />
     <Compile Include="Yahoo\GeoPlanet\Json\JsonConverter.cs" />

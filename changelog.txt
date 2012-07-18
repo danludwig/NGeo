@@ -1,3 +1,6 @@
+1.5.0
+- Added the IContainGeoNames and IContainGeoPlanet interfaces, along with a default implementation of each.
+
 1.4.0
 - Added support for the GeoPlanet places.q(search) service
 

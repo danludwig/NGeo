@@ -42,7 +42,7 @@ With that registration, you can do something like this:
         }
     }
 
-The actual `GeoNamesContainer` and `GeoPlanetContainer` classes just wrap a respective Client instance along with the auth string passed to the constructor, and delegate all method invocations to the client. So you will always get the same results, the only difference is this class hides the auth credential from you.
+The actual `GeoNamesContainer` and `GeoPlanetContainer` classes just wrap a respective Client instance along with the auth string passed to the constructor, and delegate all method invocations to the client. So you will always get the same results, the only difference is these new interfaces hide the auth credential from you. (Note a corresponding interface is not necessary for the Yahoo! PlaceFinder services, since it does not (yet) require any auth credentials.)
 
 ## Why should I use it?
 There are at least 2 other GeoNames clients that I'm aware of, and they are listed on the [GeoNames Client Libraries page](http://www.geonames.org/export/client-libraries.html). This project is very much like the [.NET WCF project written by Baretta2 / Myren](http://www.codeproject.com/Articles/30627/GeoNames-NET-WCF-Client). I started modifying the Myren.GeoNames.Client project source code because my organization bought premium GeoNames credits, and we needed to invoke a different service URL. Also, since Baretta2's project was published, GeoNames has started requiring a username parameter to be passed to each web service invocation.

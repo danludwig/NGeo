@@ -24,6 +24,17 @@ namespace NGeo.GeoNames
             return _client.FindNearbyPlaceName(finder);
         }
 
+        public ReadOnlyCollection<Code> PostalCodeLookup(PostalCodeLookup lookup)
+        {
+            lookup.UserName = _userName;
+            return _client.PostalCodeLookup(lookup);
+        }
+
+        public ReadOnlyCollection<Country> PostalCodeCountryInfo()
+        {
+            return _client.PostalCodeCountryInfo(_userName);
+        }
+
         public Toponym Get(int geoNameId)
         {
             return _client.Get(geoNameId, _userName);

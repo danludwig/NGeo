@@ -7,6 +7,10 @@ namespace NGeo.GeoNames
     {
         ReadOnlyCollection<Toponym> FindNearbyPlaceName(NearbyPlaceNameFinder finder);
 
+        ReadOnlyCollection<Code> PostalCodeLookup(PostalCodeLookup lookup);
+
+        ReadOnlyCollection<Country> PostalCodeCountryInfo();
+
         Toponym Get(int geoNameId);
 
         ReadOnlyCollection<Toponym> Children(int geoNameId,

@@ -28,6 +28,26 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
+        public void GeoNames_PostalCodeLookup_ShouldBeInterfaceMethod()
+        {
+            var contract = new Mock<IConsumeGeoNames>();
+            contract.Setup(m => m.PostalCodeLookup(It.IsAny<PostalCodeLookup>()))
+                .Returns(new ReadOnlyCollection<Code>(new List<Code>()));
+            var results = contract.Object.PostalCodeLookup(null);
+            results.ShouldNotBeNull();
+        }
+
+        [TestMethod]
+        public void GeoNames_PostalCodeCountryInfo_ShouldBeInterfaceMethod()
+        {
+            var contract = new Mock<IConsumeGeoNames>();
+            contract.Setup(m => m.PostalCodeCountryInfo(It.IsAny<string>()))
+                .Returns(new ReadOnlyCollection<Country>(new List<Country>()));
+            var results = contract.Object.PostalCodeCountryInfo(null);
+            results.ShouldNotBeNull();
+        }
+
+        [TestMethod]
         public void GeoNames_Get_ShouldBeInterfaceMethod()
         {
             var contract = new Mock<IConsumeGeoNames>();

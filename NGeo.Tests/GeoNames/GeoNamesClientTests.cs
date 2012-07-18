@@ -39,6 +39,69 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GeoNames_PostalCodeLookup_ShouldThrowException_WhenArgIsNull()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                geoNames.PostalCodeLookup(null);
+            }
+        }
+
+        [TestMethod]
+        public void GeoNames_PostalCodeLookup_ShouldReturnNull_WithoutUserName()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                var finder = new PostalCodeLookup();
+                var results = geoNames.PostalCodeLookup(finder);
+                results.ShouldBeNull();
+            }
+        }
+
+        [TestMethod]
+        public void GeoNames_PostalCodeLookup_ShouldReturn1Result_ForOrlando()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                var finder = new PostalCodeLookup
+                {
+                    PostalCode = "32819",
+                    Country = "US",
+                    UserName = UserName,
+                };
+                var results = geoNames.PostalCodeLookup(finder);
+
+                results.ShouldNotBeNull();
+                results.Count.ShouldEqual(1);
+                results[0].Latitude.ShouldEqual(28.452157);
+                results[0].Longitude.ShouldEqual(-81.46784);
+                results[0].Name.ShouldEqual("Orlando");
+            }
+        }
+
+        [TestMethod]
+        public void GeoNames_PostalCodeCountryInfo_ShouldReturnMultipleResults()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                var results = geoNames.PostalCodeCountryInfo(UserName);
+                results.ShouldNotBeNull();
+                results.Count.ShouldBeInRange(2, int.MaxValue);
+            }
+        }
+
+        [TestMethod]
+        public void GeoNames_PostalCodeCountryInfo_ShouldReturnNull_WithoutUserName()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                var results = geoNames.PostalCodeCountryInfo(null);
+                results.ShouldBeNull();
+            }
+        }
+
+        [TestMethod]
         public void GeoNames_FindNearbyPlaceName_ShouldReturn1Result_ForLehighLatitudeAndLongitude_WhenNoRadiusIsSpecified()
         {
             using (var geoNames = new GeoNamesClient())

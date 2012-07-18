@@ -41,6 +41,38 @@ namespace NGeo.GeoNames
         }
 
         /// <summary>
+        /// Lookup a place by postal code. See 
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeLookupJSON">Official 
+        /// GeoNames postalCodeLookup Documentation</seealso> for more information.
+        /// </summary>
+        /// <param name="lookup">Arguments sent to the GeoNames service.</param>
+        /// <returns>The closest populated place for the postal code/country query. The unit of the 
+        /// distance element is 'km'.</returns>
+        public ReadOnlyCollection<Code> PostalCodeLookup(PostalCodeLookup lookup)
+        {
+            if (lookup == null) throw new ArgumentNullException("lookup");
+
+            var response = Channel.PostalCodeLookup(lookup.PostalCode, lookup.Country,
+                    lookup.MaxRows, lookup.Style, lookup.UserName);
+            var results = response.Items;
+            return results != null ? new ReadOnlyCollection<Code>(results) : null;
+        }
+
+        /// <summary>
+        /// Postal Code Country Info (countries available with min & max postal codes). See 
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeCountryInfo">Official 
+        /// GeoNames postalCodeCountryInfo Documentation</seealso> for more information.
+        /// </summary>
+        /// <param name="userName">Your user name.</param>
+        /// <returns>Country information: Name, Abbreviation, Min & Max Postal Codes.</returns>
+        public ReadOnlyCollection<Country> PostalCodeCountryInfo(string userName)
+        {
+            var response = Channel.PostalCodeCountryInfo(userName);
+            var results = response.Items;
+            return (response.Items != null) ? results.AsReadOnly() : null;
+        }
+
+        /// <summary>
         /// Information about a specific GeoNames toponym, by ID.
         /// </summary>
         /// <param name="geoNameId">The GeoName ID of the toponym to get.</param>

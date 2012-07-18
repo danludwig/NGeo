@@ -60,6 +60,9 @@
   <ItemGroup>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GeoNames\AlternateName.cs" />
+    <Compile Include="GeoNames\Code.cs" />
+    <Compile Include="GeoNames\PostalCodeResults.cs" />
+    <Compile Include="GeoNames\PostalCodeLookup.cs" />
     <Compile Include="GeoNames\GeoPlanetContainer.cs" />
     <Compile Include="GeoNames\IContainGeoNames.cs" />
     <Compile Include="GeoNames\Country.cs" />

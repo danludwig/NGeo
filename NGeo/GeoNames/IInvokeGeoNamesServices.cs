@@ -28,6 +28,26 @@ namespace NGeo.GeoNames
         Results<Toponym> FindNearbyPlaceName(double latitude, double longitude, string language,
             int maximumResults, ResultStyle resultStyle, string userName);
 
+        [OperationContract(Name = "postalCodeLookupJSON")]
+        [WebInvoke(
+            UriTemplate = "postalCodeLookupJSON?postalcode={postalcode}&country={country}"
+                + "&maxRows={maximumResults}&style={resultStyle}&username={userName}",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare
+        )]
+        PostalCodeResults PostalCodeLookup(string postalcode, string country, int maximumResults,
+            ResultStyle resultStyle, string userName);
+
+        [OperationContract(Name = "postalCodeCountryInfoJSON")]
+        [WebInvoke(
+            UriTemplate = "postalCodeCountryInfoJSON?username={userName}",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare
+        )]
+        Results<Country> PostalCodeCountryInfo(string userName);
+
         [OperationContract(Name = "getJSON")]
         [WebInvoke(
             UriTemplate = "getJSON?geonameId={geoNameId}&username={userName}",

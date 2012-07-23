@@ -72,6 +72,8 @@ namespace NGeo.GeoNames
                 { "areaInSqKm", p => p.AreaInSqKm },
                 { "currencyCode", p => p.CurrencyCode },
                 { "languages", p => p.Languages },
+                { "maxPostalCode", p => p.MaxPostalCode },
+                { "minPostalCode", p => p.MinPostalCode },
             };
 
             properties.ShouldHaveDataMemberAttributes();
@@ -89,11 +91,12 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
-        public void GeoNames_Country_IsoNumericCode_ShouldHaveDataMemberAttribute()
+        public void GeoNames_Country_NullableIntProperties_ShouldHaveDataMemberAttribute()
         {
             var properties = new Dictionary<string, Expression<Func<Country, int?>>>
             {
                 { "isoNumeric", p => p.IsoNumericCode },
+                { "numPostalCodes", p => p.NumberOfPostalCodes },
             };
 
             properties.ShouldHaveDataMemberAttributes();

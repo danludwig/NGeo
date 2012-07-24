@@ -5,12 +5,12 @@ using System.Runtime.Serialization;
 namespace NGeo.GeoNames
 {
     [DataContract]
-    public sealed class PostalCodeResults : IEnumerable<Code>
+    public sealed class PostalCodeResults : IEnumerable<PostalCode>
     {
         [DataMember(Name = "postalcodes")]
-        internal List<Code> Items { get; set; }
+        internal List<PostalCode> Items { get; set; }
 
-        public IEnumerator<Code> GetEnumerator()
+        public IEnumerator<PostalCode> GetEnumerator()
         {
             return Items.GetEnumerator();
         }

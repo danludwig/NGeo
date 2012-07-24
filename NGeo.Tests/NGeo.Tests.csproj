@@ -76,7 +76,7 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="ExtensionMethodTests.cs" />
     <Compile Include="GeoNames\AlternateNameTests.cs" />
-    <Compile Include="GeoNames\CodeTests.cs" />
+    <Compile Include="GeoNames\PostalCodeTests.cs" />
     <Compile Include="GeoNames\PostalCodeResultsTests.cs" />
     <Compile Include="GeoNames\PostalCodeLookupTests.cs" />
     <Compile Include="GeoNames\CountryTests.cs" />

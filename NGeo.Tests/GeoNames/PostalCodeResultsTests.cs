@@ -16,9 +16,9 @@ namespace NGeo.GeoNames
         {
             var model = new PostalCodeResults
             {
-                Items = new List<Code>
+                Items = new List<PostalCode>
                 {
-                    new Code(), new Code(), new Code(),
+                    new PostalCode(), new PostalCode(), new PostalCode(),
                 },
             };
 
@@ -32,13 +32,13 @@ namespace NGeo.GeoNames
         {
             var model = new PostalCodeResults
             {
-                Items = new List<Code>
+                Items = new List<PostalCode>
                 {
-                    new Code(), new Code(), new Code(),
+                    new PostalCode(), new PostalCode(), new PostalCode(),
                 },
             };
 
-            model.ShouldImplement(typeof(IEnumerable<Code>));
+            model.ShouldImplement(typeof(IEnumerable<PostalCode>));
             model.GetEnumerator().ShouldNotBeNull();
             ((IEnumerable)model).GetEnumerator().ShouldNotBeNull();
             foreach (var item in model)
@@ -57,7 +57,7 @@ namespace NGeo.GeoNames
         [TestMethod]
         public void GeoNames_PostalCodeResults_Items_ShouldHaveDataMemberAttribute()
         {
-            var genericListProperties = new Dictionary<string, Expression<Func<PostalCodeResults, List<Code>>>>
+            var genericListProperties = new Dictionary<string, Expression<Func<PostalCodeResults, List<PostalCode>>>>
             {
                 { "postalcodes", p => p.Items },
             };

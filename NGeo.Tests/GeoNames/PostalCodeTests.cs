@@ -8,20 +8,20 @@ using Should;
 namespace NGeo.GeoNames
 {
     [TestClass]
-    public class CodeTests
+    public class PostalCodeTests
     {
         [TestMethod]
-        public void GeoNames_Code_ShouldBePublic()
+        public void GeoNames_PostalCode_ShouldBePublic()
         {
-            var model = new Code();
+            var model = new PostalCode();
 
             model.ShouldNotBeNull();
         }
 
         [TestMethod]
-        public void GeoNames_Code_StringProperties_ShouldBeConvertedToNull_WhenEmptyOrWhiteSpace()
+        public void GeoNames_PostalCode_StringProperties_ShouldBeConvertedToNull_WhenEmptyOrWhiteSpace()
         {
-            var model = new Code
+            var model = new PostalCode
             {
                 Admin1Name = "   ",
                 Admin2Name = "   ",
@@ -35,9 +35,9 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
-        public void GeoNames_Code_ShouldOverrideToString()
+        public void GeoNames_PostalCode_ShouldOverrideToString()
         {
-            var model = new Code
+            var model = new PostalCode
             {
                 Name = "name",
             };
@@ -47,18 +47,18 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
-        public void GeoNames_Code_ShouldHaveDataContractAttribute()
+        public void GeoNames_PostalCode_ShouldHaveDataContractAttribute()
         {
-            Attribute.IsDefined(typeof(Code), typeof(DataContractAttribute))
+            Attribute.IsDefined(typeof(PostalCode), typeof(DataContractAttribute))
                 .ShouldBeTrue();
         }
 
         [TestMethod]
-        public void GeoNames_Code_StringProperties_ShouldHaveDataMemberAttributes()
+        public void GeoNames_PostalCode_StringProperties_ShouldHaveDataMemberAttributes()
         {
-            var properties = new Dictionary<string, Expression<Func<Code, string>>>
+            var properties = new Dictionary<string, Expression<Func<PostalCode, string>>>
             {
-                { "postalcode", p => p.PostalCode },
+                { "postalcode", p => p.Value },
                 { "placeName", p => p.Name },
                 { "countryCode", p => p.CountryCode },
                 { "adminCode1", p => p.Admin1Code },
@@ -73,9 +73,9 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
-        public void GeoNames_Toponym_DoubleProperties_ShouldHaveDataMemberAttributes()
+        public void GeoNames_PostalCode_DoubleProperties_ShouldHaveDataMemberAttributes()
         {
-            var properties = new Dictionary<string, Expression<Func<Code, double>>>
+            var properties = new Dictionary<string, Expression<Func<PostalCode, double>>>
             {
                 { "lat", p => p.Latitude },
                 { "lng", p => p.Longitude },

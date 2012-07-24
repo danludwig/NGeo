@@ -32,7 +32,7 @@ namespace NGeo.GeoNames
         {
             var contract = new Mock<IConsumeGeoNames>();
             contract.Setup(m => m.PostalCodeLookup(It.IsAny<PostalCodeLookup>()))
-                .Returns(new ReadOnlyCollection<Code>(new List<Code>()));
+                .Returns(new ReadOnlyCollection<PostalCode>(new List<PostalCode>()));
             var results = contract.Object.PostalCodeLookup(null);
             results.ShouldNotBeNull();
         }

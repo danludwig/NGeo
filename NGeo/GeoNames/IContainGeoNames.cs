@@ -7,7 +7,7 @@ namespace NGeo.GeoNames
     {
         ReadOnlyCollection<Toponym> FindNearbyPlaceName(NearbyPlaceNameFinder finder);
 
-        ReadOnlyCollection<Code> PostalCodeLookup(PostalCodeLookup lookup);
+        ReadOnlyCollection<PostalCode> PostalCodeLookup(PostalCodeLookup lookup);
 
         ReadOnlyCollection<Country> PostalCodeCountryInfo();
 

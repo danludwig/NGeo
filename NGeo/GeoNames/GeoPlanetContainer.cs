@@ -24,7 +24,7 @@ namespace NGeo.GeoNames
             return _client.FindNearbyPlaceName(finder);
         }
 
-        public ReadOnlyCollection<Code> PostalCodeLookup(PostalCodeLookup lookup)
+        public ReadOnlyCollection<PostalCode> PostalCodeLookup(PostalCodeLookup lookup)
         {
             lookup.UserName = _userName;
             return _client.PostalCodeLookup(lookup);

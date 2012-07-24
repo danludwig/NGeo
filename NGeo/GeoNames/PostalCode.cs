@@ -3,10 +3,10 @@
 namespace NGeo.GeoNames
 {
     [DataContract]
-    public class Code
+    public class PostalCode
     {
         [DataMember(Name = "postalcode")]
-        public string PostalCode { get; internal set; }
+        public string Value { get; internal set; }
 
         [DataMember(Name = "placeName")]
         public string Name { get; internal set; }

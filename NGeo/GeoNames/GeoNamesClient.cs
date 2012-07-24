@@ -65,7 +65,7 @@ namespace NGeo.GeoNames
         /// </summary>
         /// <param name="userName">Your user name.</param>
         /// <returns>Country information: Name, Abbreviation, Min & Max Postal Codes.</returns>
-        public ReadOnlyCollection<Country> PostalCodeCountryInfo(string userName)
+        public ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo(string userName)
         {
             var response = Channel.PostalCodeCountryInfo(userName);
             var results = response.Items;

@@ -30,7 +30,7 @@ namespace NGeo.GeoNames
             return _client.PostalCodeLookup(lookup);
         }
 
-        public ReadOnlyCollection<Country> PostalCodeCountryInfo()
+        public ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo()
         {
             return _client.PostalCodeCountryInfo(_userName);
         }

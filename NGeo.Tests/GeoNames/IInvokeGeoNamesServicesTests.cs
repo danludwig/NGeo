@@ -14,7 +14,7 @@ namespace NGeo.GeoNames
         [TestMethod]
         public void GeoNames_IInvokeGeoNamesServices_ShouldHaveServiceContractAttribute()
         {
-            Attribute.IsDefined(typeof (IInvokeGeoNamesServices), typeof (ServiceContractAttribute))
+            Attribute.IsDefined(typeof(IInvokeGeoNamesServices), typeof(ServiceContractAttribute))
                 .ShouldBeTrue();
         }
 
@@ -43,8 +43,12 @@ namespace NGeo.GeoNames
 
             var countryResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, Results<Country>>>>
             {
-                { "postalCodeCountryInfoJSON", p => p.PostalCodeCountryInfo(default(string)) },
                 { "countryInfoJSON", p => p.Countries(default(string)) },
+            };
+
+            var postalCodedCountryResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, Results<PostalCodedCountry>>>>
+            {
+                { "postalCodeCountryInfoJSON", p => p.PostalCodeCountryInfo(default(string)) },
             };
 
             var hierarchyOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, Hierarchy>>>
@@ -56,6 +60,7 @@ namespace NGeo.GeoNames
             toponymOperations.ShouldHaveOperationContractAttributes();
             codeResultsOperations.ShouldHaveOperationContractAttributes();
             countryResultsOperations.ShouldHaveOperationContractAttributes();
+            postalCodedCountryResultsOperations.ShouldHaveOperationContractAttributes();
             hierarchyOperations.ShouldHaveOperationContractAttributes();
         }
 
@@ -63,7 +68,7 @@ namespace NGeo.GeoNames
         public void GeoNames_IInvokeGeoNamesServices_FindNearbyPlaceName_WithRadiusParameter_ShouldHaveWebInvokeAttribute()
         {
             Expression<Func<IInvokeGeoNamesServices, Results<Toponym>>> method = p => p.FindNearbyPlaceName(
-                default(double), default(double), default(string),default(double), default(int), default(ResultStyle), default(string));
+                default(double), default(double), default(string), default(double), default(int), default(ResultStyle), default(string));
             var attributes = method.GetAttributes<IInvokeGeoNamesServices, Results<Toponym>, WebInvokeAttribute>();
 
             attributes.ShouldNotBeNull();
@@ -110,9 +115,9 @@ namespace NGeo.GeoNames
         [TestMethod]
         public void GeoNames_IInvokeGeoNamesServices_PostalCodeCountryInfo_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokeGeoNamesServices, Results<Country>>> method = p => p.PostalCodeCountryInfo(
-                default(string));
-            var attributes = method.GetAttributes<IInvokeGeoNamesServices, Results<Country>, WebInvokeAttribute>();
+            Expression<Func<IInvokeGeoNamesServices, Results<PostalCodedCountry>>> method = p =>
+                p.PostalCodeCountryInfo(default(string));
+            var attributes = method.GetAttributes<IInvokeGeoNamesServices, Results<PostalCodedCountry>, WebInvokeAttribute>();
 
             attributes.ShouldNotBeNull();
             attributes.Length.ShouldEqual(1);

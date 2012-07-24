@@ -82,15 +82,6 @@ namespace NGeo.GeoNames
         [DataMember(Name = "bBoxSouth")]
         public double? BoundingBoxSouth { get; internal set; }
 
-        [DataMember(Name = "numPostalCodes")]
-        public int? NumberOfPostalCodes { get; internal set; }
-
-        [DataMember(Name = "maxPostalCode")]
-        public string MaxPostalCode { get; internal set; }
-
-        [DataMember(Name = "minPostalCode")]
-        public string MinPostalCode { get; internal set; }
-
         public override string ToString()
         {
             return CountryName;

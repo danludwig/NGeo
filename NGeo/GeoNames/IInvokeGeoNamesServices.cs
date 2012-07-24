@@ -46,7 +46,7 @@ namespace NGeo.GeoNames
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare
         )]
-        Results<Country> PostalCodeCountryInfo(string userName);
+        Results<PostalCodedCountry> PostalCodeCountryInfo(string userName);
 
         [OperationContract(Name = "getJSON")]
         [WebInvoke(

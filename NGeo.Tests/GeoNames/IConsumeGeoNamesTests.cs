@@ -42,7 +42,7 @@ namespace NGeo.GeoNames
         {
             var contract = new Mock<IConsumeGeoNames>();
             contract.Setup(m => m.PostalCodeCountryInfo(It.IsAny<string>()))
-                .Returns(new ReadOnlyCollection<Country>(new List<Country>()));
+                .Returns(new ReadOnlyCollection<PostalCodedCountry>(new List<PostalCodedCountry>()));
             var results = contract.Object.PostalCodeCountryInfo(null);
             results.ShouldNotBeNull();
         }

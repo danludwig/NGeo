@@ -9,7 +9,7 @@ namespace NGeo.GeoNames
 
         ReadOnlyCollection<PostalCode> PostalCodeLookup(PostalCodeLookup lookup);
 
-        ReadOnlyCollection<Country> PostalCodeCountryInfo();
+        ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo();
 
         Toponym Get(int geoNameId);
 

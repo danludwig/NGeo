@@ -6,11 +6,11 @@
     public class PostalCodeLookup
     {
         /// <summary>
-        /// Default property values are: MaxResults = 100, Style = ResultStyle.Full.
+        /// Default property values are: MaxRows = 20, Style = ResultStyle.Medium.
         /// </summary>
         public PostalCodeLookup()
         {
-            MaxRows = 100;
+            MaxRows = 20;
             Style = ResultStyle.Medium;
         }
 

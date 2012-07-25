@@ -7,7 +7,7 @@ namespace NGeo.GeoNames
     public class NearbyPlaceNameFinder
     {
         /// <summary>
-        /// Default property values are: Language = "local", MaxResults = 100, Style = ResultStyle.Full.
+        /// Default property values are: Language = "local", MaxRows = 100, Style = ResultStyle.Full.
         /// </summary>
         public NearbyPlaceNameFinder()
         {

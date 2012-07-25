@@ -35,7 +35,7 @@ namespace NGeo.GeoNames
             finder.PostalCode.ShouldBeNull();
             finder.Country.ShouldBeNull();
             finder.UserName.ShouldBeNull();
-            finder.MaxRows.ShouldEqual(100);
+            finder.MaxRows.ShouldEqual(20);
             finder.Style.ShouldEqual(ResultStyle.Medium);
         }
     }

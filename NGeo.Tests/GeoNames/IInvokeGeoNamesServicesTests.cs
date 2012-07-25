@@ -37,7 +37,7 @@ namespace NGeo.GeoNames
 
             var codeResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, PostalCodeResults>>>
             {
-                { "postalCodeLookupJSON", p => p.PostalCodeLookup(default(string), default(string), default(int),
+                { "postalCodeLookupJSON", p => p.LookupPostalCode(default(string), default(string), default(int),
                     default(ResultStyle), default(string)) },
             };
 
@@ -97,9 +97,9 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
-        public void GeoNames_IInvokeGeoNamesServices_PostalCodeLookup_ShouldHaveWebInvokeAttribute()
+        public void GeoNames_IInvokeGeoNamesServices_LookupPostalCode_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokeGeoNamesServices, PostalCodeResults>> method = p => p.PostalCodeLookup(
+            Expression<Func<IInvokeGeoNamesServices, PostalCodeResults>> method = p => p.LookupPostalCode(
                 default(string), default(string), default(int), default(ResultStyle), default(string));
             var attributes = method.GetAttributes<IInvokeGeoNamesServices, PostalCodeResults, WebInvokeAttribute>();
 

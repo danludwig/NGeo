@@ -28,12 +28,12 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
-        public void GeoNames_PostalCodeLookup_ShouldBeInterfaceMethod()
+        public void GeoNames_LookupPostalCode_ShouldBeInterfaceMethod()
         {
             var contract = new Mock<IConsumeGeoNames>();
-            contract.Setup(m => m.PostalCodeLookup(It.IsAny<PostalCodeLookup>()))
+            contract.Setup(m => m.LookupPostalCode(It.IsAny<PostalCodeLookup>()))
                 .Returns(new ReadOnlyCollection<PostalCode>(new List<PostalCode>()));
-            var results = contract.Object.PostalCodeLookup(null);
+            var results = contract.Object.LookupPostalCode(null);
             results.ShouldNotBeNull();
         }
 

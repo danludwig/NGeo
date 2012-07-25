@@ -36,7 +36,7 @@ namespace NGeo.GeoNames
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare
         )]
-        PostalCodeResults PostalCodeLookup(string postalcode, string country, int maximumResults,
+        PostalCodeResults LookupPostalCode(string postalcode, string country, int maximumResults,
             ResultStyle resultStyle, string userName);
 
         [OperationContract(Name = "postalCodeCountryInfoJSON")]

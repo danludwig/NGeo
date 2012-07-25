@@ -40,27 +40,27 @@ namespace NGeo.GeoNames
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void GeoNames_PostalCodeLookup_ShouldThrowException_WhenArgIsNull()
+        public void GeoNames_LookupPostalCode_ShouldThrowException_WhenArgIsNull()
         {
             using (var geoNames = new GeoNamesClient())
             {
-                geoNames.PostalCodeLookup(null);
+                geoNames.LookupPostalCode(null);
             }
         }
 
         [TestMethod]
-        public void GeoNames_PostalCodeLookup_ShouldReturnNull_WithoutUserName()
+        public void GeoNames_LookupPostalCode_ShouldReturnNull_WithoutUserName()
         {
             using (var geoNames = new GeoNamesClient())
             {
                 var finder = new PostalCodeLookup();
-                var results = geoNames.PostalCodeLookup(finder);
+                var results = geoNames.LookupPostalCode(finder);
                 results.ShouldBeNull();
             }
         }
 
         [TestMethod]
-        public void GeoNames_PostalCodeLookup_ShouldReturn1Result_ForOrlando()
+        public void GeoNames_LookupPostalCode_ShouldReturn1Result_ForOrlando()
         {
             using (var geoNames = new GeoNamesClient())
             {
@@ -70,7 +70,7 @@ namespace NGeo.GeoNames
                     Country = "US",
                     UserName = UserName,
                 };
-                var results = geoNames.PostalCodeLookup(finder);
+                var results = geoNames.LookupPostalCode(finder);
 
                 results.ShouldNotBeNull();
                 results.Count.ShouldEqual(1);

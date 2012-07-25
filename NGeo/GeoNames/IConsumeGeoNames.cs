@@ -7,7 +7,7 @@ namespace NGeo.GeoNames
     {
         ReadOnlyCollection<Toponym> FindNearbyPlaceName(NearbyPlaceNameFinder finder);
 
-        ReadOnlyCollection<PostalCode> PostalCodeLookup(PostalCodeLookup lookup);
+        ReadOnlyCollection<PostalCode> LookupPostalCode(PostalCodeLookup lookup);
 
         ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo(string userName);
 
@@ -19,6 +19,5 @@ namespace NGeo.GeoNames
         ReadOnlyCollection<Country> Countries(string userName);
 
         Hierarchy Hierarchy(int geoNameId, string userName, ResultStyle resultStyle = ResultStyle.Medium);
-
     }
 }

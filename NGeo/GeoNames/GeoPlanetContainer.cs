@@ -24,10 +24,10 @@ namespace NGeo.GeoNames
             return _client.FindNearbyPlaceName(finder);
         }
 
-        public ReadOnlyCollection<PostalCode> PostalCodeLookup(PostalCodeLookup lookup)
+        public ReadOnlyCollection<PostalCode> LookupPostalCode(PostalCodeLookup lookup)
         {
             lookup.UserName = _userName;
-            return _client.PostalCodeLookup(lookup);
+            return _client.LookupPostalCode(lookup);
         }
 
         public ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo()

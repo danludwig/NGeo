@@ -1,5 +1,4 @@
-﻿
-namespace NGeo.GeoNames
+﻿namespace NGeo.GeoNames
 {
     /// <summary>
     /// Encapsulates arguments sent to the PostalCodeLookup service.

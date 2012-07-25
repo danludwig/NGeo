@@ -48,11 +48,11 @@ namespace NGeo.GeoNames
         /// <param name="lookup">Arguments sent to the GeoNames service.</param>
         /// <returns>The closest populated place for the postal code/country query. The unit of the 
         /// distance element is 'km'.</returns>
-        public ReadOnlyCollection<PostalCode> PostalCodeLookup(PostalCodeLookup lookup)
+        public ReadOnlyCollection<PostalCode> LookupPostalCode(PostalCodeLookup lookup)
         {
             if (lookup == null) throw new ArgumentNullException("lookup");
 
-            var response = Channel.PostalCodeLookup(lookup.PostalCode, lookup.Country,
+            var response = Channel.LookupPostalCode(lookup.PostalCode, lookup.Country,
                     lookup.MaxRows, lookup.Style, lookup.UserName);
             var results = response.Items;
             return results != null ? new ReadOnlyCollection<PostalCode>(results) : null;

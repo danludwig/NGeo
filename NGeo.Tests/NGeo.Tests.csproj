@@ -76,6 +76,7 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="ExtensionMethodTests.cs" />
     <Compile Include="GeoNames\AlternateNameTests.cs" />
+    <Compile Include="GeoNames\GeoNamesContainerTests.cs" />
     <Compile Include="GeoNames\PostalCodedCountryTests.cs" />
     <Compile Include="GeoNames\PostalCodeTests.cs" />
     <Compile Include="GeoNames\PostalCodeResultsTests.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Yahoo\GeoPlanet\AdminTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\BoundingBoxTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\ConcordanceResponseTests.cs" />
+    <Compile Include="Yahoo\GeoPlanet\GeoPlanetContainerTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\GeoPlanetClientTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\IConsumeGeoPlanetTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\IInvokeGeoPlanetServicesTests.cs" />

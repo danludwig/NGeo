@@ -64,7 +64,7 @@
     <Compile Include="GeoNames\PostalCode.cs" />
     <Compile Include="GeoNames\PostalCodeResults.cs" />
     <Compile Include="GeoNames\PostalCodeLookup.cs" />
-    <Compile Include="GeoNames\GeoPlanetContainer.cs" />
+    <Compile Include="GeoNames\GeoNamesContainer.cs" />
     <Compile Include="GeoNames\IContainGeoNames.cs" />
     <Compile Include="GeoNames\Country.cs" />
     <Compile Include="GeoNames\GeoNamesClient.cs" />

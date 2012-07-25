@@ -20,13 +20,13 @@ namespace NGeo.GeoNames
 
         public ReadOnlyCollection<Toponym> FindNearbyPlaceName(NearbyPlaceNameFinder finder)
         {
-            finder.UserName = _userName;
+            if (finder != null) finder.UserName = _userName;
             return _client.FindNearbyPlaceName(finder);
         }
 
         public ReadOnlyCollection<PostalCode> LookupPostalCode(PostalCodeLookup lookup)
         {
-            lookup.UserName = _userName;
+            if (lookup != null) lookup.UserName = _userName;
             return _client.LookupPostalCode(lookup);
         }
 

@@ -1,6 +1,8 @@
-﻿namespace NGeo.Yahoo.GeoPlanet
+﻿using System;
+
+namespace NGeo.Yahoo.GeoPlanet
 {
-    public interface IContainGeoPlanet
+    public interface IContainGeoPlanet : IDisposable
     {
         Place Place(int woeId, RequestView view = RequestView.Long);
 

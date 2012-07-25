@@ -11,6 +11,11 @@
             _client = new GeoPlanetClient();
         }
 
+        public void Dispose()
+        {
+            _client.Dispose();
+        }
+
         public Place Place(int woeId, RequestView view = RequestView.Long)
         {
             return _client.Place(woeId, _appId, view);

@@ -9,7 +9,9 @@ namespace NGeo
         internal static EnumMemberAttribute GetEnumMemberAttribute(this Enum value)
         {
             var type = value.GetType();
+            // ReSharper disable SpecifyACultureInStringConversionExplicitly
             var fieldInfo = type.GetField(value.ToString());
+            // ReSharper restore SpecifyACultureInStringConversionExplicitly
             var attributes = fieldInfo.GetCustomAttributes(
                 typeof(EnumMemberAttribute), false) as EnumMemberAttribute[];
             return (attributes != null && attributes.Length > 0) ? attributes[0] : null;

@@ -5,16 +5,19 @@ using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
 using NGeo.Yahoo.GeoPlanet.Json;
+using System.Net;
 
 namespace NGeo.Yahoo.GeoPlanet
 {
     public sealed class GeoPlanetClient : ClientBase<IInvokeGeoPlanetServices>, IConsumeGeoPlanet
     {
+        private const int RetryLimit = 5;
+
         public Place Place(int woeId, string appId, RequestView view = RequestView.Long)
         {
             try
             {
-                var response = Channel.Place(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+                var response = ChannelPlace(woeId, appId, view);
                 return response.Result.ToPlace();
             }
             catch (EndpointNotFoundException)
@@ -23,11 +26,25 @@ namespace NGeo.Yahoo.GeoPlanet
             }
         }
 
+        private PlaceResponse ChannelPlace(int woeId, string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Place(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelPlace(woeId, appId, view, ++retry);
+                throw;
+            }
+        }
+
         public Places Places(string query, string appId, RequestView view = RequestView.Long)
         {
             try
             {
-                var response = Channel.Places(query, appId, view);
+                var response = ChannelPlaces(query, appId, view);
                 var results = response.Results;
                 if (results != null)
                     results.Items = new ReadOnlyCollection<Place>(
@@ -43,11 +60,25 @@ namespace NGeo.Yahoo.GeoPlanet
             }
         }
 
+        private PlacesResponse ChannelPlaces(string query, string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Places(query, appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelPlaces(query, appId, view, ++retry);
+                throw;
+            }
+        }
+
         public Place Parent(int woeId, string appId, RequestView view = RequestView.Long)
         {
             try
             {
-                var response = Channel.Parent(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+                var response = ChannelParent(woeId, appId, view);
                 return response.Result.ToPlace();
             }
             catch (EndpointNotFoundException)
@@ -56,11 +87,25 @@ namespace NGeo.Yahoo.GeoPlanet
             }
         }
 
+        private PlaceResponse ChannelParent(int woeId, string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Parent(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelParent(woeId, appId, view, ++retry);
+                throw;
+            }
+        }
+
         public Places Ancestors(int woeId, string appId, RequestView view = RequestView.Short)
         {
             try
             {
-                var response = Channel.Ancestors(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+                var response = ChannelAncestors(woeId, appId, view);
                 var results = response.Results;
                 if (results != null)
                     results.Items = new ReadOnlyCollection<Place>(results.JsonItems.ToPlaces());
@@ -69,6 +114,20 @@ namespace NGeo.Yahoo.GeoPlanet
             catch (EndpointNotFoundException)
             {
                 return null;
+            }
+        }
+
+        private PlacesResponse ChannelAncestors(int woeId, string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Ancestors(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelAncestors(woeId, appId, view, ++retry);
+                throw;
             }
         }
 
@@ -76,7 +135,7 @@ namespace NGeo.Yahoo.GeoPlanet
         {
             try
             {
-                var response = Channel.BelongTos(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+                var response = ChannelBelongTos(woeId, appId, view);
                 var results = response.Results;
                 if (results != null)
                     results.Items = new ReadOnlyCollection<Place>(results.JsonItems.ToPlaces());
@@ -88,13 +147,41 @@ namespace NGeo.Yahoo.GeoPlanet
             }
         }
 
+        private PlacesResponse ChannelBelongTos(int woeId, string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.BelongTos(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelBelongTos(woeId, appId, view, ++retry);
+                throw;
+            }
+        }
+
         public PlaceTypes Types(string appId, RequestView view = RequestView.Long)
         {
-            var response = Channel.Types(appId, view);
+            var response = ChannelTypes(appId, view);
             var results = response.Results;
             if (results != null)
                 results.Items = new ReadOnlyCollection<PlaceType>(results.JsonItems.ToPlaceTypes());
             return results;
+        }
+
+        private PlaceTypesResponse ChannelTypes(string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Types(appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelTypes(appId, view, ++retry);
+                throw;
+            }
         }
 
         public PlaceType Type(int typeCode, string appId, RequestView view = RequestView.Short)
@@ -105,27 +192,55 @@ namespace NGeo.Yahoo.GeoPlanet
 
         public Places Continents(string appId, RequestView view = RequestView.Short)
         {
-            var response = Channel.Continents(appId, view);
+            var response = ChannelContinents(appId, view);
             var results = response.Results;
             if (results != null)
                 results.Items = new ReadOnlyCollection<Place>(results.JsonItems.ToPlaces());
             return results;
         }
 
+        private PlacesResponse ChannelContinents(string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Continents(appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelContinents(appId, view, ++retry);
+                throw;
+            }
+        }
+
         public Places Countries(string appId, RequestView view = RequestView.Short)
         {
-            var response = Channel.Countries(appId, view);
+            var response = ChannelCountries(appId, view);
             var results = response.Results;
             if (results != null)
                 results.Items = new ReadOnlyCollection<Place>(results.JsonItems.ToPlaces());
             return results;
+        }
+
+        private PlacesResponse ChannelCountries(string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Countries(appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelCountries(appId, view, ++retry);
+                throw;
+            }
         }
 
         public Places States(int woeId, string appId, RequestView view = RequestView.Short)
         {
             try
             {
-                var response = Channel.States(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+                var response = ChannelStates(woeId, appId, view);
                 var results = response.Results;
                 if (results != null)
                     results.Items = new ReadOnlyCollection<Place>(results.JsonItems.ToPlaces());
@@ -134,6 +249,20 @@ namespace NGeo.Yahoo.GeoPlanet
             catch (EndpointNotFoundException)
             {
                 return null;
+            }
+        }
+
+        private PlacesResponse ChannelStates(int woeId, string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.States(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelStates(woeId, appId, view, ++retry);
+                throw;
             }
         }
 
@@ -146,7 +275,7 @@ namespace NGeo.Yahoo.GeoPlanet
         {
             try
             {
-                var response = Channel.Counties(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+                var response = ChannelCounties(woeId, appId, view);
                 var results = response.Results;
                 if (results != null)
                     results.Items = new ReadOnlyCollection<Place>(results.JsonItems.ToPlaces());
@@ -155,6 +284,20 @@ namespace NGeo.Yahoo.GeoPlanet
             catch (EndpointNotFoundException)
             {
                 return null;
+            }
+        }
+
+        private PlacesResponse ChannelCounties(int woeId, string appId, RequestView view, int retry = 0)
+        {
+            try
+            {
+                return Channel.Counties(woeId.ToString(CultureInfo.InvariantCulture), appId, view);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelCounties(woeId, appId, view, ++retry);
+                throw;
             }
         }
 
@@ -167,7 +310,7 @@ namespace NGeo.Yahoo.GeoPlanet
         {
             try
             {
-                var response = Channel.Concordance(nameSpace.GetEnumMemberAttribute().Value, id, appId);
+                var response = ChannelConcordance(nameSpace, id, appId);
                 response.ForNamespace = nameSpace;
                 return response;
             }
@@ -182,5 +325,18 @@ namespace NGeo.Yahoo.GeoPlanet
             return Concordance(nameSpace, id.ToString(CultureInfo.InvariantCulture), appId);
         }
 
+        private ConcordanceResponse ChannelConcordance(ConcordanceNamespace nameSpace, string id, string appId, int retry = 0)
+        {
+            try
+            {
+                return Channel.Concordance(nameSpace.GetEnumMemberAttribute().Value, id, appId);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelConcordance(nameSpace, id, appId, ++retry);
+                throw;
+            }
+        }
     }
 }

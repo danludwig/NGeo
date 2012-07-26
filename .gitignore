@@ -43,6 +43,7 @@ Packages/
 !NGeo.1.4.nupkg
 !NGeo.1.5.nupkg
 !NGeo.1.6.nupkg
+!NGeo.1.7.nupkg
 
 #Ignore local testsettings
 Local.testsettings

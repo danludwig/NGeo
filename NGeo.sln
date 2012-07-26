@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{00
 		nupkgs\NGeo.1.4.nupkg = nupkgs\NGeo.1.4.nupkg
 		nupkgs\NGeo.1.5.nupkg = nupkgs\NGeo.1.5.nupkg
 		nupkgs\NGeo.1.6.nupkg = nupkgs\NGeo.1.6.nupkg
+		nupkgs\NGeo.1.7.nupkg = nupkgs\NGeo.1.7.nupkg
 	EndProjectSection
 EndProject
 Global

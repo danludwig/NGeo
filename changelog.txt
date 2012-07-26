@@ -1,3 +1,6 @@
+1.7.0
+- Added retry logic to GeoPlanet and PlaceFinder clients to reduce the likelihood of ProtocolExceptions being thrown when connections time out.
+
 1.6.0
 - John Meyer added support for geonames postalCodeLookup and postalCodeCountryInfo services.
 

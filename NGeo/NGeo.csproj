@@ -129,7 +129,9 @@
     <None Include="content\Web.config.transform">
       <SubType>Designer</SubType>
     </None>
-    <None Include="NGeo.nuspec" />
+    <None Include="NGeo.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

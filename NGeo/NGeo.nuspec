@@ -6,8 +6,8 @@
         <title>NGeo</title>
         <authors>Dan Ludwig, John Meyer</authors>
         <owners>The UCosmic Consortium</owners>
-        <licenseUrl>http://ngeo.codeplex.com/license</licenseUrl>
-        <projectUrl>http://ngeo.codeplex.com</projectUrl>
+        <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+        <projectUrl>https://github.com/danludwig/NGeo</projectUrl>
         <iconUrl>http://www.gravatar.com/avatar/2b36e5d2ac5fe3c2377466dd98c62d52.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>

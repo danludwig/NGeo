@@ -1,3 +1,6 @@
+1.7.1
+- Added fixes for PlaceFinder service after Yahoo changed the response format / schema (see https://github.com/danludwig/NGeo/issues/2 for more info).
+
 1.7.0
 - Added retry logic to GeoPlanet and PlaceFinder clients to reduce the likelihood of ProtocolExceptions being thrown when connections time out.
 
@@ -46,12 +49,12 @@
 - Added support for GeoPlanet belongtos service.
 
 0.3.4.0
-- Client can invoke service for single GeoPlanet placetype instead of all placetypes. 
+- Client can invoke service for single GeoPlanet placetype instead of all placetypes.
 - Renamed ConcordanceCategory to ConcordanceNamespace to match Yahoo domain.
 
 0.3.3.0
 - Toponym & Country contain null values instead of empty or whitespace strings
-- Country box coordinate properties renamed to 
+- Country box coordinate properties renamed to
 
 0.3.2.0
 - Renamed NGeo.Yahoo.PlaceFinder.Results to NGeo.Yahoo.PlaceFinder.ResultSet to closer match Yahoo PlaceFinder domain.

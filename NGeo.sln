@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGeo", "NGeo\NGeo.csproj", "{C03AD2E1-4728-477D-BC7A-4F0E92A2F9C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7180D76F-6485-4EB7-9F7B-9DBF7337BEE1}"
@@ -27,6 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{00
 		nupkgs\NGeo.1.4.nupkg = nupkgs\NGeo.1.4.nupkg
 		nupkgs\NGeo.1.5.nupkg = nupkgs\NGeo.1.5.nupkg
 		nupkgs\NGeo.1.6.nupkg = nupkgs\NGeo.1.6.nupkg
+		nupkgs\NGeo.1.7.1.0.nupkg = nupkgs\NGeo.1.7.1.0.nupkg
 		nupkgs\NGeo.1.7.nupkg = nupkgs\NGeo.1.7.nupkg
 	EndProjectSection
 EndProject

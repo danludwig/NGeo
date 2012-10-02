@@ -14,7 +14,8 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByCoordinates(9.999, 8.888)
             {
                 Start = 100,
-            };
+            }
+            .ShouldBeNull();
         }
 
         [TestMethod]
@@ -24,7 +25,8 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByFreeformText("text")
             {
                 Start = -1,
-            };
+            }
+            .ShouldBeNull();
         }
 
         [TestMethod]
@@ -44,7 +46,8 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByName("name")
             {
                 Count = 101,
-            };
+            }
+            .ShouldBeNull();
         }
 
         [TestMethod]
@@ -54,7 +57,8 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByMultilineAddress("line 1")
             {
                 Count = -1,
-            };
+            }
+            .ShouldBeNull();
         }
 
         [TestMethod]
@@ -74,7 +78,8 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByCoordinates(4.6548, 8.56954)
             {
                 Offset = 101,
-            };
+            }
+            .ShouldBeNull();
         }
 
         [TestMethod]
@@ -84,7 +89,8 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByFreeformText("text")
             {
                 Offset = -1,
-            };
+            }
+            .ShouldBeNull();
         }
 
         [TestMethod]
@@ -140,7 +146,7 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByName("name")
             {
                 Flags = null,
-            };
+            }.ShouldBeNull();
         }
 
         [TestMethod]
@@ -150,7 +156,7 @@ namespace NGeo.Yahoo.PlaceFinder
             new PlaceByWoeId(10)
             {
                 GFlags = null,
-            };
+            }.ShouldBeNull();
         }
 
         [TestMethod]

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.ServiceModel;
 
@@ -35,7 +34,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindOneByCoordinates(request, ++retry);
                 throw;
             }
@@ -52,7 +51,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindManyByCoordinates(request, ++retry);
                 throw;
             }
@@ -84,7 +83,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindOneByFreeformText(request, ++retry);
                 throw;
             }
@@ -101,7 +100,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindManyByFreeformText(request, ++retry);
                 throw;
             }
@@ -133,7 +132,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindOneByName(request, ++retry);
                 throw;
             }
@@ -150,7 +149,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindManyByName(request, ++retry);
                 throw;
             }
@@ -182,7 +181,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindOneByWoeId(request, ++retry);
                 throw;
             }
@@ -199,7 +198,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindManyByWoeId(request, ++retry);
                 throw;
             }
@@ -232,7 +231,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindOneByMultilineAddress(request, ++retry);
                 throw;
             }
@@ -250,7 +249,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindManyByMultilineAddress(request, ++retry);
                 throw;
             }
@@ -285,7 +284,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindOneByFullyParsedAddress(request, ++retry);
                 throw;
             }
@@ -305,7 +304,7 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelFindManyByFullyParsedAddress(request, ++retry);
                 throw;
             }

@@ -34,7 +34,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelPlace(woeId, appId, view, ++retry);
                 throw;
             }
@@ -68,7 +68,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelPlaces(query, appId, view, ++retry);
                 throw;
             }
@@ -95,7 +95,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelParent(woeId, appId, view, ++retry);
                 throw;
             }
@@ -125,7 +125,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelAncestors(woeId, appId, view, ++retry);
                 throw;
             }
@@ -155,7 +155,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelBelongTos(woeId, appId, view, ++retry);
                 throw;
             }
@@ -178,7 +178,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelTypes(appId, view, ++retry);
                 throw;
             }
@@ -207,7 +207,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelContinents(appId, view, ++retry);
                 throw;
             }
@@ -230,7 +230,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelCountries(appId, view, ++retry);
                 throw;
             }
@@ -260,7 +260,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelStates(woeId, appId, view, ++retry);
                 throw;
             }
@@ -295,7 +295,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelCounties(woeId, appId, view, ++retry);
                 throw;
             }
@@ -333,7 +333,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
                     return ChannelConcordance(nameSpace, id, appId, ++retry);
                 throw;
             }

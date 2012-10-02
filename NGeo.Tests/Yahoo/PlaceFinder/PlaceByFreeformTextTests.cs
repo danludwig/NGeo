@@ -29,21 +29,21 @@ namespace NGeo.Yahoo.PlaceFinder
         [ExpectedException(typeof(ArgumentException), "Location cannot be null or whitespace.")]
         public void Yahoo_PlaceFinder_PlaceByFreeformText_ShouldThrowException_WhenLocationIsNull()
         {
-            new PlaceByFreeformText(null);
+            new PlaceByFreeformText(null).ShouldBeNull();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Location cannot be null or whitespace.")]
         public void Yahoo_PlaceFinder_PlaceByFreeformText_ShouldThrowException_WhenLocationIsEmpty()
         {
-            new PlaceByFreeformText(string.Empty);
+            new PlaceByFreeformText(string.Empty).ShouldBeNull();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Location cannot be null or whitespace.")]
         public void Yahoo_PlaceFinder_PlaceByFreeformText_ShouldThrowException_WhenLocationIsWhiteSpace()
         {
-            new PlaceByFreeformText("   ");
+            new PlaceByFreeformText("   ").ShouldBeNull();
         }
 
     }

@@ -29,7 +29,7 @@ namespace NGeo.Yahoo.PlaceFinder
         [ExpectedException(typeof(ArgumentException), "WoeId must be greater than zero.")]
         public void Yahoo_PlaceFinder_PlaceByWoeId_ShouldThrowException_WhenWoeIdIsLessThan1()
         {
-            new PlaceByWoeId(0);
+            new PlaceByWoeId(0).ShouldBeNull();
         }
 
     }

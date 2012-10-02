@@ -50,28 +50,28 @@ namespace NGeo.Yahoo.PlaceFinder
         [ExpectedException(typeof(ArgumentException), "Latitude must be between -90.0 and 90.0.")]
         public void Yahoo_PlaceFinder_PlaceByCoordinates_ShouldThrowException_WhenLatitudeIsLessThanNegative90()
         {
-            new PlaceByCoordinates(-90.0001, 111.111);
+            new PlaceByCoordinates(-90.0001, 111.111).ShouldBeNull();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Latitude must be between -90.0 and 90.0.")]
         public void Yahoo_PlaceFinder_PlaceByCoordinates_ShouldThrowException_WhenLatitudeIsGreaterThan90()
         {
-            new PlaceByCoordinates(90.0001, 111.111);
+            new PlaceByCoordinates(90.0001, 111.111).ShouldBeNull();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Longitude must be between -180.0 and 180.0.")]
         public void Yahoo_PlaceFinder_PlaceByCoordinates_ShouldThrowException_WhenLongitudeIsLessThanNegative180()
         {
-            new PlaceByCoordinates(55.555, -180.0001);
+            new PlaceByCoordinates(55.555, -180.0001).ShouldBeNull();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Longitude must be between -180.0 and 180.0.")]
         public void Yahoo_PlaceFinder_PlaceByCoordinates_ShouldThrowException_WhenLongitudeIsGreaterThan180()
         {
-            new PlaceByCoordinates(55.555, 180.0001);
+            new PlaceByCoordinates(55.555, 180.0001).ShouldBeNull();
         }
 
     }

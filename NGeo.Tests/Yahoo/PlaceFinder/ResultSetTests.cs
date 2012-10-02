@@ -156,6 +156,16 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
+        public void Yahoo_PlaceFinder_ResultSet_Result_ShouldHavePublicGet()
+        {
+            var resultSet = new ResultSet
+            {
+                Result = new Result(),
+            };
+            resultSet.Result.ShouldNotBeNull();
+        }
+
+        [TestMethod]
         public void Yahoo_PlaceFinder_ResultSet2_Items_ShouldHaveDataContractAttribute()
         {
             var properties = new Dictionary<string, Expression<Func<ResultSet2, List<Result>>>>

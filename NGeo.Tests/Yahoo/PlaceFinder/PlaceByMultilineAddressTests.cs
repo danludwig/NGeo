@@ -36,21 +36,21 @@ namespace NGeo.Yahoo.PlaceFinder
         [ExpectedException(typeof(ArgumentException), "Line1 cannot be null or whitespace.")]
         public void Yahoo_PlaceFinder_PlaceByMultilineAddress_ShouldThrowException_WhenLine1IsNull()
         {
-            new PlaceByMultilineAddress(null);
+            new PlaceByMultilineAddress(null).ShouldBeNull();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Location cannot be null or whitespace.")]
         public void Yahoo_PlaceFinder_PlaceByMultilineAddress_ShouldThrowException_WhenLine1IsEmpty()
         {
-            new PlaceByMultilineAddress(string.Empty);
+            new PlaceByMultilineAddress(string.Empty).ShouldBeNull();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Location cannot be null or whitespace.")]
         public void Yahoo_PlaceFinder_PlaceByMultilineAddress_ShouldThrowException_WhenFLine1IsWhiteSpace()
         {
-            new PlaceByMultilineAddress("   ");
+            new PlaceByMultilineAddress("   ").ShouldBeNull();
         }
 
     }

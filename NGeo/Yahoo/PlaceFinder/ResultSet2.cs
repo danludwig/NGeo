@@ -11,26 +11,26 @@ namespace NGeo.Yahoo.PlaceFinder
     /// <see cref="http://developer.yahoo.com/geo/placefinder/guide/responses.html">official documentation</see>.
     /// </summary>
     [DataContract]
-    public class ResultSet : IEnumerable<Result>
+    internal class ResultSet2 : IEnumerable<Result>
     {
         /// <summary>
         /// Error code.
         /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/responses.html#error-codes">Error Codes</see> for possible values.
         /// </summary>
         [DataMember(Name = "Error")]
-        public int ErrorCode { get; internal set; }
+        internal int ErrorCode { get; set; }
 
         /// <summary>
         /// Error message (locale specific).
         /// </summary>
         [DataMember(Name = "ErrorMessage")]
-        public string ErrorMessage { get; internal set; }
+        internal string ErrorMessage { get; set; }
 
         /// <summary>
         /// Number of Result elements.
         /// </summary>
         [DataMember(Name = "Found")]
-        public int Found { get; internal set; }
+        internal int Found { get; set; }
 
         /// <summary>
         /// The language and country.
@@ -39,32 +39,32 @@ namespace NGeo.Yahoo.PlaceFinder
         /// separated by either a hyphen or underscore.
         /// </summary>
         [DataMember(Name = "Locale")]
-        public string Locale { get; internal set; }
+        internal string Locale { get; set; }
 
         /// <summary>
         /// Best possible quality of the location parameter (input address).
         /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/responses.html#address-quality">Address Quality</see> for details.
         /// </summary>
         [DataMember(Name = "Quality")]
-        public int Quality { get; internal set; }
+        internal int Quality { get; set; }
 
         /// <summary>
         /// Contains elements associated with a single match result.
         /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/responses.html#result-elements">Result Sub-elements</see>.
         /// </summary>
         [DataMember(Name = "Result")]
-        internal Result Result
+        internal List<Result> Result
         {
             get { return _result; }
             set
             {
                 _result = value;
-                Results = new ReadOnlyCollection<Result>(new[] { value });
+                Results = new ReadOnlyCollection<Result>(value);
             }
         }
-        private Result _result;
+        private List<Result> _result;
 
-        public ReadOnlyCollection<Result> Results { get; internal set; }
+        internal ReadOnlyCollection<Result> Results { get; private set; }
 
         public IEnumerator<Result> GetEnumerator()
         {

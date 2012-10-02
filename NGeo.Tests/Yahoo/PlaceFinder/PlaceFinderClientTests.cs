@@ -65,8 +65,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var resultSet = client.Find(request);
                 resultSet.ShouldNotBeNull();
-                resultSet.ResultsList.ShouldNotBeNull();
-                resultSet.ResultsList.Count.ShouldEqual(1);
+                resultSet.Results.ShouldNotBeNull();
+                resultSet.Results.Count.ShouldEqual(1);
             }
         }
 
@@ -75,7 +75,7 @@ namespace NGeo.Yahoo.PlaceFinder
         {
             using (var client = new PlaceFinderClient())
             {
-                var resultSet = client.Find(new PlaceByCoordinates(56.170090272597193, -83.021875000000023));
+                var resultSet = client.Find(new PlaceByCoordinates(41.53531, -160.793358));
                 resultSet.Results.Count.ShouldEqual(1);
                 resultSet.Results[0].WoeId.ShouldBeNull();
                 resultSet.Results[0].WoeType.ShouldBeNull();
@@ -101,8 +101,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
             }
         }
 
@@ -125,8 +125,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
             }
         }
 
@@ -149,8 +149,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
             }
         }
 
@@ -165,7 +165,7 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_PlaceFinderClient_FindByMultilineAddress_ShouldReturn1Result_ForYahooExample1()
+        public void Yahoo_PlaceFinder_PlaceFinderClient_FindByMultilineAddress_ShouldReturn5Results_ForYahooExample1()
         {
             using (var client = new PlaceFinderClient())
             {
@@ -173,8 +173,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(5);
             }
         }
 
@@ -206,8 +206,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
             }
         }
 
@@ -231,9 +231,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].CityName.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].CityName.ShouldBeNull();
             }
         }
 
@@ -248,9 +248,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].CityName.ShouldEqual(request.Location);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].CityName.ShouldEqual(request.Location);
             }
         }
 
@@ -264,9 +264,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].WoeId.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].WoeId.ShouldBeNull();
             }
         }
 
@@ -281,9 +281,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].WoeId.HasValue.ShouldBeTrue();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].WoeId.HasValue.ShouldBeTrue();
             }
         }
 
@@ -297,10 +297,10 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].CityName.ShouldBeNull();
-                results.ResultsList[0].Level3Name.ShouldEqual(request.Location);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].CityName.ShouldBeNull();
+                results.Results[0].Level3Name.ShouldEqual(request.Location);
             }
         }
 
@@ -315,10 +315,10 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].CityName.ShouldEqual(request.Location);
-                results.ResultsList[0].Level3Name.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].CityName.ShouldEqual(request.Location);
+                results.Results[0].Level3Name.ShouldBeNull();
             }
         }
 
@@ -332,9 +332,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].AirportCode.ShouldEqual("ATL");
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].AirportCode.ShouldEqual("ATL");
             }
         }
 
@@ -349,9 +349,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].AirportCode.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].AirportCode.ShouldBeNull();
             }
         }
 
@@ -365,9 +365,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].AreaCode.ShouldNotBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].AreaCode.ShouldNotBeNull();
             }
         }
 
@@ -382,9 +382,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].AreaCode.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].AreaCode.ShouldBeNull();
             }
         }
 
@@ -398,9 +398,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].TimeZone.ShouldNotBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].TimeZone.ShouldNotBeNull();
             }
         }
 
@@ -415,9 +415,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].TimeZone.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].TimeZone.ShouldBeNull();
             }
         }
 
@@ -431,9 +431,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].BoundingBox.ShouldNotBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].BoundingBox.ShouldNotBeNull();
             }
         }
 
@@ -448,9 +448,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].BoundingBox.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].BoundingBox.ShouldBeNull();
             }
         }
 
@@ -464,9 +464,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                string.IsNullOrWhiteSpace(results.ResultsList[0].Neighborhood).ShouldBeFalse();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                string.IsNullOrWhiteSpace(results.Results[0].Neighborhood).ShouldBeFalse();
             }
         }
 
@@ -481,9 +481,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                string.IsNullOrWhiteSpace(results.ResultsList[0].Neighborhood).ShouldBeTrue();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                string.IsNullOrWhiteSpace(results.Results[0].Neighborhood).ShouldBeTrue();
             }
         }
 
@@ -497,9 +497,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                string.IsNullOrWhiteSpace(results.ResultsList[0].CrossStreets).ShouldBeFalse();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                string.IsNullOrWhiteSpace(results.Results[0].CrossStreets).ShouldBeFalse();
             }
         }
 
@@ -514,9 +514,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].CrossStreets.ShouldBeNull();
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].CrossStreets.ShouldBeNull();
             }
         }
 
@@ -534,9 +534,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldBeInRange(1, 100);
-                results.ResultsList.ToList().ForEach(result => result.CountryCode.ShouldEqual("US"));
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldBeInRange(1, 100);
+                results.Results.ToList().ForEach(result => result.CountryCode.ShouldEqual("US"));
             }
         }
 
@@ -554,9 +554,9 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(1);
-                results.ResultsList[0].CountryCode.ShouldEqual("FR");
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(1);
+                results.Results[0].CountryCode.ShouldEqual("FR");
             }
         }
 
@@ -570,8 +570,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(7);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(9);
             }
         }
 
@@ -586,8 +586,8 @@ namespace NGeo.Yahoo.PlaceFinder
 
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
-                results.ResultsList.ShouldNotBeNull();
-                results.ResultsList.Count.ShouldEqual(2);
+                results.Results.ShouldNotBeNull();
+                results.Results.Count.ShouldEqual(9);
             }
         }
 

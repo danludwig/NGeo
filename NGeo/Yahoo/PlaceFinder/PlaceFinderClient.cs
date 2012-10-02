@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.ServiceModel;
 
@@ -13,16 +14,21 @@ namespace NGeo.Yahoo.PlaceFinder
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByCoordinates(request);
+            var response = ChannelFindOneByCoordinates(request);
+            if (response.ResultSet.Found != 1)
+            {
+                var response2 = ChannelFindManyByCoordinates(request);
+                response = new Response(response2);
+            }
 
             return response.ResultSet;
         }
 
-        private Response ChannelFindByCoordinates(PlaceByCoordinates request, int retry = 0)
+        private Response ChannelFindOneByCoordinates(PlaceByCoordinates request, int retry = 0)
         {
             try
             {
-                return Channel.FindByCoordinates(request.Location, request.Locale,
+                return Channel.FindOneByCoordinates(request.Location, request.Locale,
                     request.Start, request.Count, request.Offset,
                     request.GetFlagsAsString(), request.GetGFlagsAsString(),
                     request.AppId);
@@ -30,7 +36,24 @@ namespace NGeo.Yahoo.PlaceFinder
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
-                    return ChannelFindByCoordinates(request, ++retry);
+                    return ChannelFindOneByCoordinates(request, ++retry);
+                throw;
+            }
+        }
+
+        private Response2 ChannelFindManyByCoordinates(PlaceByCoordinates request, int retry = 0)
+        {
+            try
+            {
+                return Channel.FindManyByCoordinates(request.Location, request.Locale,
+                    request.Start, request.Count, request.Offset,
+                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
+                    request.AppId);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelFindManyByCoordinates(request, ++retry);
                 throw;
             }
         }
@@ -40,16 +63,21 @@ namespace NGeo.Yahoo.PlaceFinder
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByFreeformText(request);
+            var response = ChannelFindOneByFreeformText(request);
+            if (response.ResultSet.Found != 1)
+            {
+                var response2 = ChannelFindManyByFreeformText(request);
+                response = new Response(response2);
+            }
 
             return response.ResultSet;
         }
 
-        private Response ChannelFindByFreeformText(PlaceByFreeformText request, int retry = 0)
+        private Response ChannelFindOneByFreeformText(PlaceByFreeformText request, int retry = 0)
         {
             try
             {
-                return Channel.FindByFreeformText(request.Location, request.Locale,
+                return Channel.FindOneByFreeformText(request.Location, request.Locale,
                     request.Start, request.Count, request.Offset,
                     request.GetFlagsAsString(), request.GetGFlagsAsString(),
                     request.AppId);
@@ -57,7 +85,24 @@ namespace NGeo.Yahoo.PlaceFinder
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
-                    return ChannelFindByFreeformText(request, ++retry);
+                    return ChannelFindOneByFreeformText(request, ++retry);
+                throw;
+            }
+        }
+
+        private Response2 ChannelFindManyByFreeformText(PlaceByFreeformText request, int retry = 0)
+        {
+            try
+            {
+                return Channel.FindManyByFreeformText(request.Location, request.Locale,
+                    request.Start, request.Count, request.Offset,
+                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
+                    request.AppId);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelFindManyByFreeformText(request, ++retry);
                 throw;
             }
         }
@@ -67,16 +112,21 @@ namespace NGeo.Yahoo.PlaceFinder
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByName(request);
+            var response = ChannelFindOneByName(request);
+            if (response.ResultSet.Found != 1)
+            {
+                var response2 = ChannelFindManyByName(request);
+                response = new Response(response2);
+            }
 
             return response.ResultSet;
         }
 
-        private Response ChannelFindByName(PlaceByName request, int retry = 0)
+        private Response ChannelFindOneByName(PlaceByName request, int retry = 0)
         {
             try
             {
-                return Channel.FindByName(request.Name, request.Locale,
+                return Channel.FindOneByName(request.Name, request.Locale,
                     request.Start, request.Count, request.Offset,
                     request.GetFlagsAsString(), request.GetGFlagsAsString(),
                     request.AppId);
@@ -84,7 +134,24 @@ namespace NGeo.Yahoo.PlaceFinder
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
-                    return ChannelFindByName(request, ++retry);
+                    return ChannelFindOneByName(request, ++retry);
+                throw;
+            }
+        }
+
+        private Response2 ChannelFindManyByName(PlaceByName request, int retry = 0)
+        {
+            try
+            {
+                return Channel.FindManyByName(request.Name, request.Locale,
+                    request.Start, request.Count, request.Offset,
+                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
+                    request.AppId);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelFindManyByName(request, ++retry);
                 throw;
             }
         }
@@ -94,16 +161,21 @@ namespace NGeo.Yahoo.PlaceFinder
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByWoeId(request);
+            var response = ChannelFindOneByWoeId(request);
+            if (response.ResultSet.Found != 1)
+            {
+                var response2 = ChannelFindManyByWoeId(request);
+                response = new Response(response2);
+            }
 
             return response.ResultSet;
         }
 
-        private Response ChannelFindByWoeId(PlaceByWoeId request, int retry = 0)
+        private Response ChannelFindOneByWoeId(PlaceByWoeId request, int retry = 0)
         {
             try
             {
-                return Channel.FindByWoeId(request.WoeId, request.Locale,
+                return Channel.FindOneByWoeId(request.WoeId, request.Locale,
                     request.Start, request.Count, request.Offset,
                     request.GetFlagsAsString(), request.GetGFlagsAsString(),
                     request.AppId);
@@ -111,7 +183,24 @@ namespace NGeo.Yahoo.PlaceFinder
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
-                    return ChannelFindByWoeId(request, ++retry);
+                    return ChannelFindOneByWoeId(request, ++retry);
+                throw;
+            }
+        }
+
+        private Response2 ChannelFindManyByWoeId(PlaceByWoeId request, int retry = 0)
+        {
+            try
+            {
+                return Channel.FindManyByWoeId(request.WoeId, request.Locale,
+                    request.Start, request.Count, request.Offset,
+                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
+                    request.AppId);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelFindManyByWoeId(request, ++retry);
                 throw;
             }
         }
@@ -121,16 +210,21 @@ namespace NGeo.Yahoo.PlaceFinder
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByMultilineAddress(request);
+            var response = ChannelFindOneByMultilineAddress(request);
+            if (response.ResultSet.Found != 1)
+            {
+                var response2 = ChannelFindManyByMultilineAddress(request);
+                response = new Response(response2);
+            }
 
             return response.ResultSet;
         }
 
-        private Response ChannelFindByMultilineAddress(PlaceByMultilineAddress request, int retry = 0)
+        private Response ChannelFindOneByMultilineAddress(PlaceByMultilineAddress request, int retry = 0)
         {
             try
             {
-                return Channel.FindByMultilineAddress(request.Line1,
+                return Channel.FindOneByMultilineAddress(request.Line1,
                     request.Line2, request.Line3, request.Locale,
                     request.Start, request.Count, request.Offset,
                     request.GetFlagsAsString(), request.GetGFlagsAsString(),
@@ -139,7 +233,25 @@ namespace NGeo.Yahoo.PlaceFinder
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
-                    return ChannelFindByMultilineAddress(request, ++retry);
+                    return ChannelFindOneByMultilineAddress(request, ++retry);
+                throw;
+            }
+        }
+
+        private Response2 ChannelFindManyByMultilineAddress(PlaceByMultilineAddress request, int retry = 0)
+        {
+            try
+            {
+                return Channel.FindManyByMultilineAddress(request.Line1,
+                    request.Line2, request.Line3, request.Locale,
+                    request.Start, request.Count, request.Offset,
+                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
+                    request.AppId);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelFindManyByMultilineAddress(request, ++retry);
                 throw;
             }
         }
@@ -149,16 +261,21 @@ namespace NGeo.Yahoo.PlaceFinder
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByFullyParsedAddress(request);
+            var response = ChannelFindOneByFullyParsedAddress(request);
+            if (response.ResultSet.Found != 1)
+            {
+                var response2 = ChannelFindManyByFullyParsedAddress(request);
+                response = new Response(response2);
+            }
 
             return response.ResultSet;
         }
 
-        private Response ChannelFindByFullyParsedAddress(PlaceByFullyParsedAddress request, int retry = 0)
+        private Response ChannelFindOneByFullyParsedAddress(PlaceByFullyParsedAddress request, int retry = 0)
         {
             try
             {
-                return Channel.FindByFullyParsedAddress(request.House,
+                return Channel.FindOneByFullyParsedAddress(request.House,
                     request.Street, request.UnitType, request.Unit,
                     request.CrossStreet, request.Postal, request.Neighborhood,
                     request.City, request.County, request.StateOrProvince,
@@ -169,7 +286,27 @@ namespace NGeo.Yahoo.PlaceFinder
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
-                    return ChannelFindByFullyParsedAddress(request, ++retry);
+                    return ChannelFindOneByFullyParsedAddress(request, ++retry);
+                throw;
+            }
+        }
+
+        private Response2 ChannelFindManyByFullyParsedAddress(PlaceByFullyParsedAddress request, int retry = 0)
+        {
+            try
+            {
+                return Channel.FindManyByFullyParsedAddress(request.House,
+                    request.Street, request.UnitType, request.Unit,
+                    request.CrossStreet, request.Postal, request.Neighborhood,
+                    request.City, request.County, request.StateOrProvince,
+                    request.Country, request.Locale, request.Start,
+                    request.Count, request.Offset, request.GetFlagsAsString(),
+                    request.GetGFlagsAsString(), request.AppId);
+            }
+            catch (ProtocolException ex)
+            {
+                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                    return ChannelFindManyByFullyParsedAddress(request, ++retry);
                 throw;
             }
         }

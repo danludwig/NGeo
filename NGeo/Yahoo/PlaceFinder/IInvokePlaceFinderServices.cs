@@ -26,7 +26,7 @@ namespace NGeo.Yahoo.PlaceFinder
                 "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}",
             ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare
         )]
-        Response FindByFreeformText(string location, string locale, int start, int count, 
+        Response FindByFreeformText(string location, string locale, int start, int count,
             int offset,  string flags, string gFlags, string appId);
 
 
@@ -37,7 +37,7 @@ namespace NGeo.Yahoo.PlaceFinder
                 "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}",
             ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare
         )]
-        Response FindByName(string name, string locale, int start, int count, 
+        Response FindByName(string name, string locale, int start, int count,
             int offset, string flags, string gFlags, string appId);
 
 
@@ -63,7 +63,7 @@ namespace NGeo.Yahoo.PlaceFinder
             BodyStyle = WebMessageBodyStyle.Bare
         )]
         Response FindByMultilineAddress(string line1, string line2, string line3,
-            string locale, int start, int count, int offset, string flags, string gFlags, 
+            string locale, int start, int count, int offset, string flags, string gFlags,
             string appId);
 
 

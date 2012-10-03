@@ -1,3 +1,6 @@
+1.7.2
+- Undoes fixes in 1.7.1 after Yahoo changed the response format back. Sad panda update!
+
 1.7.1
 - Added fixes for PlaceFinder service after Yahoo changed the response format / schema (see https://github.com/danludwig/NGeo/issues/2 for more info).
 

@@ -23,25 +23,7 @@ namespace NGeo.Yahoo.PlaceFinder
         {
             var model = new ResultSet
             {
-                Result = new Result(),
-            };
-
-
-            model.ShouldImplement(typeof(IEnumerable<Result>));
-            model.GetEnumerator().ShouldNotBeNull();
-            ((IEnumerable)model).GetEnumerator().ShouldNotBeNull();
-            foreach (var item in model)
-            {
-                item.ShouldNotBeNull();
-            }
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSet2_ShouldImplementGenericIEnumerable()
-        {
-            var model = new ResultSet2
-            {
-                Result = new List<Result>
+                ResultsList = new List<Result>
                 {
                     new Result(), new Result(), new Result(),
                 },
@@ -64,22 +46,7 @@ namespace NGeo.Yahoo.PlaceFinder
             {
                 Locale = "locale",
                 ErrorMessage = "error message",
-                Result = new Result(),
-                Found = 1,
-            };
-
-            it.ShouldNotBeNull();
-            it.ToString().ShouldEqual("locale, error message: 1 of 1");
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSet2_ShouldOverrideToString()
-        {
-            var it = new ResultSet2
-            {
-                Locale = "locale",
-                ErrorMessage = "error message",
-                Result = new List<Result>
+                ResultsList = new List<Result>
                 {
                     new Result(), new Result(), new Result()
                 },
@@ -91,11 +58,11 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSet2_ShouldSetAlternateNamesReadOnlyCollection()
+        public void Yahoo_PlaceFinder_ResultSet_ShouldSetAlternateNamesReadOnlyCollection()
         {
-            var it = new ResultSet2
+            var it = new ResultSet
             {
-                Result = new List<Result>
+                ResultsList = new List<Result>
                 {
                     new Result { Name = "name 1" },
                     new Result { Name = "name 2" },
@@ -104,12 +71,12 @@ namespace NGeo.Yahoo.PlaceFinder
             };
 
             it.ShouldNotBeNull();
-            it.Result.ShouldNotBeNull();
-            it.Result.Count.ShouldEqual(3);
+            it.ResultsList.ShouldNotBeNull();
+            it.ResultsList.Count.ShouldEqual(3);
             it.Results.ShouldNotBeNull();
-            it.Results.Count.ShouldEqual(it.Result.Count);
+            it.Results.Count.ShouldEqual(it.ResultsList.Count);
             for (var i = 0; i < it.Results.Count; i++)
-                it.Results[i].Name.ShouldEqual(it.Result[i].Name);
+                it.Results[i].Name.ShouldEqual(it.ResultsList[i].Name);
         }
 
         [TestMethod]
@@ -147,33 +114,13 @@ namespace NGeo.Yahoo.PlaceFinder
         [TestMethod]
         public void Yahoo_PlaceFinder_ResultSet_Items_ShouldHaveDataContractAttribute()
         {
-            var properties = new Dictionary<string, Expression<Func<ResultSet, Result>>>
+            var properties = new Dictionary<string, Expression<Func<ResultSet, List<Result>>>>
             {
-                { "Result", p => p.Result },
+                { "Results", p => p.ResultsList },
             };
 
             properties.ShouldHaveDataMemberAttributes();
         }
 
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSet_Result_ShouldHavePublicGet()
-        {
-            var resultSet = new ResultSet
-            {
-                Result = new Result(),
-            };
-            resultSet.Result.ShouldNotBeNull();
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSet2_Items_ShouldHaveDataContractAttribute()
-        {
-            var properties = new Dictionary<string, Expression<Func<ResultSet2, List<Result>>>>
-            {
-                { "Result", p => p.Result },
-            };
-
-            properties.ShouldHaveDataMemberAttributes();
-        }
     }
 }

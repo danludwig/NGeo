@@ -52,17 +52,17 @@ namespace NGeo.Yahoo.PlaceFinder
         /// Contains elements associated with a single match result.
         /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/responses.html#result-elements">Result Sub-elements</see>.
         /// </summary>
-        [DataMember(Name = "Result")]
-        internal Result Result
+        [DataMember(Name = "Results")]
+        internal List<Result> ResultsList
         {
-            get { return _result; }
+            get { return _resultsList; }
             set
             {
-                _result = value;
-                Results = new ReadOnlyCollection<Result>(new[] { value });
+                _resultsList = value;
+                Results = new ReadOnlyCollection<Result>(value);
             }
         }
-        private Result _result;
+        private List<Result> _resultsList;
 
         public ReadOnlyCollection<Result> Results { get; internal set; }
 

@@ -19,21 +19,21 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_ShouldHaveOperationContractAttributes_ForSingleResponses()
+        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_ShouldHaveOperationContractAttributes()
         {
             var operations = new Dictionary<string, Expression<Func<IInvokePlaceFinderServices, Response>>>
             {
-                { "coordinates", p => p.FindOneByCoordinates(default(string), default(string), default(int),
+                { "coordinates", p => p.FindByCoordinates(default(string), default(string), default(int),
                     default(int), default(int), default(string), default(string), default(string)) },
-                { "freeform", p => p.FindOneByFreeformText(default(string), default(string), default(int),
+                { "freeform", p => p.FindByFreeformText(default(string), default(string), default(int),
                     default(int), default(int), default(string), default(string), default(string)) },
-                { "name", p => p.FindOneByName(default(string), default(string), default(int),
+                { "name", p => p.FindByName(default(string), default(string), default(int),
                     default(int), default(int), default(string), default(string), default(string)) },
-                { "woeId", p => p.FindOneByWoeId(default(int), default(string), default(int),
+                { "woeId", p => p.FindByWoeId(default(int), default(string), default(int),
                     default(int), default(int), default(string), default(string), default(string)) },
-                { "multiline", p => p.FindOneByMultilineAddress(default(string), default(string), default(string),
+                { "multiline", p => p.FindByMultilineAddress(default(string), default(string), default(string),
                     default(string), default(int), default(int), default(int), default(string), default(string), default(string)) },
-                { "fullyParsed", p => p.FindOneByFullyParsedAddress(default(string), default(string), default(string),
+                { "fullyParsed", p => p.FindByFullyParsedAddress(default(string), default(string), default(string),
                     default(string), default(string), default(string), default(string), default(string), default(string),
                     default(string), default(string), default(string), default(int), default(int), default(int),
                     default(string), default(string), default(string)) },
@@ -43,33 +43,9 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_ShouldHaveOperationContractAttributes_ForManyResponses()
+        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindByCoordinates_ShouldHaveWebInvokeAttribute()
         {
-            var operations = new Dictionary<string, Expression<Func<IInvokePlaceFinderServices, Response2>>>
-            {
-                { "coordinates2", p => p.FindManyByCoordinates(default(string), default(string), default(int),
-                    default(int), default(int), default(string), default(string), default(string)) },
-                { "freeform2", p => p.FindManyByFreeformText(default(string), default(string), default(int),
-                    default(int), default(int), default(string), default(string), default(string)) },
-                { "name2", p => p.FindManyByName(default(string), default(string), default(int),
-                    default(int), default(int), default(string), default(string), default(string)) },
-                { "woeId2", p => p.FindManyByWoeId(default(int), default(string), default(int),
-                    default(int), default(int), default(string), default(string), default(string)) },
-                { "multiline2", p => p.FindManyByMultilineAddress(default(string), default(string), default(string),
-                    default(string), default(int), default(int), default(int), default(string), default(string), default(string)) },
-                { "fullyParsed2", p => p.FindManyByFullyParsedAddress(default(string), default(string), default(string),
-                    default(string), default(string), default(string), default(string), default(string), default(string),
-                    default(string), default(string), default(string), default(int), default(int), default(int),
-                    default(string), default(string), default(string)) },
-            };
-
-            operations.ShouldHaveOperationContractAttributes();
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindOneByCoordinates_ShouldHaveWebInvokeAttribute()
-        {
-            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindOneByCoordinates(default(string),
+            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindByCoordinates(default(string),
                 default(string), default(int), default(int), default(int), default(string), default(string), default(string));
             var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response, WebGetAttribute>();
 
@@ -83,25 +59,9 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindManyByCoordinates_ShouldHaveWebInvokeAttribute()
+        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindByFreeformText_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokePlaceFinderServices, Response2>> method = p => p.FindManyByCoordinates(default(string),
-                default(string), default(int), default(int), default(int), default(string), default(string), default(string));
-            var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response2, WebGetAttribute>();
-
-            attributes.ShouldNotBeNull();
-            attributes.Length.ShouldEqual(1);
-            attributes[0].UriTemplate.ShouldEqual("geocode?q={location}&locale={locale}&start={firstIndex}&count={maximumResults}" +
-                "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}");
-            attributes[0].RequestFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindOneByFreeformText_ShouldHaveWebInvokeAttribute()
-        {
-            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindOneByFreeformText(default(string),
+            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindByFreeformText(default(string),
                 default(string), default(int), default(int), default(int), default(string), default(string), default(string));
             var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response, WebGetAttribute>();
 
@@ -114,24 +74,9 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindManyByFreeformText_ShouldHaveWebInvokeAttribute()
+        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindByName_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokePlaceFinderServices, Response2>> method = p => p.FindManyByFreeformText(default(string),
-                default(string), default(int), default(int), default(int), default(string), default(string), default(string));
-            var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response2, WebGetAttribute>();
-
-            attributes.ShouldNotBeNull();
-            attributes.Length.ShouldEqual(1);
-            attributes[0].UriTemplate.ShouldEqual("geocode?q={location}&locale={locale}&start={start}&count={count}" +
-                "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}");
-            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindOneByName_ShouldHaveWebInvokeAttribute()
-        {
-            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindOneByName(default(string),
+            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindByName(default(string),
                 default(string), default(int), default(int), default(int), default(string), default(string), default(string));
             var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response, WebGetAttribute>();
 
@@ -144,24 +89,9 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindManyByName_ShouldHaveWebInvokeAttribute()
+        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindByWoeId_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokePlaceFinderServices, Response2>> method = p => p.FindManyByName(default(string),
-                default(string), default(int), default(int), default(int), default(string), default(string), default(string));
-            var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response2, WebGetAttribute>();
-
-            attributes.ShouldNotBeNull();
-            attributes.Length.ShouldEqual(1);
-            attributes[0].UriTemplate.ShouldEqual("geocode?name={name}&locale={locale}&start={start}&count={count}" +
-                "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}");
-            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindOneByWoeId_ShouldHaveWebInvokeAttribute()
-        {
-            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindOneByWoeId(default(int),
+            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindByWoeId(default(int),
                 default(string), default(int), default(int), default(int), default(string), default(string), default(string));
             var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response, WebGetAttribute>();
 
@@ -174,24 +104,9 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindManyByWoeId_ShouldHaveWebInvokeAttribute()
+        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindByMultilineAddress_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokePlaceFinderServices, Response2>> method = p => p.FindManyByWoeId(default(int),
-                default(string), default(int), default(int), default(int), default(string), default(string), default(string));
-            var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response2, WebGetAttribute>();
-
-            attributes.ShouldNotBeNull();
-            attributes.Length.ShouldEqual(1);
-            attributes[0].UriTemplate.ShouldEqual("geocode?woeid={woeId}&locale={locale}&start={start}&count={count}" +
-                "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}");
-            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindOneByMultilineAddress_ShouldHaveWebInvokeAttribute()
-        {
-            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindOneByMultilineAddress(default(string),
+            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindByMultilineAddress(default(string),
                 default(string), default(string), default(string), default(int), default(int), default(int), default(string),
                 default(string), default(string));
             var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response, WebGetAttribute>();
@@ -207,27 +122,9 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindManyByMultilineAddress_ShouldHaveWebInvokeAttribute()
+        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindByFullyParsedAddress_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokePlaceFinderServices, Response2>> method = p => p.FindManyByMultilineAddress(default(string),
-                default(string), default(string), default(string), default(int), default(int), default(int), default(string),
-                default(string), default(string));
-            var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response2, WebGetAttribute>();
-
-            attributes.ShouldNotBeNull();
-            attributes.Length.ShouldEqual(1);
-            attributes[0].UriTemplate.ShouldEqual("geocode?line1={line1}&line2={line2}&line3={line3}" +
-                "&locale={locale}&start={start}&count={count}" +
-                "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}");
-            attributes[0].RequestFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
-        }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindOneByFullyParsedAddress_ShouldHaveWebInvokeAttribute()
-        {
-            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindOneByFullyParsedAddress(default(string),
+            Expression<Func<IInvokePlaceFinderServices, Response>> method = p => p.FindByFullyParsedAddress(default(string),
                 default(string), default(string), default(string), default(string), default(string), default(string),
                 default(string), default(string), default(string), default(string), default(string), default(int),
                 default(int), default(int), default(string), default(string), default(string));
@@ -242,25 +139,5 @@ namespace NGeo.Yahoo.PlaceFinder
             attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
             attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
         }
-
-        [TestMethod]
-        public void Yahoo_PlaceFinder_IInvokePlaceFinderServices_FindManyByFullyParsedAddress_ShouldHaveWebInvokeAttribute()
-        {
-            Expression<Func<IInvokePlaceFinderServices, Response2>> method = p => p.FindManyByFullyParsedAddress(default(string),
-                default(string), default(string), default(string), default(string), default(string), default(string),
-                default(string), default(string), default(string), default(string), default(string), default(int),
-                default(int), default(int), default(string), default(string), default(string));
-            var attributes = method.GetAttributes<IInvokePlaceFinderServices, Response2, WebGetAttribute>();
-
-            attributes.ShouldNotBeNull();
-            attributes.Length.ShouldEqual(1);
-            attributes[0].UriTemplate.ShouldEqual("geocode?house={house}&street={street}&unittype={unitType}&unit={unit}" +
-                "&xstreet={crossStreet}&postal={postal}&neighborhood={neighborhood}&city={city}&county={county}" +
-                "&state={state}&country={country}&locale={locale}&start={start}&count={count}" +
-                "&offset={offset}&flags={flags}&gflags={gFlags}&appid={appId}");
-            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
-            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
-        }
-
     }
 }

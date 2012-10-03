@@ -103,8 +103,6 @@
     <Compile Include="Yahoo\GeoPlanet\Point.cs" />
     <Compile Include="Yahoo\GeoPlanet\RequestView.cs" />
     <Compile Include="Yahoo\GeoPlanet\Locality.cs" />
-    <Compile Include="Yahoo\PlaceFinder\Response2.cs" />
-    <Compile Include="Yahoo\PlaceFinder\ResultSet2.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceBy.cs" />
     <Compile Include="Yahoo\PlaceFinder\BoundingBox.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByCoordinates.cs" />

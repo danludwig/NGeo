@@ -165,7 +165,7 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         [TestMethod]
-        public void Yahoo_PlaceFinder_PlaceFinderClient_FindByMultilineAddress_ShouldReturn5Results_ForYahooExample1()
+        public void Yahoo_PlaceFinder_PlaceFinderClient_FindByMultilineAddress_ShouldReturn1Result_ForYahooExample1()
         {
             using (var client = new PlaceFinderClient())
             {
@@ -174,7 +174,7 @@ namespace NGeo.Yahoo.PlaceFinder
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
                 results.Results.ShouldNotBeNull();
-                results.Results.Count.ShouldEqual(5);
+                results.Results.Count.ShouldEqual(1);
             }
         }
 
@@ -571,7 +571,7 @@ namespace NGeo.Yahoo.PlaceFinder
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
                 results.Results.ShouldNotBeNull();
-                results.Results.Count.ShouldEqual(9);
+                results.Results.Count.ShouldEqual(7);
             }
         }
 
@@ -587,7 +587,7 @@ namespace NGeo.Yahoo.PlaceFinder
                 var results = client.Find(request);
                 results.ShouldNotBeNull();
                 results.Results.ShouldNotBeNull();
-                results.Results.Count.ShouldEqual(9);
+                results.Results.Count.ShouldEqual(2);
             }
         }
 

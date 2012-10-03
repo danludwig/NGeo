@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace NGeo.Yahoo.PlaceFinder
 {
@@ -18,20 +16,5 @@ namespace NGeo.Yahoo.PlaceFinder
         /// </summary>
         [DataMember(Name = "ResultSet")]
         internal ResultSet ResultSet { get; set; }
-
-        internal Response() { }
-
-        internal Response(Response2 response2)
-        {
-            ResultSet = new ResultSet
-            {
-                ErrorCode = response2.ResultSet.ErrorCode,
-                ErrorMessage = response2.ResultSet.ErrorMessage,
-                Found = response2.ResultSet.Found,
-                Locale = response2.ResultSet.Locale,
-                Quality = response2.ResultSet.Quality,
-                Results = new ReadOnlyCollection<Result>(response2.ResultSet.Result ?? new List<Result>()),
-            };
-        }
     }
 }

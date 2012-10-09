@@ -14,8 +14,8 @@
             NGeo is a client library that makes it easier to invoke
             GeoNames, Yahoo! GeoPlanet, and Yahoo! PlaceFinder services from .NET code.
         </description>
-        <releaseNotes>Version 1.7.2 rolls back the 1.7.1 PlaceFinder service fixes after Yahoo changed the response format BACK to its original schema.</releaseNotes>
-        <copyright>Copyright © UCosmic Consortium 2011</copyright>
+        <releaseNotes>Version 1.7.3 adds retry logic to the GeoPlanet service when XML is returned instead of the requested JSON.</releaseNotes>
+        <copyright>Copyright © UCosmic Consortium 2012</copyright>
         <tags>GeoNames, GeoPlanet, PlaceFinder, Yahoo</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Net;
 using System.ServiceModel;
 
 namespace NGeo.GeoNames
@@ -15,6 +16,9 @@ namespace NGeo.GeoNames
     /// </example>
     public class GeoNamesClient : ClientBase<IInvokeGeoNamesServices>, IConsumeGeoNames
     {
+        private const int RetryLimit = 5;
+        private const string ClosedConnectionMessage = "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server.";
+
         /// <summary>
         /// Find nearby populated place / reverse geocoding. See 
         /// <seealso cref="http://www.geonames.org/export/web-services.html#findNearbyPlaceName">Official 
@@ -27,17 +31,29 @@ namespace NGeo.GeoNames
         {
             if (finder == null) throw new ArgumentNullException("finder");
 
-            Results<Toponym> response;
-            if (finder.RadiusInKm.HasValue)
-                response = Channel.FindNearbyPlaceName(finder.Latitude, finder.Longitude, finder.Language,
-                    finder.RadiusInKm.Value, finder.MaxRows, finder.Style, finder.UserName);
-
-            else
-                response = Channel.FindNearbyPlaceName(finder.Latitude, finder.Longitude, finder.Language,
-                    finder.MaxRows, finder.Style, finder.UserName);
+            var response = ChannelFindNearbyPlaceName(finder);
 
             var results = response.Items;
             return results != null ? new ReadOnlyCollection<Toponym>(results) : null;
+        }
+
+        private Results<Toponym> ChannelFindNearbyPlaceName(NearbyPlaceNameFinder finder, int retry = 0)
+        {
+            try
+            {
+                if (finder.RadiusInKm.HasValue)
+                    return Channel.FindNearbyPlaceName(finder.Latitude, finder.Longitude, finder.Language,
+                        finder.RadiusInKm.Value, finder.MaxRows, finder.Style, finder.UserName);
+
+                return Channel.FindNearbyPlaceName(finder.Latitude, finder.Longitude, finder.Language,
+                    finder.MaxRows, finder.Style, finder.UserName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                    return ChannelFindNearbyPlaceName(finder, ++retry);
+                throw;
+            }
         }
 
         /// <summary>
@@ -52,10 +68,24 @@ namespace NGeo.GeoNames
         {
             if (lookup == null) throw new ArgumentNullException("lookup");
 
-            var response = Channel.LookupPostalCode(lookup.PostalCode, lookup.Country,
-                    lookup.MaxRows, lookup.Style, lookup.UserName);
+            var response = ChannelLookupPostalCode(lookup);
             var results = response.Items;
             return results != null ? new ReadOnlyCollection<PostalCode>(results) : null;
+        }
+
+        private PostalCodeResults ChannelLookupPostalCode(PostalCodeLookup lookup, int retry = 0)
+        {
+            try
+            {
+                return Channel.LookupPostalCode(lookup.PostalCode, lookup.Country,
+                    lookup.MaxRows, lookup.Style, lookup.UserName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                    return ChannelLookupPostalCode(lookup, ++retry);
+                throw;
+            }
         }
 
         /// <summary>
@@ -67,9 +97,23 @@ namespace NGeo.GeoNames
         /// <returns>Country information: Name, Abbreviation, Min & Max Postal Codes.</returns>
         public ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo(string userName)
         {
-            var response = Channel.PostalCodeCountryInfo(userName);
+            var response = ChannelPostalCodeCountryInfo(userName);
             var results = response.Items;
             return (response.Items != null) ? results.AsReadOnly() : null;
+        }
+
+        private Results<PostalCodedCountry> ChannelPostalCodeCountryInfo(string userName, int retry = 0)
+        {
+            try
+            {
+                return Channel.PostalCodeCountryInfo(userName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                    return ChannelPostalCodeCountryInfo(userName, ++retry);
+                throw;
+            }
         }
 
         /// <summary>
@@ -80,8 +124,22 @@ namespace NGeo.GeoNames
         /// <returns>The toponym for the specified geoNameId, if one exists.</returns>
         public Toponym Get(int geoNameId, string userName)
         {
-            var toponym = Channel.Get(geoNameId, userName);
+            var toponym = ChannelGet(geoNameId, userName);
             return (toponym.GeoNameId > 0) ? toponym : null;
+        }
+
+        private Toponym ChannelGet(int geoNameId, string userName, int retry = 0)
+        {
+            try
+            {
+                return Channel.Get(geoNameId, userName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                    return ChannelGet(geoNameId, userName, ++retry);
+                throw;
+            }
         }
 
         /// <summary>
@@ -104,9 +162,23 @@ namespace NGeo.GeoNames
         public ReadOnlyCollection<Toponym> Children(int geoNameId, string userName,
             ResultStyle resultStyle = ResultStyle.Medium, int maxRows = 200)
         {
-            var response = Channel.Children(geoNameId, userName, resultStyle, maxRows);
+            var response = ChannelChildren(geoNameId, userName, resultStyle, maxRows);
             var results = response.Items;
             return results != null ? new ReadOnlyCollection<Toponym>(results) : null;
+        }
+
+        private Results<Toponym> ChannelChildren(int geoNameId, string userName, ResultStyle resultStyle, int maxRows, int retry = 0)
+        {
+            try
+            {
+                return Channel.Children(geoNameId, userName, resultStyle, maxRows);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                    return ChannelChildren(geoNameId, userName, resultStyle, maxRows, ++retry);
+                throw;
+            }
         }
 
         /// <summary>
@@ -119,9 +191,23 @@ namespace NGeo.GeoNames
         /// Bounding Box of mainland (excluding offshore islands).</returns>
         public ReadOnlyCollection<Country> Countries(string userName)
         {
-            var response = Channel.Countries(userName);
+            var response = ChannelCountries(userName);
             var results = response.Items;
             return (response.Items != null) ? results.AsReadOnly() : null;
+        }
+
+        private Results<Country> ChannelCountries(string userName, int retry = 0)
+        {
+            try
+            {
+                return Channel.Countries(userName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                    return ChannelCountries(userName, ++retry);
+                throw;
+            }
         }
 
         /// <summary>
@@ -136,9 +222,22 @@ namespace NGeo.GeoNames
         /// <returns>All GeoNames higher up in the hierarchy of a place name.</returns>
         public Hierarchy Hierarchy(int geoNameId, string userName, ResultStyle resultStyle = ResultStyle.Medium)
         {
-            var response = Channel.Hierarchy(geoNameId, userName, resultStyle);
+            var response = ChannelHierarchy(geoNameId, userName, resultStyle);
             return response.Items == null ? null : response;
         }
 
+        private Hierarchy ChannelHierarchy(int geoNameId, string userName, ResultStyle resultStyle, int retry = 0)
+        {
+            try
+            {
+                return Channel.Hierarchy(geoNameId, userName, resultStyle);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                    return ChannelHierarchy(geoNameId, userName, resultStyle, ++retry);
+                throw;
+            }
+        }
     }
 }

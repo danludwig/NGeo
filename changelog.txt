@@ -1,3 +1,6 @@
+1.7.4
+- Add retry logic to Geonames client when underlying connection (expected to be kept alive) is unexpectedly closed by the server.
+
 1.7.3
 - Add retry logic to Yahoo GeoPlanet client when service returns XML result instead of JSON.
 

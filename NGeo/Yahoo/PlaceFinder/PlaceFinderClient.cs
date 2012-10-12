@@ -29,7 +29,13 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
+                    return ChannelFindByCoordinates(request, ++retry);
+                throw;
+            }
+            catch (CommunicationException ex)
+            {
+                if (retry < RetryLimit && ex.Message == "Server Error")
                     return ChannelFindByCoordinates(request, ++retry);
                 throw;
             }
@@ -56,7 +62,13 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
+                    return ChannelFindByFreeformText(request, ++retry);
+                throw;
+            }
+            catch (CommunicationException ex)
+            {
+                if (retry < RetryLimit && ex.Message == "Server Error")
                     return ChannelFindByFreeformText(request, ++retry);
                 throw;
             }
@@ -83,7 +95,13 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
+                    return ChannelFindByName(request, ++retry);
+                throw;
+            }
+            catch (CommunicationException ex)
+            {
+                if (retry < RetryLimit && ex.Message == "Server Error")
                     return ChannelFindByName(request, ++retry);
                 throw;
             }
@@ -110,7 +128,13 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
+                    return ChannelFindByWoeId(request, ++retry);
+                throw;
+            }
+            catch (CommunicationException ex)
+            {
+                if (retry < RetryLimit && ex.Message == "Server Error")
                     return ChannelFindByWoeId(request, ++retry);
                 throw;
             }
@@ -138,7 +162,13 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
+                    return ChannelFindByMultilineAddress(request, ++retry);
+                throw;
+            }
+            catch (CommunicationException ex)
+            {
+                if (retry < RetryLimit && ex.Message == "Server Error")
                     return ChannelFindByMultilineAddress(request, ++retry);
                 throw;
             }
@@ -168,7 +198,13 @@ namespace NGeo.Yahoo.PlaceFinder
             }
             catch (ProtocolException ex)
             {
-                if (retry < RetryLimit && ex.InnerException != null && ex.InnerException is WebException)
+                if (retry < RetryLimit && ex.InnerException is WebException)
+                    return ChannelFindByFullyParsedAddress(request, ++retry);
+                throw;
+            }
+            catch (CommunicationException ex)
+            {
+                if (retry < RetryLimit && ex.Message == "Server Error")
                     return ChannelFindByFullyParsedAddress(request, ++retry);
                 throw;
             }

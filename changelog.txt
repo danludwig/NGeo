@@ -1,3 +1,6 @@
+1.7.5
+- Add retry logic to PlaceFinder client when ServiceModel.CommunicationException ("Server Error") is thrown.
+
 1.7.4
 - Add retry logic to Geonames client when underlying connection (expected to be kept alive) is unexpectedly closed by the server.
 

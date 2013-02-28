@@ -23,9 +23,9 @@ namespace NGeo.GeoNames
         {
             var toponymResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, Results<Toponym>>>>
             {
-                { "findNearbyPlaceNameJSON0", p => p.FindNearbyPlaceName(default(double), default(double), default(string), 
+                { "findNearbyPlaceNameJSON0", p => p.FindNearbyPlaceName(default(double), default(double), default(string),
                     default(double), default(int), default(ResultStyle), default(string)) },
-                { "findNearbyPlaceNameJSON1", p => p.FindNearbyPlaceName(default(double), default(double), default(string), 
+                { "findNearbyPlaceNameJSON1", p => p.FindNearbyPlaceName(default(double), default(double), default(string),
                     default(int), default(ResultStyle), default(string)) },
                 { "childrenJSON", p => p.Children(default(int), default(string), default(ResultStyle), default(int)) },
             };

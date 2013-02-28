@@ -13,7 +13,7 @@ namespace NGeo.GeoNames
 
         Toponym Get(int geoNameId, string userName);
 
-        ReadOnlyCollection<Toponym> Children(int geoNameId, string userName, 
+        ReadOnlyCollection<Toponym> Children(int geoNameId, string userName,
             ResultStyle resultStyle = ResultStyle.Medium, int maxRows = 200);
 
         ReadOnlyCollection<Country> Countries(string userName);

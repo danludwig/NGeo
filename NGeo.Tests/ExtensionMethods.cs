@@ -10,7 +10,7 @@ namespace NGeo
 {
     public static class ExtensionMethods
     {
-        public static TAttribute[] GetAttributes<TTarget, TType, TAttribute>(this Expression<Func<TTarget, TType>> expression, 
+        public static TAttribute[] GetAttributes<TTarget, TType, TAttribute>(this Expression<Func<TTarget, TType>> expression,
             bool inherit = false)
         {
             var memberExpression = expression.Body as MemberExpression;

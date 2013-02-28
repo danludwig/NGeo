@@ -118,26 +118,6 @@
     <Compile Include="Yahoo\GeoPlanet\PlaceTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\PlaceTypeTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\PointTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\BoundingBoxTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByExtensionsTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByFullyParsedAddressTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByWoeIdTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByMultilineAddressTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByFreeformTextTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\IConsumePlaceFinderTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\IInvokePlaceFinderServicesTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByCoordinatesTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByNameTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceFinderClientTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\QualityDescriptionTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\QualityCategoryTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\QualityExtensionsTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\GFlagTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\FlagTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\ResponseTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\ResultSetTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\ResultTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NGeo\NGeo.csproj">

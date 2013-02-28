@@ -103,26 +103,6 @@
     <Compile Include="Yahoo\GeoPlanet\Point.cs" />
     <Compile Include="Yahoo\GeoPlanet\RequestView.cs" />
     <Compile Include="Yahoo\GeoPlanet\Locality.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceBy.cs" />
-    <Compile Include="Yahoo\PlaceFinder\BoundingBox.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByCoordinates.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByExtensions.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByFreeformText.cs" />
-    <Compile Include="Yahoo\PlaceFinder\IConsumePlaceFinder.cs" />
-    <Compile Include="Yahoo\PlaceFinder\IInvokePlaceFinderServices.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByFullyParsedAddress.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByMultilineAddress.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByName.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceByWoeId.cs" />
-    <Compile Include="Yahoo\PlaceFinder\PlaceFinderClient.cs" />
-    <Compile Include="Yahoo\PlaceFinder\QualityCategory.cs" />
-    <Compile Include="Yahoo\PlaceFinder\QualityDescription.cs" />
-    <Compile Include="Yahoo\PlaceFinder\QualityExtensions.cs" />
-    <Compile Include="Yahoo\PlaceFinder\Flag.cs" />
-    <Compile Include="Yahoo\PlaceFinder\GFlag.cs" />
-    <Compile Include="Yahoo\PlaceFinder\Response.cs" />
-    <Compile Include="Yahoo\PlaceFinder\Result.cs" />
-    <Compile Include="Yahoo\PlaceFinder\ResultSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="content\App.config.transform" />

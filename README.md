@@ -8,8 +8,8 @@ NGeo makes it easier for users of geographic data to invoke GeoNames and Yahoo! 
         // do something with the data
     }
 
-## <span style="color: #c00">New in version 1.8</span>
-<span style="color: #c00">The PlaceFinder client has been removed, because that service is no longer available as a WCF-consumable API.</span>
+## New in version 1.8
+The PlaceFinder client has been removed, because that service is no longer available as a WCF-consumable API.
 
 ## New in version 1.5
 Because each NGeo service comes with a corresponding IConsumeXyz interface, you have always been able to dependency inject client instances and control their lifetimes + disposal semantics. However the `IConsumeGeoNames` and `IConsumeGeoPlanet` interfaces contain several overloads that accept either a username or app id for authentication. This means your code had to maintain a separate reference to your geonames username or geoplanet appid, and pass it in as a method parameter. When using inversion of control and dependency injecting IConsumeGeoWhatever instances into your controller, this can be annoying because you have to maintain your auth string in a separate dependency (or worse, hard-code it).

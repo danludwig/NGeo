@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace NGeo.GeoNames
 {
@@ -22,7 +23,7 @@ namespace NGeo.GeoNames
 
         public override string ToString()
         {
-            return string.Format("{0} ({1}): {2} - {3} ({4} total)",
+            return string.Format(CultureInfo.InvariantCulture, "{0} ({1}): {2} - {3} ({4} total)",
                 CountryCode, CountryName, MinPostalCode, MaxPostalCode, NumberOfPostalCodes);
         }
 

@@ -20,12 +20,12 @@ namespace NGeo.GeoNames
         private const string ClosedConnectionMessage = "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server.";
 
         /// <summary>
-        /// Find nearby populated place / reverse geocoding. See 
-        /// <seealso cref="http://www.geonames.org/export/web-services.html#findNearbyPlaceName">Official 
+        /// Find nearby populated place / reverse geocoding. See
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#findNearbyPlaceName">Official
         /// GeoNames  findNearbyPlaceName Documentation</seealso> for more information.
         /// </summary>
         /// <param name="finder">Arguments sent to the GeoNames service.</param>
-        /// <returns>The closest populated place for the lat/lng query as xml document. The unit of the 
+        /// <returns>The closest populated place for the lat/lng query as xml document. The unit of the
         /// distance element is 'km'.</returns>
         public ReadOnlyCollection<Toponym> FindNearbyPlaceName(NearbyPlaceNameFinder finder)
         {
@@ -50,19 +50,19 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelFindNearbyPlaceName(finder, ++retry);
                 throw;
             }
         }
 
         /// <summary>
-        /// Lookup a place by postal code. See 
-        /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeLookupJSON">Official 
+        /// Lookup a place by postal code. See
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeLookupJSON">Official
         /// GeoNames postalCodeLookup Documentation</seealso> for more information.
         /// </summary>
         /// <param name="lookup">Arguments sent to the GeoNames service.</param>
-        /// <returns>The closest populated place for the postal code/country query. The unit of the 
+        /// <returns>The closest populated place for the postal code/country query. The unit of the
         /// distance element is 'km'.</returns>
         public ReadOnlyCollection<PostalCode> LookupPostalCode(PostalCodeLookup lookup)
         {
@@ -82,15 +82,15 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelLookupPostalCode(lookup, ++retry);
                 throw;
             }
         }
 
         /// <summary>
-        /// Postal Code Country Info (countries available with min & max postal codes). See 
-        /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeCountryInfo">Official 
+        /// Postal Code Country Info (countries available with min & max postal codes). See
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeCountryInfo">Official
         /// GeoNames postalCodeCountryInfo Documentation</seealso> for more information.
         /// </summary>
         /// <param name="userName">Your user name.</param>
@@ -110,7 +110,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelPostalCodeCountryInfo(userName, ++retry);
                 throw;
             }
@@ -136,27 +136,27 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelGet(geoNameId, userName, ++retry);
                 throw;
             }
         }
 
         /// <summary>
-        /// Returns the children (admin divisions and populated places) for a given geonameId. The children are the 
-        /// administrative divisions within an other administrative division, like the counties (ADM2) in a state (ADM1) 
-        /// or also the countries in a continent. The leafs are populated places, other feature classes like spots, 
-        /// mountains etc are not included in this service. Use 
-        /// the <seealso cref="http://www.geonames.org/export/geonames-search.html">search service</seealso> if you need 
-        /// other feature classes as well. See 
-        /// <seealso cref="http://www.geonames.org/export/place-hierarchy.html#children">Official GeoNames children 
+        /// Returns the children (admin divisions and populated places) for a given geonameId. The children are the
+        /// administrative divisions within an other administrative division, like the counties (ADM2) in a state (ADM1)
+        /// or also the countries in a continent. The leafs are populated places, other feature classes like spots,
+        /// mountains etc are not included in this service. Use
+        /// the <seealso cref="http://www.geonames.org/export/geonames-search.html">search service</seealso> if you need
+        /// other feature classes as well. See
+        /// <seealso cref="http://www.geonames.org/export/place-hierarchy.html#children">Official GeoNames children
         /// Documentation</seealso> for more information.
         /// </summary>
         /// <param name="geoNameId">The GeoName ID of the parent.</param>
         /// <param name="userName">Your user name.</param>
-        /// <param name="resultStyle">Amount of detail returned by the GeoNames service. 
+        /// <param name="resultStyle">Amount of detail returned by the GeoNames service.
         /// Default value is full.</param>
-        /// <param name="maxRows">Maximum results returned by the service. 
+        /// <param name="maxRows">Maximum results returned by the service.
         /// Default value is 200.</param>
         /// <returns>The children (admin divisions and populated places) for a given geonameId.</returns>
         public ReadOnlyCollection<Toponym> Children(int geoNameId, string userName,
@@ -175,19 +175,19 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelChildren(geoNameId, userName, resultStyle, maxRows, ++retry);
                 throw;
             }
         }
 
         /// <summary>
-        /// Country Info (Bounding Box, Capital, Area in square km, Population). See 
-        /// <seealso cref="http://www.geonames.org/export/web-services.html#countryInfo">Official 
+        /// Country Info (Bounding Box, Capital, Area in square km, Population). See
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#countryInfo">Official
         /// GeoNames countryInfo Documentation</seealso> for more information.
         /// </summary>
         /// <param name="userName">Your user name.</param>
-        /// <returns>Country information : Capital, Population, Area in square km, 
+        /// <returns>Country information : Capital, Population, Area in square km,
         /// Bounding Box of mainland (excluding offshore islands).</returns>
         public ReadOnlyCollection<Country> Countries(string userName)
         {
@@ -204,20 +204,20 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelCountries(userName, ++retry);
                 throw;
             }
         }
 
         /// <summary>
-        /// Returns all GeoNames higher up in the hierarchy of a place name. See 
-        /// <seealso cref="http://www.geonames.org/export/place-hierarchy.html#hierarchy">Official GeoNames 
+        /// Returns all GeoNames higher up in the hierarchy of a place name. See
+        /// <seealso cref="http://www.geonames.org/export/place-hierarchy.html#hierarchy">Official GeoNames
         /// hierarchy Documentation</seealso> for more information.
         /// </summary>
         /// <param name="geoNameId">The GeoName ID of the child toponym.</param>
         /// <param name="userName">Your user name.</param>
-        /// <param name="resultStyle">Amount of detail returned by the GeoNames service. 
+        /// <param name="resultStyle">Amount of detail returned by the GeoNames service.
         /// Default value is full.</param>
         /// <returns>All GeoNames higher up in the hierarchy of a place name.</returns>
         public Hierarchy Hierarchy(int geoNameId, string userName, ResultStyle resultStyle = ResultStyle.Medium)
@@ -234,7 +234,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelHierarchy(geoNameId, userName, resultStyle, ++retry);
                 throw;
             }

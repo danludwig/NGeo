@@ -2,11 +2,11 @@
 {
     /// <summary>
     /// A new Yahoo! PlaceFinder request for a fully-parsed address.
-    /// In a fully-parsed address, each address component is specified in a separate location parameter. 
-    /// The parameters that support fully-parsed addresses are listed in the "Address Format" column in 
-    /// the table under <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#location-parameters">Location 
+    /// In a fully-parsed address, each address component is specified in a separate location parameter.
+    /// The parameters that support fully-parsed addresses are listed in the "Address Format" column in
+    /// the table under <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#location-parameters">Location
     /// Parameters</see>. No delimiters are needed to separate the address components.
-    /// For best results, provide level0 (country), level1 (state/province), level2 (county), and level3 (city). 
+    /// For best results, provide level0 (country), level1 (state/province), level2 (county), and level3 (city).
     /// Providing level3 without level1 or level0 might produce erroneous results.
     /// </summary>
     public class PlaceByFullyParsedAddress : PlaceBy
@@ -49,8 +49,8 @@
         public string Neighborhood { get; set; }
 
         /// <summary>
-        /// Level 3 Administrative name (City/Town/Locality). 
-        /// Do not specify level3 unless level1 or level0 is also specified; otherwise, 
+        /// Level 3 Administrative name (City/Town/Locality).
+        /// Do not specify level3 unless level1 or level0 is also specified; otherwise,
         /// erroneous results might be returned. For best results, specify at least level0 through level3.
         /// For example, <example>"Sunnyvale"</example>
         /// </summary>
@@ -69,7 +69,7 @@
 
         /// <summary>
         /// Level 0 Administrative name (Country) or country code.
-        /// For example, <example>"USA"</example> 
+        /// For example, <example>"USA"</example>
         /// </summary>
         public string Country { get; set; }
     }

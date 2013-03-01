@@ -3,23 +3,23 @@
 namespace NGeo.Yahoo.PlaceFinder
 {
     /// <summary>
-    /// A new free form Yahoo! PlaceFinder request. In this format, all address components 
-    /// are combined in a single parameter: location. When necessary, use commas to separate the components. 
-    /// A free-form format may be one  of the formats shown in the 
-    /// <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">official 
+    /// A new free form Yahoo! PlaceFinder request. In this format, all address components
+    /// are combined in a single parameter: location. When necessary, use commas to separate the components.
+    /// A free-form format may be one  of the formats shown in the
+    /// <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">official
     /// documentation table</see>. Each of these formats may be followed by an optional country name or code.
-    /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">the 
+    /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">the
     /// official documentation</see> for more information.
     /// </summary>
     public class PlaceByFreeformText : PlaceBy
     {
         /// <summary>
-        /// Create a new free form Yahoo! PlaceFinder request. In this format, all address components 
-        /// are combined in a single parameter: location. When necessary, use commas to separate the components. 
-        /// A free-form format may be one  of the formats shown in the 
-        /// <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">official 
+        /// Create a new free form Yahoo! PlaceFinder request. In this format, all address components
+        /// are combined in a single parameter: location. When necessary, use commas to separate the components.
+        /// A free-form format may be one  of the formats shown in the
+        /// <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">official
         /// documentation table</see>. Each of these formats may be followed by an optional country name or code.
-        /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">the 
+        /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">the
         /// official documentation</see> for more information.
         /// </summary>
         /// <param name="freeformTextLocation">
@@ -34,9 +34,9 @@ namespace NGeo.Yahoo.PlaceFinder
         private string _location;
 
         /// <summary>
-        /// A geographical location. 
+        /// A geographical location.
         /// For example, <example>"701 First Ave., Sunnyvale, CA 94089"</example>
-        /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">the 
+        /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#free-form-format">the
         /// official documentation</see> for more information.
         /// </summary>
         public string Location

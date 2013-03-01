@@ -32,7 +32,7 @@ namespace NGeo.GeoNames
         public string UserName { get; set; }
 
         /// <summary>
-        /// Language of returned 'name' element (the pseudo language code 'local' will return it in local language). 
+        /// Language of returned 'name' element (the pseudo language code 'local' will return it in local language).
         /// Default value is 'local'.
         /// </summary>
         public string Language { get; set; }

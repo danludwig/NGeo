@@ -3,7 +3,7 @@
 namespace NGeo.Yahoo.PlaceFinder
 {
     /// <summary>
-    /// Bounding box data returned by the PlaceFinder service. See 
+    /// Bounding box data returned by the PlaceFinder service. See
     /// <see cref="http://developer.yahoo.com/geo/placefinder/guide/responses.html">official documentation</see>.
     /// </summary>
     [DataContract]

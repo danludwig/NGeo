@@ -3,8 +3,8 @@
 namespace NGeo.Yahoo.PlaceFinder
 {
     /// <summary>
-    /// Flags for a Yahoo! PlaceFinder request. See 
-    /// <seealso cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#flags-parameter">official 
+    /// Flags for a Yahoo! PlaceFinder request. See
+    /// <seealso cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#flags-parameter">official
     /// documentation</seealso> for more information.
     /// </summary>
     [DataContract]

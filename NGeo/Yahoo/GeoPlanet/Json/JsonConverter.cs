@@ -22,7 +22,7 @@ namespace NGeo.Yahoo.GeoPlanet.Json
                 Postal = jsonPlace.Postal,
                 Type = (jsonPlace.Type != null || !string.IsNullOrWhiteSpace(jsonPlace.TypeName)) ? new PlaceType
                 {
-                    Name = jsonPlace.TypeName, 
+                    Name = jsonPlace.TypeName,
                     Code = (jsonPlace.Type != null) ? jsonPlace.Type.Code : default(int),
                 } : null,
                 Country = (jsonPlace.Country != null || !string.IsNullOrWhiteSpace(jsonPlace.CountryName)) ? new Admin

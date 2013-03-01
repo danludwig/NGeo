@@ -28,7 +28,7 @@ namespace NGeo.Yahoo.PlaceFinder
         public string AppId { get; set; }
 
         /// <summary>
-        /// The language and country. A two-letter ISO-639 major language code and a two-letter ISO-3166-1 alpha-2 country code, 
+        /// The language and country. A two-letter ISO-639 major language code and a two-letter ISO-3166-1 alpha-2 country code,
         /// separated by either a hyphen or underscore. Default is en-US (English/US).
         /// </summary>
         [DefaultValue("en-US")]
@@ -65,7 +65,7 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         /// <summary>
-        /// Location setback in meters, intended to approximate a building location offset 
+        /// Location setback in meters, intended to approximate a building location offset
         /// from the road center-line. Range is 0 to 100. Default is 15.
         /// </summary>
         [DefaultValue(15)]
@@ -81,8 +81,8 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         /// <summary>
-        /// String of concatenated characters that specify the data returned. 
-        /// The default value of this parameter is an empty string. The default return format is XML. 
+        /// String of concatenated characters that specify the data returned.
+        /// The default value of this parameter is an empty string. The default return format is XML.
         /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#flags-parameter">Flags Parameter</see>.
         /// </summary>
         internal HashSet<Flag> Flags
@@ -97,8 +97,8 @@ namespace NGeo.Yahoo.PlaceFinder
         }
 
         /// <summary>
-        /// String of concatenated characters that specify the geocoding performed. 
-        /// The default value of this parameter is an empty string. 
+        /// String of concatenated characters that specify the geocoding performed.
+        /// The default value of this parameter is an empty string.
         /// See <see cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#gflags-parameter">Gflags Parameter</see>.
         /// </summary>
         internal HashSet<GFlag> GFlags

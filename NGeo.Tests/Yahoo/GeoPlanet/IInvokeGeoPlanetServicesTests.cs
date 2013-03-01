@@ -57,7 +57,7 @@ namespace NGeo.Yahoo.GeoPlanet
         [TestMethod]
         public void Yahoo_GeoPlanet_IInvokeGeoPlanetServices_Place_ShouldHaveWebInvokeAttribute()
         {
-            Expression<Func<IInvokeGeoPlanetServices, PlaceResponse>> method = p => p.Place(default(string), 
+            Expression<Func<IInvokeGeoPlanetServices, PlaceResponse>> method = p => p.Place(default(string),
                 default(string), default(RequestView));
             var attributes = method.GetAttributes<IInvokeGeoPlanetServices, PlaceResponse, WebGetAttribute>();
 

@@ -3,8 +3,8 @@
 namespace NGeo.Yahoo.PlaceFinder
 {
     /// <summary>
-    /// GFlags for a Yahoo! PlaceFinder request. See 
-    /// <seealso cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#gflags-parameter">official 
+    /// GFlags for a Yahoo! PlaceFinder request. See
+    /// <seealso cref="http://developer.yahoo.com/geo/placefinder/guide/requests.html#gflags-parameter">official
     /// documentation</seealso> for more information.
     /// </summary>
     [DataContract]
@@ -35,8 +35,8 @@ namespace NGeo.Yahoo.PlaceFinder
         QuickMode = 3,
 
         /// <summary>
-        /// Reverse geocode coordinates for each result. To perform reverse geocoding, specify the 
-        /// latitude and longitude in the location parameter. The response will include information 
+        /// Reverse geocode coordinates for each result. To perform reverse geocoding, specify the
+        /// latitude and longitude in the location parameter. The response will include information
         /// such as the street address.
         /// </summary>
         [EnumMember(Value = "R")]

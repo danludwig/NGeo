@@ -32,7 +32,7 @@ namespace NGeo.Yahoo.PlaceFinder
         /// </summary>
         /// <typeparam name="T">A concrete instance of PlaceBy.</typeparam>
         /// <param name="placeBy">The concrete instance of PlaceBy.</param>
-        /// <param name="returnGlobalInsteadOfUsElements">Whether to return global area elements 
+        /// <param name="returnGlobalInsteadOfUsElements">Whether to return global area elements
         /// instead of US-specific elements in results. Default is true.</param>
         /// <returns>The same instance of PlaceBy that this method was invoked on, for method chaining.</returns>
         public static T ReturnGlobalElements<T>(this T placeBy, bool returnGlobalInsteadOfUsElements = true) where T : PlaceBy

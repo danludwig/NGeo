@@ -151,6 +151,102 @@
 [assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
     Target = "NGeo.Yahoo.GeoPlanet.IConsumeGeoPlanet.#Level2Admins(System.Int32,System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
     Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.GeoNames.GeoNamesContainer.#Children(System.Int32,NGeo.GeoNames.ResultStyle,System.Int32)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.GeoNames.GeoNamesContainer.#Hierarchy(System.Int32,NGeo.GeoNames.ResultStyle)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetClient.#Places(System.String,System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Place(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Places(System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Parent(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Ancestors(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#BelongTos(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Types(NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Type(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Continents(NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Countries(NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#States(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Level1Admins(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Counties(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.GeoPlanetContainer.#Level2Admins(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IConsumeGeoPlanet.#Places(System.String,System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.GeoNames.IContainGeoNames.#Children(System.Int32,NGeo.GeoNames.ResultStyle,System.Int32)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.GeoNames.IContainGeoNames.#Hierarchy(System.Int32,NGeo.GeoNames.ResultStyle)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Place(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Places(System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Parent(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Ancestors(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#BelongTos(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Types(NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Type(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Continents(NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Countries(NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#States(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Level1Admins(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Counties(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
+[assembly: SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Level2Admins(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+    Justification = "Compiler does not ignore default parameter values.")]
 
 #endregion
 #region CA1702 Compound Casing Suppressions
@@ -166,6 +262,14 @@
 [assembly: SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly",
     MessageId = "nameSpace", Scope = "member",
     Target = "NGeo.Yahoo.GeoPlanet.IInvokeGeoPlanetServices.#Concordance(System.String,System.String,System.String)",
+    Justification = "Discrete casing would make term a keyword.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly",
+    MessageId = "nameSpace", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Concordance(NGeo.Yahoo.GeoPlanet.ConcordanceNamespace,System.String)",
+    Justification = "Discrete casing would make term a keyword.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly",
+    MessageId = "nameSpace", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Concordance(NGeo.Yahoo.GeoPlanet.ConcordanceNamespace,System.Int32)",
     Justification = "Discrete casing would make term a keyword.")]
 
 #endregion
@@ -249,11 +353,47 @@
 [assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
     MessageId = "Admins", Scope = "member",
     Target = "NGeo.Yahoo.GeoPlanet.IConsumeGeoPlanet.#Level1Admins(System.Int32,System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
-    Justification = "Naming matches domain language.")]
+	Justification = "Naming matches domain language.")]
 [assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
     MessageId = "Admins", Scope = "member",
     Target = "NGeo.Yahoo.GeoPlanet.IConsumeGeoPlanet.#Level2Admins(System.Int32,System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
-    Justification = "Naming matches domain language.")]
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Iso", Scope = "member",
+	Target ="NGeo.Yahoo.GeoPlanet.ConcordanceNamespace.#Iso",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Iso", Scope = "member",
+	Target ="NGeo.Yahoo.GeoPlanet.ConcordanceResponse.#Iso",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Iso", Scope = "member",
+	Target ="NGeo.GeoNames.Country.#IsoNumericCode",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Iso", Scope = "member",
+	Target ="NGeo.GeoNames.Country.#IsoAlpha3Code",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Sq", Scope = "member",
+	Target ="NGeo.GeoNames.Country.#AreaInSqKm",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Tos", Scope = "member",
+	Target ="NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#BelongTos(System.Int32,NGeo.Yahoo.GeoPlanet.RequestView)",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="postalcode", Scope = "member",
+	Target ="NGeo.GeoNames.IInvokeGeoNamesServices.#LookupPostalCode(System.String,System.String,System.Int32,NGeo.GeoNames.ResultStyle,System.String)",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Dst", Scope = "member",
+	Target ="NGeo.GeoNames.TimeZone.#DstOffset",
+	Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
+	MessageId ="Gmt", Scope = "member",
+	Target ="NGeo.GeoNames.TimeZone.#GmtOffset",
+	Justification = "Naming matches domain language.")]
 
 #endregion
 #region CA1709 Casing Suppressions
@@ -294,6 +434,9 @@
 [assembly: SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Scope = "type",
     Target = "NGeo.Yahoo.PlaceFinder.ResultSet",
     Justification = "Suggested suffix clutters domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1710:IdentifiersShouldHaveCorrectSuffix", Scope = "type",
+    Target = "NGeo.GeoNames.PostalCodeResults",
+    Justification = "Suggested suffix clutters domain language.")]
 
 #endregion
 #region CA1716 Keyword Match Suppressions
@@ -317,6 +460,18 @@
 [assembly: SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords",
     MessageId = "Get", Scope = "member",
     Target = "NGeo.GeoNames.IInvokeGeoNamesServices.#Get(System.Int32,System.String)",
+    Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords",
+    MessageId = "Get", Scope = "member",
+    Target = "NGeo.GeoNames.IContainGeoNames.#Get(System.Int32)",
+    Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords",
+    MessageId = "Namespace", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Concordance(NGeo.Yahoo.GeoPlanet.ConcordanceNamespace,System.String)",
+    Justification = "Naming matches domain language.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords",
+    MessageId = "Namespace", Scope = "member",
+    Target = "NGeo.Yahoo.GeoPlanet.IContainGeoPlanet.#Concordance(NGeo.Yahoo.GeoPlanet.ConcordanceNamespace,System.Int32)",
     Justification = "Naming matches domain language.")]
 
 #endregion

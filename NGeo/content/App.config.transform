@@ -13,8 +13,6 @@
                 contract="NGeo.GeoNames.IInvokeGeoNamesServices" behaviorConfiguration="NGeoBehavior" />
             <endpoint address="http://where.yahooapis.com/v1" binding="webHttpBinding" bindingConfiguration="NGeoBinding"
                 contract="NGeo.Yahoo.GeoPlanet.IInvokeGeoPlanetServices" behaviorConfiguration="NGeoBehavior" />
-            <endpoint address="http://where.yahooapis.com" binding="webHttpBinding" bindingConfiguration="NGeoBinding"
-                contract="NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices" behaviorConfiguration="NGeoBehavior" />
         </client>
         <behaviors>
             <endpointBehaviors>

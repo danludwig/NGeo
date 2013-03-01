@@ -13,6 +13,7 @@ namespace NGeo.Yahoo.GeoPlanet
     public sealed class GeoPlanetClient : ClientBase<IInvokeGeoPlanetServices>, IConsumeGeoPlanet
     {
         private const int RetryLimit = 5;
+        private const string XmlDeserializeMessage = "Unable to deserialize XML body";
 
         public Place Place(int woeId, string appId, RequestView view = RequestView.Long)
         {
@@ -41,7 +42,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelPlace(woeId, appId, view, ++retry);
                 throw;
             }
@@ -81,7 +82,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelPlaces(query, appId, view, ++retry);
                 throw;
             }
@@ -114,7 +115,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelParent(woeId, appId, view, ++retry);
                 throw;
             }
@@ -150,7 +151,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelAncestors(woeId, appId, view, ++retry);
                 throw;
             }
@@ -186,7 +187,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelBelongTos(woeId, appId, view, ++retry);
                 throw;
             }
@@ -215,7 +216,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelTypes(appId, view, ++retry);
                 throw;
             }
@@ -250,7 +251,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelContinents(appId, view, ++retry);
                 throw;
             }
@@ -279,7 +280,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelCountries(appId, view, ++retry);
                 throw;
             }
@@ -315,7 +316,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelStates(woeId, appId, view, ++retry);
                 throw;
             }
@@ -356,7 +357,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelCounties(woeId, appId, view, ++retry);
                 throw;
             }
@@ -400,7 +401,7 @@ namespace NGeo.Yahoo.GeoPlanet
             }
             catch (SerializationException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith("Unable to deserialize XML body"))
+                if (retry < RetryLimit && ex.Message.StartsWith(XmlDeserializeMessage, StringComparison.Ordinal))
                     return ChannelConcordance(nameSpace, id, appId, ++retry);
                 throw;
             }

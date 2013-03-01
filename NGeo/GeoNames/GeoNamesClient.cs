@@ -50,7 +50,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelFindNearbyPlaceName(finder, ++retry);
                 throw;
             }
@@ -82,7 +82,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelLookupPostalCode(lookup, ++retry);
                 throw;
             }
@@ -110,7 +110,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelPostalCodeCountryInfo(userName, ++retry);
                 throw;
             }
@@ -136,7 +136,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelGet(geoNameId, userName, ++retry);
                 throw;
             }
@@ -175,7 +175,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelChildren(geoNameId, userName, resultStyle, maxRows, ++retry);
                 throw;
             }
@@ -204,7 +204,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelCountries(userName, ++retry);
                 throw;
             }
@@ -234,7 +234,7 @@ namespace NGeo.GeoNames
             }
             catch (WebException ex)
             {
-                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage))
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
                     return ChannelHierarchy(geoNameId, userName, resultStyle, ++retry);
                 throw;
             }

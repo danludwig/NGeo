@@ -66,6 +66,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -125,7 +126,7 @@
     <Compile Include="Yahoo\PlaceFinder\PlaceByMultilineAddressTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByFreeformTextTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\IConsumePlaceFinderTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\IInvokePlaceFinderServicesTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\_Deprecated\_IInvokePlaceFinderServicesTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByCoordinatesTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByNameTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceFinderClientTests.cs" />
@@ -136,7 +137,7 @@
     <Compile Include="Yahoo\PlaceFinder\FlagTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\ResponseTests.cs" />
-    <Compile Include="Yahoo\PlaceFinder\ResultSetTests.cs" />
+    <Compile Include="Yahoo\PlaceFinder\_Deprecated\_ResultSetTests.cs" />
     <Compile Include="Yahoo\PlaceFinder\ResultTests.cs" />
   </ItemGroup>
   <ItemGroup>

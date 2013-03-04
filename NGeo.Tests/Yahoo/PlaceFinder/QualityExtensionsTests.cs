@@ -7,67 +7,67 @@ namespace NGeo.Yahoo.PlaceFinder
     [TestClass]
     public class QualityExtensionsTests
     {
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldBeArea_WhenQualityIsLessThan70()
-        {
-            var model = new ResultSet
-            {
-                Quality = 69,
-            };
+        //[TestMethod]
+        //public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldBeArea_WhenQualityIsLessThan70()
+        //{
+        //    var model = new ResultSet
+        //    {
+        //        Quality = 69,
+        //    };
 
-            model.QualityCategory().ShouldEqual(QualityCategory.Area);
-        }
+        //    model.QualityCategory().ShouldEqual(QualityCategory.Area);
+        //}
 
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldBeLine_WhenQualityIsGreaterThan69AndLessThan80()
-        {
-            var model = new ResultSet
-            {
-                Quality = 79,
-            };
+        //[TestMethod]
+        //public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldBeLine_WhenQualityIsGreaterThan69AndLessThan80()
+        //{
+        //    var model = new ResultSet
+        //    {
+        //        Quality = 79,
+        //    };
 
-            model.QualityCategory().ShouldEqual(QualityCategory.Line);
-        }
+        //    model.QualityCategory().ShouldEqual(QualityCategory.Line);
+        //}
 
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldBePoint_WhenQualityIsGreaterThan79()
-        {
-            var model = new ResultSet
-            {
-                Quality = 80,
-            };
+        //[TestMethod]
+        //public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldBePoint_WhenQualityIsGreaterThan79()
+        //{
+        //    var model = new ResultSet
+        //    {
+        //        Quality = 80,
+        //    };
 
-            model.QualityCategory().ShouldEqual(QualityCategory.Point);
-        }
+        //    model.QualityCategory().ShouldEqual(QualityCategory.Point);
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldThrowException_WhenArgIsNull()
-        {
-            var model = (DateTime.Now.Year > 2010) ? null : new ResultSet();
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentNullException))]
+        //public void Yahoo_PlaceFinder_ResultSetQualityCategory_ShouldThrowException_WhenArgIsNull()
+        //{
+        //    var model = (DateTime.Now.Year > 2010) ? null : new ResultSet();
 
-            model.QualityCategory();
-        }
+        //    model.QualityCategory();
+        //}
 
-        [TestMethod]
-        public void Yahoo_PlaceFinder_ResultSetQualityDescription_ShouldMatchIntEquivalent()
-        {
-            var model = new ResultSet
-            {
-                Quality = 59,
-            };
+        //[TestMethod]
+        //public void Yahoo_PlaceFinder_ResultSetQualityDescription_ShouldMatchIntEquivalent()
+        //{
+        //    var model = new ResultSet
+        //    {
+        //        Quality = 59,
+        //    };
 
-            model.QualityDescription().ShouldEqual(QualityDescription.PostalDistrictIgnoreStreet);
-        }
+        //    model.QualityDescription().ShouldEqual(QualityDescription.PostalDistrictIgnoreStreet);
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Yahoo_PlaceFinder_ResultSetQualityDescription_ShouldThrowException_WhenArgIsNull()
-        {
-            var model = (DateTime.Now.Year > 2010) ? null : new ResultSet();
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentNullException))]
+        //public void Yahoo_PlaceFinder_ResultSetQualityDescription_ShouldThrowException_WhenArgIsNull()
+        //{
+        //    var model = (DateTime.Now.Year > 2010) ? null : new ResultSet();
 
-            model.QualityDescription();
-        }
+        //    model.QualityDescription();
+        //}
 
         [TestMethod]
         public void Yahoo_PlaceFinder_ResultQualityCategory_ShouldBeArea_WhenQualityIsLessThan70()

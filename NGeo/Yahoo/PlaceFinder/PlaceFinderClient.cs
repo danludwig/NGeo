@@ -1,211 +1,220 @@
 ﻿using System;
 using System.Net;
 using System.ServiceModel;
+using Newtonsoft.Json;
 
 namespace NGeo.Yahoo.PlaceFinder
 {
-    public sealed class PlaceFinderClient : ClientBase<IInvokePlaceFinderServices>, IConsumePlaceFinder
+    public sealed class PlaceFinderClient : IConsumePlaceFinder
     {
         private const int RetryLimit = 5;
 
-        public ResultSet Find(PlaceByCoordinates request)
+        public ResultSet Find(PlaceByCoordinates request, string consumerKey, string consumerSecret)
         {
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByCoordinates(request);
-
-            return response.ResultSet;
+            var response = OAuthFind(request, consumerKey, consumerSecret);
+            return response.PlaceFinder;
         }
 
-        private Response ChannelFindByCoordinates(PlaceByCoordinates request, int retry = 0)
+        private static BossResponse OAuthFind(PlaceByCoordinates request, string consumerKey, string consumerSecret, int retry = 0)
         {
             try
             {
-                return Channel.FindByCoordinates(request.Location, request.Locale,
-                    request.Start, request.Count, request.Offset,
-                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
-                    request.AppId);
+                using (var oAuth = new OAuthClient())
+                {
+                    var json = oAuth.Get(request.GetUri(), consumerKey, consumerSecret);
+                    var bossContainer = JsonConvert.DeserializeObject<BossContainer>(json);
+                    if (bossContainer != null) return bossContainer.BossResponse;
+                    throw new InvalidOperationException("Unable to parse BOSS GEO Response. Raw JSON:\r\n" + json);
+                }
             }
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException is WebException)
-                    return ChannelFindByCoordinates(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
             catch (CommunicationException ex)
             {
                 if (retry < RetryLimit && ex.Message == "Server Error")
-                    return ChannelFindByCoordinates(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
         }
 
-        public ResultSet Find(PlaceByFreeformText request)
+        public ResultSet Find(PlaceByFreeformText request, string consumerKey, string consumerSecret)
         {
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByFreeformText(request);
-
-            return response.ResultSet;
+            var response = OAuthFind(request, consumerKey, consumerSecret);
+            return response.PlaceFinder;
         }
 
-        private Response ChannelFindByFreeformText(PlaceByFreeformText request, int retry = 0)
+        private static BossResponse OAuthFind(PlaceByFreeformText request, string consumerKey, string consumerSecret, int retry = 0)
         {
             try
             {
-                return Channel.FindByFreeformText(request.Location, request.Locale,
-                    request.Start, request.Count, request.Offset,
-                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
-                    request.AppId);
+                using (var oAuth = new OAuthClient())
+                {
+                    var json = oAuth.Get(request.GetUri(), consumerKey, consumerSecret);
+                    var bossContainer = JsonConvert.DeserializeObject<BossContainer>(json);
+                    if (bossContainer != null) return bossContainer.BossResponse;
+                    throw new InvalidOperationException("Unable to parse BOSS GEO Response. Raw JSON:\r\n" + json);
+                }
             }
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException is WebException)
-                    return ChannelFindByFreeformText(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
             catch (CommunicationException ex)
             {
                 if (retry < RetryLimit && ex.Message == "Server Error")
-                    return ChannelFindByFreeformText(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
         }
 
-        public ResultSet Find(PlaceByName request)
+        public ResultSet Find(PlaceByName request, string consumerKey, string consumerSecret)
         {
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByName(request);
-
-            return response.ResultSet;
+            var response = OAuthFind(request, consumerKey, consumerSecret);
+            return response.PlaceFinder;
         }
 
-        private Response ChannelFindByName(PlaceByName request, int retry = 0)
+        private static BossResponse OAuthFind(PlaceByName request, string consumerKey, string consumerSecret, int retry = 0)
         {
             try
             {
-                return Channel.FindByName(request.Name, request.Locale,
-                    request.Start, request.Count, request.Offset,
-                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
-                    request.AppId);
+                using (var oAuth = new OAuthClient())
+                {
+                    var json = oAuth.Get(request.GetUri(), consumerKey, consumerSecret);
+                    var bossContainer = JsonConvert.DeserializeObject<BossContainer>(json);
+                    if (bossContainer != null) return bossContainer.BossResponse;
+                    throw new InvalidOperationException("Unable to parse BOSS GEO Response. Raw JSON:\r\n" + json);
+                }
             }
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException is WebException)
-                    return ChannelFindByName(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
             catch (CommunicationException ex)
             {
                 if (retry < RetryLimit && ex.Message == "Server Error")
-                    return ChannelFindByName(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
         }
 
-        public ResultSet Find(PlaceByWoeId request)
+        public ResultSet Find(PlaceByWoeId request, string consumerKey, string consumerSecret)
         {
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByWoeId(request);
-
-            return response.ResultSet;
+            var response = OAuthFind(request, consumerKey, consumerSecret);
+            return response.PlaceFinder;
         }
 
-        private Response ChannelFindByWoeId(PlaceByWoeId request, int retry = 0)
+        private static BossResponse OAuthFind(PlaceByWoeId request, string consumerKey, string consumerSecret, int retry = 0)
         {
             try
             {
-                return Channel.FindByWoeId(request.WoeId, request.Locale,
-                    request.Start, request.Count, request.Offset,
-                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
-                    request.AppId);
+                using (var oAuth = new OAuthClient())
+                {
+                    var json = oAuth.Get(request.GetUri(), consumerKey, consumerSecret);
+                    var bossContainer = JsonConvert.DeserializeObject<BossContainer>(json);
+                    if (bossContainer != null) return bossContainer.BossResponse;
+                    throw new InvalidOperationException("Unable to parse BOSS GEO Response. Raw JSON:\r\n" + json);
+                }
             }
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException is WebException)
-                    return ChannelFindByWoeId(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
             catch (CommunicationException ex)
             {
                 if (retry < RetryLimit && ex.Message == "Server Error")
-                    return ChannelFindByWoeId(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
         }
 
-        public ResultSet Find(PlaceByMultilineAddress request)
+        public ResultSet Find(PlaceByMultilineAddress request, string consumerKey, string consumerSecret)
         {
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByMultilineAddress(request);
-
-            return response.ResultSet;
+            var response = OAuthFind(request, consumerKey, consumerSecret);
+            return response.PlaceFinder;
         }
 
-        private Response ChannelFindByMultilineAddress(PlaceByMultilineAddress request, int retry = 0)
+        private static BossResponse OAuthFind(PlaceByMultilineAddress request, string consumerKey, string consumerSecret, int retry = 0)
         {
             try
             {
-                return Channel.FindByMultilineAddress(request.Line1,
-                    request.Line2, request.Line3, request.Locale,
-                    request.Start, request.Count, request.Offset,
-                    request.GetFlagsAsString(), request.GetGFlagsAsString(),
-                    request.AppId);
+                using (var oAuth = new OAuthClient())
+                {
+                    var json = oAuth.Get(request.GetUri(), consumerKey, consumerSecret);
+                    var bossContainer = JsonConvert.DeserializeObject<BossContainer>(json);
+                    if (bossContainer != null) return bossContainer.BossResponse;
+                    throw new InvalidOperationException("Unable to parse BOSS GEO Response. Raw JSON:\r\n" + json);
+                }
             }
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException is WebException)
-                    return ChannelFindByMultilineAddress(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
             catch (CommunicationException ex)
             {
                 if (retry < RetryLimit && ex.Message == "Server Error")
-                    return ChannelFindByMultilineAddress(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
         }
 
-        public ResultSet Find(PlaceByFullyParsedAddress request)
+        public ResultSet Find(PlaceByFullyParsedAddress request, string consumerKey, string consumerSecret)
         {
             if (request == null) throw new ArgumentNullException("request");
             EnsureContractsAreSatisfied(request);
 
-            var response = ChannelFindByFullyParsedAddress(request);
-
-            return response.ResultSet;
+            var response = OAuthFind(request, consumerKey, consumerSecret);
+            return response.PlaceFinder;
         }
 
-        private Response ChannelFindByFullyParsedAddress(PlaceByFullyParsedAddress request, int retry = 0)
+        private static BossResponse OAuthFind(PlaceByFullyParsedAddress request, string consumerKey, string consumerSecret, int retry = 0)
         {
             try
             {
-                return Channel.FindByFullyParsedAddress(request.House,
-                    request.Street, request.UnitType, request.Unit,
-                    request.CrossStreet, request.Postal, request.Neighborhood,
-                    request.City, request.County, request.StateOrProvince,
-                    request.Country, request.Locale, request.Start,
-                    request.Count, request.Offset, request.GetFlagsAsString(),
-                    request.GetGFlagsAsString(), request.AppId);
+                using (var oAuth = new OAuthClient())
+                {
+                    var json = oAuth.Get(request.GetUri(), consumerKey, consumerSecret);
+                    var bossContainer = JsonConvert.DeserializeObject<BossContainer>(json);
+                    if (bossContainer != null) return bossContainer.BossResponse;
+                    throw new InvalidOperationException("Unable to parse BOSS GEO Response. Raw JSON:\r\n" + json);
+                }
             }
             catch (ProtocolException ex)
             {
                 if (retry < RetryLimit && ex.InnerException is WebException)
-                    return ChannelFindByFullyParsedAddress(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
             catch (CommunicationException ex)
             {
                 if (retry < RetryLimit && ex.Message == "Server Error")
-                    return ChannelFindByFullyParsedAddress(request, ++retry);
+                    return OAuthFind(request, consumerKey, consumerSecret, ++retry);
                 throw;
             }
         }
@@ -225,5 +234,8 @@ namespace NGeo.Yahoo.PlaceFinder
                 request.GFlags.Add(GFlag.Reverse);
         }
 
+        public void Dispose()
+        {
+        }
     }
 }

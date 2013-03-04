@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NGeo.vsmdi = NGeo.vsmdi
 		README.md = README.md
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		UnitRun.testsettings = UnitRun.testsettings
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGeo.Tests", "NGeo.Tests\NGeo.Tests.csproj", "{9FB42065-E9AA-43AA-902B-449099A082BF}"
@@ -31,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Releases", "Releases", "{00
 		nupkgs\NGeo.1.7.2.0.nupkg = nupkgs\NGeo.1.7.2.0.nupkg
 		nupkgs\NGeo.1.7.nupkg = nupkgs\NGeo.1.7.nupkg
 		nupkgs\NGeo.1.8.0.0.nupkg = nupkgs\NGeo.1.8.0.0.nupkg
+		nupkgs\NGeo.1.8.1.0.nupkg = nupkgs\NGeo.1.8.1.0.nupkg
 	EndProjectSection
 EndProject
 Global

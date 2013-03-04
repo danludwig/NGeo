@@ -17,7 +17,7 @@
     <releaseNotes>
       NGeo is a client library that makes it easier to invoke
       GeoNames, Yahoo! GeoPlanet, and Yahoo! PlaceFinder services from .NET code.
-      Version 1.7.5 adds retry logic to the PlaceFinder service when ServiceModel.CommunicationException ("Server Error") exceptions are thrown.
+      Version 1.8.1 re-adds support for PlaceFinder via its new paid OAuth API endpoint.
     </releaseNotes>
     <copyright>Copyright © UCosmic Consortium 2012</copyright>
     <tags>GeoNames, GeoPlanet, PlaceFinder, Yahoo</tags>

@@ -5,11 +5,11 @@ namespace NGeo.Yahoo.PlaceFinder
 {
     public static class QualityExtensions
     {
-        public static QualityCategory QualityCategory(this ResultSet resultSet)
-        {
-            if (resultSet == null) throw new ArgumentNullException("resultSet");
-            return CategoryFor(resultSet.Quality);
-        }
+        //public static QualityCategory QualityCategory(this ResultSet resultSet)
+        //{
+        //    if (resultSet == null) throw new ArgumentNullException("resultSet");
+        //    return CategoryFor(resultSet.Quality);
+        //}
 
         public static QualityCategory QualityCategory(this Result result)
         {
@@ -23,11 +23,11 @@ namespace NGeo.Yahoo.PlaceFinder
             return quality < 80 ? PlaceFinder.QualityCategory.Line : PlaceFinder.QualityCategory.Point;
         }
 
-        public static QualityDescription QualityDescription(this ResultSet resultSet)
-        {
-            if (resultSet == null) throw new ArgumentNullException("resultSet");
-            return DescriptionFor(resultSet.Quality);
-        }
+        //public static QualityDescription QualityDescription(this ResultSet resultSet)
+        //{
+        //    if (resultSet == null) throw new ArgumentNullException("resultSet");
+        //    return DescriptionFor(resultSet.Quality);
+        //}
 
         public static QualityDescription QualityDescription(this Result result)
         {

@@ -50,12 +50,16 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods.cs" />
@@ -103,13 +107,19 @@
     <Compile Include="Yahoo\GeoPlanet\Point.cs" />
     <Compile Include="Yahoo\GeoPlanet\RequestView.cs" />
     <Compile Include="Yahoo\GeoPlanet\Locality.cs" />
+    <Compile Include="Yahoo\PlaceFinder\BossContainer.cs" />
+    <Compile Include="Yahoo\PlaceFinder\BossResponse.cs" />
+    <Compile Include="Yahoo\PlaceFinder\EndpointUrlBuilder.cs" />
+    <Compile Include="Yahoo\PlaceFinder\PlaceFinderContainer.cs" />
+    <Compile Include="Yahoo\PlaceFinder\IContainPlaceFinder.cs" />
+    <Compile Include="Yahoo\PlaceFinder\OAuthClient.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceBy.cs" />
     <Compile Include="Yahoo\PlaceFinder\BoundingBox.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByCoordinates.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByExtensions.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByFreeformText.cs" />
     <Compile Include="Yahoo\PlaceFinder\IConsumePlaceFinder.cs" />
-    <Compile Include="Yahoo\PlaceFinder\IInvokePlaceFinderServices.cs" />
+    <Compile Include="Yahoo\PlaceFinder\_Deprecated\_IInvokePlaceFinderServices.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByFullyParsedAddress.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByMultilineAddress.cs" />
     <Compile Include="Yahoo\PlaceFinder\PlaceByName.cs" />
@@ -123,6 +133,7 @@
     <Compile Include="Yahoo\PlaceFinder\Response.cs" />
     <Compile Include="Yahoo\PlaceFinder\Result.cs" />
     <Compile Include="Yahoo\PlaceFinder\ResultSet.cs" />
+    <Compile Include="Yahoo\PlaceFinder\_Deprecated\_ResultSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="content\App.config.transform" />
@@ -132,6 +143,7 @@
     <None Include="NGeo.nuspec">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

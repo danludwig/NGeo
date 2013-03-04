@@ -8,8 +8,13 @@ NGeo makes it easier for users of geographic data to invoke GeoNames and Yahoo! 
         // do something with the data
     }
 
-## New in version 1.8
-The PlaceFinder client has been removed, because that service is no longer available as a WCF-consumable API.
+## New in version 1.8 - Breaking Changes
+The PlaceFinder client was removed in version 1.8.0.0, because that service is no longer available as a WCF-consumable API. It was then re-added in version 1.8.1.0 with an OAuth client implementation. Note that the Yahoo! PlaceFinder service is now part of Yahoo!'s [BOSS GEO Services](http://developer.yahoo.com/boss/geo/), and is no longer free. To use the NGeo PlaceFinder client, you must first sign up for BOSS GEO, obtain a Consumer Key and Consumer Secret, and give Yahoo! a valid credit card number for billing. No builds or revisions in version 1.8.x.y affect either the GeoNames or GeoPlanet clients.
+
+Because of the new PlaceFinder authentication model, there is now an `IContainPlaceFinder` interface and implementation. The difference between this and the `IConsumePlaceFinder` interface is that the latter takes consumerKey and consumerSecret arguments directly within its methods, whereas the former does not. This is the same pattern used by the GeoNames and GeoPlanet clients to wrap authentication information when you are using an IoC container. For more information, read about the `IContainGeoNames` and `IContainGeoPlanet` interfaces below.
+
+### How to fix breaking changes in versions 1.8+
+Much of the source code has not changed. The major difference is that the various methods on the `IConsumePlaceFinder` interface now take two additional arguments for the consumer key and secret. You can fix compiler errors after upgrading by either passing these arguments, or by changing your code to use `IContainPlaceFinder` instead of `IConsumePlaceFinder`. The default implementation of this interface in the project is `PlaceFinderContainer`, whose constructor takes the consumer key and secret and wraps the default `IConsumerPlaceFinder` implementation (which is still `PlaceFinderClient`).
 
 ## New in version 1.5
 Because each NGeo service comes with a corresponding IConsumeXyz interface, you have always been able to dependency inject client instances and control their lifetimes + disposal semantics. However the `IConsumeGeoNames` and `IConsumeGeoPlanet` interfaces contain several overloads that accept either a username or app id for authentication. This means your code had to maintain a separate reference to your geonames username or geoplanet appid, and pass it in as a method parameter. When using inversion of control and dependency injecting IConsumeGeoWhatever instances into your controller, this can be annoying because you have to maintain your auth string in a separate dependency (or worse, hard-code it).

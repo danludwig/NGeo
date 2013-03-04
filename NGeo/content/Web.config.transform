@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-    <system.serviceModel>
-        <bindings>
-            <webHttpBinding>
-                <binding name="NGeoBinding" allowCookies="true" maxReceivedMessageSize="20000000" maxBufferSize="20000000" maxBufferPoolSize="20000000">
-                    <readerQuotas maxDepth="32" maxArrayLength="200000000" maxStringContentLength="200000000"/>
-                </binding>
-            </webHttpBinding>
-        </bindings>
-        <client>
-            <endpoint address="http://api.geonames.org" binding="webHttpBinding" bindingConfiguration="NGeoBinding"
-                contract="NGeo.GeoNames.IInvokeGeoNamesServices" behaviorConfiguration="NGeoBehavior" />
-            <endpoint address="http://where.yahooapis.com/v1" binding="webHttpBinding" bindingConfiguration="NGeoBinding"
-                contract="NGeo.Yahoo.GeoPlanet.IInvokeGeoPlanetServices" behaviorConfiguration="NGeoBehavior" />
-        </client>
-        <behaviors>
-            <endpointBehaviors>
-                <behavior name="NGeoBehavior">
-                    <webHttp />
-                </behavior>
-            </endpointBehaviors>
-        </behaviors>
-    </system.serviceModel>
+  <system.serviceModel>
+    <bindings>
+      <webHttpBinding>
+        <binding name="NGeoBinding" allowCookies="true" maxReceivedMessageSize="20000000" maxBufferSize="20000000" maxBufferPoolSize="20000000">
+          <readerQuotas maxDepth="32" maxArrayLength="200000000" maxStringContentLength="200000000"/>
+        </binding>
+      </webHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://api.geonames.org" binding="webHttpBinding" bindingConfiguration="NGeoBinding"
+          contract="NGeo.GeoNames.IInvokeGeoNamesServices" behaviorConfiguration="NGeoBehavior" />
+      <endpoint address="http://where.yahooapis.com/v1" binding="webHttpBinding" bindingConfiguration="NGeoBinding"
+          contract="NGeo.Yahoo.GeoPlanet.IInvokeGeoPlanetServices" behaviorConfiguration="NGeoBehavior" />
+    </client>
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="NGeoBehavior">
+          <webHttp />
+        </behavior>
+      </endpointBehaviors>
+    </behaviors>
+  </system.serviceModel>
 </configuration>

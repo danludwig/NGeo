@@ -312,37 +312,6 @@
     Target = "NGeo.GeoNames.Toponym",
     Justification = "Naming matches domain language.")]
 [assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-    MessageId = "g", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByCoordinates(System.String,System.String,System.Int32," +
-        "System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-    MessageId = "g", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByFreeformText(System.String,System.String,System.Int32," +
-        "System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-    MessageId = "g", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByFullyParsedAddress(System.String,System.String," +
-        "System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String," +
-        "System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-    MessageId = "g", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByMultilineAddress(System.String,System.String,System.String,System.String," +
-        "System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-    MessageId = "g", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByName(System.String,System.String,System.Int32,System.Int32," +
-        "System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
-    MessageId = "g", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByWoeId(System.Int32,System.String,System.Int32,System.Int32," +
-        "System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly",
     MessageId = "Tos", Scope = "member",
     Target = "NGeo.Yahoo.GeoPlanet.IConsumeGeoPlanet.#BelongTos(System.Int32,System.String,NGeo.Yahoo.GeoPlanet.RequestView)",
     Justification = "Naming matches domain language.")]
@@ -488,69 +457,6 @@
     Justification = "Naming matches domain language.")]
 
 #endregion
-#region CA1726 Preferred Name Suppressions
 
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByCoordinates(System.String,System.String,System.Int32" +
-        ",System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "Flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByCoordinates(System.String,System.String,System.Int32,System.Int32" +
-        ",System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByFreeformText(System.String,System.String,System.Int32," +
-        "System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "Flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByFreeformText(System.String,System.String,System.Int32,System.Int32" +
-        ",System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByFullyParsedAddress(System.String,System.String,System.String,System.String," +
-        "System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32," +
-        "System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "Flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByFullyParsedAddress(System.String,System.String,System.String,System.String" +
-        ",System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32," +
-        "System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByMultilineAddress(System.String,System.String,System.String" +
-        ",System.String,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "Flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByMultilineAddress(System.String,System.String,System.String,System.String" +
-        ",System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByName(System.String,System.String,System.Int32,System.Int32,System.Int32," +
-        "System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "Flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByName(System.String,System.String,System.Int32,System.Int32,System.Int32," +
-        "System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByWoeId(System.Int32,System.String,System.Int32,System.Int32,System.Int32,"
-        + "System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-[assembly: SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms",
-    MessageId = "Flags", Scope = "member",
-    Target = "NGeo.Yahoo.PlaceFinder.IInvokePlaceFinderServices.#FindByWoeId(System.Int32,System.String,System.Int32,System.Int32,System.Int32," +
-        "System.String,System.String,System.String)",
-    Justification = "Naming matches domain language.")]
-
-#endregion
+[assembly: SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays", Scope = "member", Target = "NGeo.Yahoo.PlaceFinder.ResultSet.#Results",
+    Justification = "Property does not need to be tamper proof.")]

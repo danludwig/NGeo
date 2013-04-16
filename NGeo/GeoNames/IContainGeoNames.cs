@@ -20,5 +20,6 @@ namespace NGeo.GeoNames
 
         Hierarchy Hierarchy(int geoNameId, ResultStyle resultStyle = ResultStyle.Medium);
 
+        ReadOnlyCollection<Toponym> Search(SearchOptions searchOptions);
     }
 }

@@ -25,7 +25,7 @@ namespace NGeo.GeoNames
         {
             using (var client = new GeoNamesClient())
             {
-                client.ShouldImplement(typeof (ClientBase<IInvokeGeoNamesServices>));
+                client.ShouldImplement(typeof(ClientBase<IInvokeGeoNamesServices>));
             }
         }
 
@@ -34,7 +34,7 @@ namespace NGeo.GeoNames
         {
             using (var client = new GeoNamesClient())
             {
-                client.ShouldImplement(typeof (IConsumeGeoNames));
+                client.ShouldImplement(typeof(IConsumeGeoNames));
             }
         }
 
@@ -260,5 +260,20 @@ namespace NGeo.GeoNames
             }
         }
 
+        [TestMethod]
+        public void GeoNames_SearchByName_ShouldReturnResult_ForAdriaticSea()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                const string name = "Adriatic Sea";
+                var results = geoNames.Search(new SearchOptions(SearchType.Name, name)
+                {
+                    UserName = UserName
+                });
+
+                results.ShouldNotBeNull();
+                results.Count.ShouldEqual(1);
+            }
+        }
     }
 }

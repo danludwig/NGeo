@@ -54,5 +54,11 @@ namespace NGeo.GeoNames
         {
             return _client.Hierarchy(geoNameId, _userName, resultStyle);
         }
+
+        public ReadOnlyCollection<Toponym> Search(SearchOptions searchOptions)
+        {
+            if (searchOptions != null) searchOptions.UserName = _userName;
+            return _client.Search(searchOptions);
+        }
     }
 }

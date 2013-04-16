@@ -239,5 +239,49 @@ namespace NGeo.GeoNames
                 throw;
             }
         }
+
+        /// <summary>
+        /// Returns all GeoNames that match the search string. See
+        /// <seealso cref="http://www.geonames.org/export/geonames-search.html">Official GeoNames
+        /// search Documentation</seealso> for more information.
+        /// </summary>
+        /// <param name="searchOptions">Parameters to configure the search.</param>
+        /// <returns>All GeoNames matching the name search parameter.</returns>
+        public ReadOnlyCollection<Toponym> Search(SearchOptions searchOptions)
+        {
+            string q = "", name = "", nameEquals = "";
+            switch (searchOptions.SearchType)
+            {
+                case SearchType.Query:
+                    q = searchOptions.Text;
+                    break;
+                case SearchType.Name:
+                    name = searchOptions.Text;
+                    break;
+                case SearchType.NameEquals:
+                    nameEquals = searchOptions.Text;
+                    break;
+            }
+            var response = ChannelSearch(q, name, nameEquals, searchOptions.MaxRows, searchOptions.StartRow,
+                searchOptions.Language, searchOptions.Style, searchOptions.UserName);
+
+            var results = response.Items;
+            return results != null ? new ReadOnlyCollection<Toponym>(results) : null;
+        }
+
+        private Results<Toponym> ChannelSearch(string q, string name, string nameEquals, int maxRows, int startRow,
+            string lang, ResultStyle resultStyle, string userName, int retry = 0)
+        {
+            try
+            {
+                return Channel.Search(q, name, nameEquals, maxRows, startRow, lang, resultStyle, userName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
+                    return Channel.Search(q, name, nameEquals, maxRows, startRow, lang, resultStyle, userName);
+                throw;
+            }
+        }
     }
 }

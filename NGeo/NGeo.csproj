@@ -78,6 +78,8 @@
     <Compile Include="GeoNames\IInvokeGeoNamesServices.cs" />
     <Compile Include="GeoNames\NearbyPlaceNameFinder.cs" />
     <Compile Include="GeoNames\ResultStyle.cs" />
+    <Compile Include="GeoNames\SearchOptions.cs" />
+    <Compile Include="GeoNames\SearchType.cs" />
     <Compile Include="GeoNames\TimeZone.cs" />
     <Compile Include="GeoNames\Toponym.cs" />
     <Compile Include="GlobalSuppressions.cs" />

@@ -19,5 +19,7 @@ namespace NGeo.GeoNames
         ReadOnlyCollection<Country> Countries(string userName);
 
         Hierarchy Hierarchy(int geoNameId, string userName, ResultStyle resultStyle = ResultStyle.Medium);
+
+        ReadOnlyCollection<Toponym> Search(SearchOptions searchOptions);
     }
 }

@@ -41,7 +41,7 @@ namespace NGeo.GeoNames
                     default(ResultStyle), default(string)) },
             };
 
-            var postalnearbyResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, PostalCodeNearbyResults>>>
+            var postalNearbyResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, PostalCodeNearbyResults>>>
             {
                 { "findNearbyPostalCodesJSON", p => p.FindNearbyPostalCodes(default(string), default(string), default(double), default(int),
                     default(ResultStyle), default(string)) },
@@ -65,7 +65,7 @@ namespace NGeo.GeoNames
             toponymResultsOperations.ShouldHaveOperationContractAttributes();
             toponymOperations.ShouldHaveOperationContractAttributes();
             codeResultsOperations.ShouldHaveOperationContractAttributes();
-            postalCodedCountryResultsOperations.ShouldHaveOperationContractAttributes();
+            postalNearbyResultsOperations.ShouldHaveOperationContractAttributes();
             countryResultsOperations.ShouldHaveOperationContractAttributes();
             postalCodedCountryResultsOperations.ShouldHaveOperationContractAttributes();
             hierarchyOperations.ShouldHaveOperationContractAttributes();

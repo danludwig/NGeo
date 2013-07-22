@@ -41,6 +41,12 @@ namespace NGeo.GeoNames
                     default(ResultStyle), default(string)) },
             };
 
+            var postalnearbyResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, PostalCodeNearbyResults>>>
+            {
+                { "findNearbyPostalCodesJSON", p => p.FindNearbyPostalCodes(default(string), default(string), default(double), default(int),
+                    default(ResultStyle), default(string)) },
+            };
+
             var countryResultsOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, Results<Country>>>>
             {
                 { "countryInfoJSON", p => p.Countries(default(string)) },
@@ -59,6 +65,7 @@ namespace NGeo.GeoNames
             toponymResultsOperations.ShouldHaveOperationContractAttributes();
             toponymOperations.ShouldHaveOperationContractAttributes();
             codeResultsOperations.ShouldHaveOperationContractAttributes();
+            postalCodedCountryResultsOperations.ShouldHaveOperationContractAttributes();
             countryResultsOperations.ShouldHaveOperationContractAttributes();
             postalCodedCountryResultsOperations.ShouldHaveOperationContractAttributes();
             hierarchyOperations.ShouldHaveOperationContractAttributes();
@@ -106,6 +113,22 @@ namespace NGeo.GeoNames
             attributes.ShouldNotBeNull();
             attributes.Length.ShouldEqual(1);
             attributes[0].UriTemplate.ShouldEqual("postalCodeLookupJSON?postalcode={postalcode}&country={country}"
+                + "&maxRows={maximumResults}&style={resultStyle}&username={userName}");
+            attributes[0].RequestFormat.ShouldEqual(WebMessageFormat.Json);
+            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
+            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
+        }
+
+        [TestMethod]
+        public void GeoNames_IInvokeGeoNamesServices_FindNearbyPostalCodes_ShouldHaveWebInvokeAttribute()
+        {
+            Expression<Func<IInvokeGeoNamesServices, PostalCodeNearbyResults>> method = p => p.FindNearbyPostalCodes(
+                default(string), default(string), default(double), default(int), default(ResultStyle), default(string));
+            var attributes = method.GetAttributes<IInvokeGeoNamesServices, PostalCodeNearbyResults, WebInvokeAttribute>();
+
+            attributes.ShouldNotBeNull();
+            attributes.Length.ShouldEqual(1);
+            attributes[0].UriTemplate.ShouldEqual("findNearbyPostalCodesJSON?postalcode={postalcode}&country={country}&radius={radiusInKm}"
                 + "&maxRows={maximumResults}&style={resultStyle}&username={userName}");
             attributes[0].RequestFormat.ShouldEqual(WebMessageFormat.Json);
             attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);

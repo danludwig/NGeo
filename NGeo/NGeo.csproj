@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GeoNames\AlternateName.cs" />
+    <Compile Include="GeoNames\PostalCodeNearbyResults.cs" />
     <Compile Include="GeoNames\PostalCodedCountry.cs" />
     <Compile Include="GeoNames\PostalCode.cs" />
     <Compile Include="GeoNames\PostalCodeResults.cs" />

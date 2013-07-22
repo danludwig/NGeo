@@ -89,6 +89,38 @@ namespace NGeo.GeoNames
         }
 
         /// <summary>
+        /// Lookup nearby postal codes. See
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#findNearbyPostalCodes">Official
+        /// GeoNames findNearbyPostalCodes Documentation</seealso> for more information.
+        /// </summary>
+        /// <param name="lookup">Arguments sent to the GeoNames service.</param>
+        /// <returns>returns a list of postalcodes and places for the lat/lng query as xml document. The result is sorted by distance. For Canada the FSA is returned (first 3 characters of full postal code)</returns>
+        public ReadOnlyCollection<PostalCode> FindNearbyPostalCodes(PostalCodeLookup lookup)
+        {
+            if (lookup == null) throw new ArgumentNullException("lookup");
+
+            var response = ChannelFindNearbyPostalCodes(lookup);
+            var results = response.Items;
+            return results != null ? new ReadOnlyCollection<PostalCode>(results) : null;
+        }
+
+        private PostalCodeNearbyResults ChannelFindNearbyPostalCodes(PostalCodeLookup lookup, int retry = 0)
+        {
+            try
+            {
+                var results = Channel.FindNearbyPostalCodes(lookup.PostalCode, lookup.Country, lookup.RadiusInKm,
+                    lookup.MaxRows, lookup.Style, lookup.UserName);
+                return results;
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
+                    return ChannelFindNearbyPostalCodes(lookup, ++retry);
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Postal Code Country Info (countries available with min & max postal codes). See
         /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeCountryInfo">Official
         /// GeoNames postalCodeCountryInfo Documentation</seealso> for more information.

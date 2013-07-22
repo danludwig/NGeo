@@ -20,6 +20,14 @@ namespace NGeo.GeoNames
         [DataMember(Name = "lng")]
         public double Longitude { get; internal set; }
 
+        [DataMember(Name = "distance")]
+        public string Distance
+        {
+            get { return _distance; }
+            internal set { _distance = value.ToNullIfEmptyOrWhiteSpace(); }
+        }
+        private string _distance;
+
         [DataMember(Name = "adminCode1")]
         public string Admin1Code { get; internal set; }
 

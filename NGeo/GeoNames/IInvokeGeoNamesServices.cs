@@ -39,6 +39,17 @@ namespace NGeo.GeoNames
         PostalCodeResults LookupPostalCode(string postalcode, string country, int maximumResults,
             ResultStyle resultStyle, string userName);
 
+        [OperationContract(Name = "findNearbyPostalCodesJSON")]
+        [WebInvoke(
+            UriTemplate = "findNearbyPostalCodesJSON?postalcode={postalcode}&country={country}&radius={radiusInKm}"
+                + "&maxRows={maximumResults}&style={resultStyle}&username={userName}",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare
+        )]
+        PostalCodeNearbyResults FindNearbyPostalCodes(string postalcode, string country, double radiusInKm,
+            int maximumResults, ResultStyle resultStyle, string userName);
+
         [OperationContract(Name = "postalCodeCountryInfoJSON")]
         [WebInvoke(
             UriTemplate = "postalCodeCountryInfoJSON?username={userName}",

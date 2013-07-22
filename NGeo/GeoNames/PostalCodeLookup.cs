@@ -25,6 +25,11 @@
         public string Country { get; set; }
 
         /// <summary>
+        /// Find place names in this radius.
+        /// </summary>
+        public double RadiusInKm { get; set; }
+
+        /// <summary>
         /// GeoNames services require a user name.
         /// </summary>
         public string UserName { get; set; }

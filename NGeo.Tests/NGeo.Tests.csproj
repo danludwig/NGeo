@@ -93,6 +93,7 @@
     <Compile Include="GeoNames\ResultStyleTests.cs" />
     <Compile Include="GeoNames\TimeZoneTests.cs" />
     <Compile Include="GeoNames\ToponymTests.cs" />
+    <Compile Include="GeoNames\SearchMethodTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Yahoo\GeoPlanet\ConcordanceNamespaceTests.cs" />
     <Compile Include="Yahoo\GeoPlanet\AdminTests.cs" />

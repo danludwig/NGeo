@@ -18,6 +18,9 @@ namespace NGeo.GeoNames
 
         [DataMember(Name = "name")]
         public string Name { get; internal set; }
+        
+        [DataMember(Name = "distance")]
+        public double Distance { get; internal set; }
 
         [DataMember(Name = "toponymName")]
         public string ToponymName { get; internal set; }

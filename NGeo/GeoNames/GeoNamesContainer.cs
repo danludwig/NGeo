@@ -30,6 +30,12 @@ namespace NGeo.GeoNames
             return _client.LookupPostalCode(lookup);
         }
 
+        public ReadOnlyCollection<NearbyPostalCode> FindNearbyPostalCodes(NearbyPostalCodesFinder finder)
+        {
+            if (finder != null) finder.UserName = _userName;
+            return _client.FindNearbyPostalCodes(finder);
+        }
+
         public ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo()
         {
             return _client.PostalCodeCountryInfo(_userName);

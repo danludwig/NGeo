@@ -376,6 +376,10 @@
     Target = "NGeo.GeoNames.NearbyPlaceNameFinder.#RadiusInKm",
     Justification = "Casing matches ReSharper casing rules.")]
 [assembly: SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly",
+    MessageId = "Km", Scope = "member",
+    Target = "NGeo.GeoNames.NearbyPostalCodeFinder.#RadiusInKm",
+    Justification = "Casing matches ReSharper casing rules.")]
+[assembly: SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly",
     MessageId = "Sq", Scope = "member",
     Target = "NGeo.GeoNames.Country.#AreaInSqKm",
     Justification = "Casing matches ReSharper casing rules.")]

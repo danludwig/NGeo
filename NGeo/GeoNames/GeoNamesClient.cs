@@ -89,6 +89,45 @@ namespace NGeo.GeoNames
         }
 
         /// <summary>
+        /// Lookup a postal code by either Latitude/Longitude or Postalcode/Country/LocalCountry See
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#findNearbyPostalCodes">Official
+        /// GeoNames postalCodeLookup Documentation</seealso> for more information.
+        /// </summary>
+        /// <param name="finder">Arguments sent to the GeoNames service.</param>
+        /// <returns>The closest postal codes to the given lat/lon. If the lat/lon is within a postal
+        /// code it will be the first result with a zero distance. The unit of the distance element 
+        /// is 'km'.</returns>
+        public ReadOnlyCollection<NearbyPostalCode> FindNearbyPostalCodes(NearbyPostalCodesFinder finder)
+        {
+            if (finder == null) throw new ArgumentNullException("lookup");
+
+            var response = ChannelFindNearbyPostalCodes(finder);
+            var results = response.Items;
+            return results != null ? new ReadOnlyCollection<NearbyPostalCode>(results) : null;
+        }
+
+        private NearbyPostalCodeResults ChannelFindNearbyPostalCodes(NearbyPostalCodesFinder finder, int retry = 0)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(finder.PostalCode))
+                {
+                    return Channel.FindNearbyPostalCodes(finder.Latitude, finder.Longitude, finder.RadiusInKm,
+                        finder.Country, finder.LocalCountry,
+                        finder.MaxRows, finder.Style, finder.UserName);
+                }
+                return Channel.FindNearbyPostalCodes(finder.PostalCode, finder.Country, finder.RadiusInKm,
+                    finder.MaxRows, finder.Style, finder.UserName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
+                    return ChannelFindNearbyPostalCodes(finder, ++retry);
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Postal Code Country Info (countries available with min & max postal codes). See
         /// <seealso cref="http://www.geonames.org/export/web-services.html#postalCodeCountryInfo">Official
         /// GeoNames postalCodeCountryInfo Documentation</seealso> for more information.

@@ -9,6 +9,8 @@ namespace NGeo.GeoNames
 
         ReadOnlyCollection<PostalCode> LookupPostalCode(PostalCodeLookup lookup);
 
+        ReadOnlyCollection<NearbyPostalCode> FindNearbyPostalCodes(NearbyPostalCodesFinder finder);
+
         ReadOnlyCollection<PostalCodedCountry> PostalCodeCountryInfo();
 
         Toponym Get(int geoNameId);

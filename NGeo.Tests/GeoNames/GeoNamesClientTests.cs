@@ -165,6 +165,67 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
+        public void GeoNames_FindNearbyPostalCodes_ShouldReturn1Result_ForMollysLatitudeAndLongitude_WhenNoRadiusIsSpecified()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                var finder = new NearbyPostalCodesFinder
+                {
+                    Latitude = 40.611271,
+                    Longitude = -75.378110,
+                    UserName = UserName,
+                };
+                var results = geoNames.FindNearbyPostalCodes(finder);
+
+                results.ShouldNotBeNull();
+                results.Count.ShouldEqual(1);
+                results[0].Value.ShouldEqual("18015");
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GeoNames_FindNearbyPostalCodes_ShouldThrowException_WhenArgIsNull()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                geoNames.FindNearbyPostalCodes(null);
+            }
+        }
+
+        [TestMethod]
+        public void GeoNames_FindNearbyPostalCodes_ShouldReturn10Results_ForMollysLatitudeAndLongitude_When10KmRadiusIsSpecified()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                var finder = new NearbyPostalCodesFinder
+                {
+                    Latitude = 40.611271,
+                    Longitude = -75.378110,
+                    UserName = UserName,
+                    RadiusInKm = 10.0,
+                    MaxRows = 10,
+                };
+                var results = geoNames.FindNearbyPostalCodes(finder);
+
+                results.ShouldNotBeNull();
+                results.Count.ShouldEqual(10);
+                results[0].Value.ShouldEqual("18015");
+            }
+        }
+
+        [TestMethod]
+        public void GeoNames_FindNearbyPostalCodes_ShouldReturnNull_WithoutUserName()
+        {
+            using (var geoNames = new GeoNamesClient())
+            {
+                var finder = new NearbyPostalCodesFinder();
+                var results = geoNames.FindNearbyPostalCodes(finder);
+                results.ShouldBeNull();
+            }
+        }
+
+        [TestMethod]
         public void GeoNames_Get_ShouldReturn1EarthResult_ForGeoNameId6295630()
         {
             using (var geoNames = new GeoNamesClient())

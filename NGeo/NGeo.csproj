@@ -64,8 +64,11 @@
   <ItemGroup>
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="GeoNames\AlternateName.cs" />
+    <Compile Include="GeoNames\NearbyPostalCodesFinder.cs" />
+    <Compile Include="GeoNames\NearbyPostalCode.cs" />
     <Compile Include="GeoNames\PostalCodedCountry.cs" />
     <Compile Include="GeoNames\PostalCode.cs" />
+    <Compile Include="GeoNames\NearbyPostalCodeResults.cs" />
     <Compile Include="GeoNames\PostalCodeResults.cs" />
     <Compile Include="GeoNames\PostalCodeLookup.cs" />
     <Compile Include="GeoNames\GeoNamesContainer.cs" />

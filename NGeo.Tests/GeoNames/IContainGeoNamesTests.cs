@@ -38,6 +38,16 @@ namespace NGeo.GeoNames
         }
 
         [TestMethod]
+        public void GeoNames_FindNearbyPostalCodes_ShouldBeInterfaceMethod()
+        {
+            var contract = new Mock<IContainGeoNames>();
+            contract.Setup(m => m.FindNearbyPostalCodes(It.IsAny<NearbyPostalCodesFinder>()))
+                .Returns(new ReadOnlyCollection<NearbyPostalCode>(new List<NearbyPostalCode>()));
+            var results = contract.Object.FindNearbyPostalCodes(null);
+            results.ShouldNotBeNull();
+        }
+
+        [TestMethod]
         public void GeoNames_PostalCodeCountryInfo_ShouldBeInterfaceMethod()
         {
             var contract = new Mock<IContainGeoNames>();

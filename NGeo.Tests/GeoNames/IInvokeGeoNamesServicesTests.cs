@@ -65,12 +65,22 @@ namespace NGeo.GeoNames
                 { "hierarchyJSON", p => p.Hierarchy(default(int), default(string), default(ResultStyle)) },
             };
 
+            var timeZoneOperations = new Dictionary<string, Expression<Func<IInvokeGeoNamesServices, TimeZoneExtended>>>
+            {
+                { "timezone", p => p.TimeZone(default(double), default(double), default(double),
+                    default(string), default(string)) },
+            };
+
+
+
             toponymResultsOperations.ShouldHaveOperationContractAttributes();
             toponymOperations.ShouldHaveOperationContractAttributes();
             codeResultsOperations.ShouldHaveOperationContractAttributes();
+            NearbyPostalCodeResultsOperations.ShouldHaveOperationContractAttributes();
             countryResultsOperations.ShouldHaveOperationContractAttributes();
             postalCodedCountryResultsOperations.ShouldHaveOperationContractAttributes();
             hierarchyOperations.ShouldHaveOperationContractAttributes();
+            timeZoneOperations.ShouldHaveOperationContractAttributes();
         }
 
         [TestMethod]
@@ -235,5 +245,21 @@ namespace NGeo.GeoNames
             attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
         }
 
+        [TestMethod]
+        public void GeoNames_IInvokeGeoNamesServices_TimeZone_ShouldHaveWebInvokeAttribute()
+        {
+            Expression<Func<IInvokeGeoNamesServices, TimeZoneExtended>> method = p => p.TimeZone(
+                default(double), default(double), default(double), default(string), default(string));
+            var attributes = method.GetAttributes<IInvokeGeoNamesServices, TimeZoneExtended, WebInvokeAttribute>();
+
+            attributes.ShouldNotBeNull();
+            attributes.Length.ShouldEqual(1);
+            attributes[0].UriTemplate.ShouldEqual(
+                "timezoneJSON?lat={latitude}&lng={longitude}&radius={radiusInKm}"
+                + "&lang={language}&username={userName}");
+            attributes[0].RequestFormat.ShouldEqual(WebMessageFormat.Json);
+            attributes[0].ResponseFormat.ShouldEqual(WebMessageFormat.Json);
+            attributes[0].BodyStyle.ShouldEqual(WebMessageBodyStyle.Bare);
+        }
     }
 }

@@ -6,13 +6,28 @@ namespace NGeo.GeoNames
     public class NearbyPostalCode
     {
         [DataMember(Name = "postalCode")]
-        public string Value { get; internal set; }
+        public string Value 
+        {
+            get { return _value; }
+            internal set { _value = value.ToNullIfEmptyOrWhiteSpace(); }
+        }
+        private string _value;
 
         [DataMember(Name = "placeName")]
-        public string Name { get; internal set; }
+        public string Name
+        {
+            get { return _name; }
+            internal set { _name = value.ToNullIfEmptyOrWhiteSpace(); }
+        }
+        private string _name;
 
         [DataMember(Name = "countryCode")]
-        public string CountryCode { get; internal set; }
+        public string CountryCode
+        {
+            get { return _countryCode; }
+            internal set { _countryCode = value.ToNullIfEmptyOrWhiteSpace(); }
+        }
+        private string _countryCode;
 
         [DataMember(Name = "lat")]
         public double Latitude { get; internal set; }
@@ -24,7 +39,12 @@ namespace NGeo.GeoNames
         public double Distance { get; set; }
 
         [DataMember(Name = "adminCode1")]
-        public string Admin1Code { get; internal set; }
+        public string Admin1Code
+        {
+            get { return _admin1Code; }
+            internal set { _admin1Code = value.ToNullIfEmptyOrWhiteSpace(); }
+        }
+        private string _admin1Code;
 
         [DataMember(Name = "adminName1")]
         public string Admin1Name
@@ -35,7 +55,12 @@ namespace NGeo.GeoNames
         private string _admin1Name;
 
         [DataMember(Name = "adminCode2")]
-        public string Admin2Code { get; internal set; }
+        public string Admin2Code
+        {
+            get { return _admin2Code; }
+            internal set { _admin2Code = value.ToNullIfEmptyOrWhiteSpace(); }
+        }
+        private string _admin2Code;
 
         [DataMember(Name = "adminName2")]
         public string Admin2Name
@@ -46,7 +71,12 @@ namespace NGeo.GeoNames
         private string _admin2Name;
 
         [DataMember(Name = "adminCode3")]
-        public string Admin3Code { get; set; }
+        public string Admin3Code
+        {
+            get { return _admin3Code; }
+            internal set { _admin3Code = value.ToNullIfEmptyOrWhiteSpace(); }
+        }
+        private string _admin3Code;
 
         [DataMember(Name = "adminName3")]
         public string Admin3Name
@@ -58,7 +88,7 @@ namespace NGeo.GeoNames
 
         public override string ToString()
         {
-            return Name;
+            return Value;
         }
     }
 }

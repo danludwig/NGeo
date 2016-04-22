@@ -306,5 +306,38 @@ namespace NGeo.GeoNames
             }
         }
 
+        [TestMethod]
+        public void GeoNames_TimeZone_ShouldReturnAmericaPhoenixForAbc1()
+        {
+            using (var geoNames = new GeoNamesContainer(UserName))
+            {
+                var result = geoNames.TimeZone(new TimeZoneLookup()
+                {
+                    Latitude = 33.452120,
+                    Longitude = -112.067052,
+                    RadiusInKm = 1.0,
+                });
+
+                result.ShouldNotBeNull();
+                result.Id.ShouldEqual("America/Phoenix");
+            }
+        }
+
+        [TestMethod]
+        public void GeoNames_TimeZone_ShouldReturnAmericaNewYorkForLehigh()
+        {
+            using (var geoNames = new GeoNamesContainer(UserName))
+            {
+                var result = geoNames.TimeZone(new TimeZoneLookup()
+                {
+                    Latitude = 40.60326613801468,
+                    Longitude = -75.37771224975586,
+                    RadiusInKm = 1.0,
+                });
+
+                result.ShouldNotBeNull();
+                result.Id.ShouldEqual("America/New_York");
+            }
+        }
     }
 }

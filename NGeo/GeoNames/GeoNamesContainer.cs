@@ -66,5 +66,11 @@ namespace NGeo.GeoNames
             if (searchOptions != null) searchOptions.UserName = _userName;
             return _client.Search(searchOptions);
         }
+
+        public TimeZoneExtended TimeZone(TimeZoneLookup lookup)
+        {
+            if (lookup != null) lookup.UserName = _userName;
+            return _client.TimeZone(lookup);
+        }
     }
 }

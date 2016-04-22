@@ -97,5 +97,14 @@ namespace NGeo.GeoNames
             results.ShouldNotBeNull();
         }
 
+        [TestMethod]
+        public void GeoNames_TimeZone_ShouldBeInterfaceMethod()
+        {
+            var contract = new Mock<IConsumeGeoNames>();
+            contract.Setup(m => m.TimeZone(It.IsAny<TimeZoneLookup>()))
+                .Returns(new TimeZoneExtended());
+            var results = contract.Object.TimeZone(null);
+            results.ShouldNotBeNull();
+        }
     }
 }

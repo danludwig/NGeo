@@ -23,5 +23,7 @@ namespace NGeo.GeoNames
         Hierarchy Hierarchy(int geoNameId, string userName, ResultStyle resultStyle = ResultStyle.Medium);
 
         ReadOnlyCollection<Toponym> Search(SearchOptions searchOptions);
+
+        TimeZoneExtended TimeZone(TimeZoneLookup lookup);
     }
 }

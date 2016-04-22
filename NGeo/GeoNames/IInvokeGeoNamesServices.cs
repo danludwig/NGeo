@@ -117,5 +117,15 @@ namespace NGeo.GeoNames
         )]
         Results<Toponym> Search(string q, string name, string nameEquals, int maxRows, int startRow, string lang, ResultStyle resultStyle, string userName);
 
+        [OperationContract(Name = "timezone")]
+        [WebInvoke(
+            UriTemplate = "timezoneJSON?lat={latitude}&lng={longitude}&radius={radiusInKm}"
+                + "&lang={language}&username={userName}",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare
+        )]
+        TimeZoneExtended TimeZone(double latitude, double longitude, double radiusInKm,
+            string language, string userName);
     }
 }

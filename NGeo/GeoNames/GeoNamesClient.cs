@@ -99,7 +99,7 @@ namespace NGeo.GeoNames
         /// is 'km'.</returns>
         public ReadOnlyCollection<NearbyPostalCode> FindNearbyPostalCodes(NearbyPostalCodesFinder finder)
         {
-            if (finder == null) throw new ArgumentNullException("lookup");
+            if (finder == null) throw new ArgumentNullException("finder");
 
             var response = ChannelFindNearbyPostalCodes(finder);
             var results = response.Items;
@@ -322,5 +322,37 @@ namespace NGeo.GeoNames
                 throw;
             }
         }
+
+        /// <summary>
+        /// Lookup a postal code by either Latitude/Longitude or Postalcode/Country/LocalCountry See
+        /// <seealso cref="http://www.geonames.org/export/web-services.html#timezone">Official
+        /// GeoNames postalCodeLookup Documentation</seealso> for more information.
+        /// </summary>
+        /// <param name="lookup">Arguments sent to the GeoNames service.</param>
+        /// <returns>The extended timezone for the given latitude and longitude.</returns>
+        public TimeZoneExtended TimeZone(TimeZoneLookup lookup)
+        {
+            if (lookup == null) throw new ArgumentNullException("lookup");
+
+            var response = ChannelTimezone(lookup);
+            return response != null ? response : null;
+        }
+
+        private TimeZoneExtended ChannelTimezone(TimeZoneLookup lookup, int retry = 0)
+        {
+            try
+            {
+                return Channel.TimeZone(lookup.Latitude, lookup.Longitude, lookup.RadiusInKm, 
+                    lookup.Language, lookup.UserName);
+            }
+            catch (WebException ex)
+            {
+                if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
+                    return ChannelTimezone(lookup, ++retry);
+                throw;
+            }
+        }
+
+
     }
 }

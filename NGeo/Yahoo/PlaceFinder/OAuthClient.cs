@@ -15,6 +15,7 @@ namespace NGeo.Yahoo.PlaceFinder
         internal OAuthClient()
         {
             _webClient = new WebClient();
+            _webClient.Encoding = Encoding.UTF8;
         }
 
         /// <summary>

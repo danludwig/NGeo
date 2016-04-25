@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net;
 using System.ServiceModel;
@@ -203,6 +204,15 @@ namespace NGeo.GeoNames
         {
             var response = ChannelChildren(geoNameId, userName, resultStyle, maxRows);
             var results = response.Items;
+            if (response.Status != null)
+            {
+                switch (response.Status.Value)
+                {
+                    case 15:
+                        return new ReadOnlyCollection<Toponym>(new List<Toponym>());
+                    //TODO: Add another statuses processing
+                }
+            }
             return results != null ? new ReadOnlyCollection<Toponym>(results) : null;
         }
 

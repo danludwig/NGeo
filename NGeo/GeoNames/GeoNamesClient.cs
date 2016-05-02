@@ -302,23 +302,23 @@ namespace NGeo.GeoNames
                     break;
             }
             var response = ChannelSearch(q, name, nameEquals, searchOptions.MaxRows, searchOptions.StartRow,
-                searchOptions.Language, searchOptions.Style, searchOptions.UserName);
+                searchOptions.Language, searchOptions.Style, searchOptions.UserName, searchOptions.SearchLang);
 
             var results = response.Items;
             return results != null ? new ReadOnlyCollection<Toponym>(results) : null;
         }
 
         private Results<Toponym> ChannelSearch(string q, string name, string nameEquals, int maxRows, int startRow,
-            string lang, ResultStyle resultStyle, string userName, int retry = 0)
+            string lang, ResultStyle resultStyle, string userName, string searchlang = null, int retry = 0)
         {
             try
             {
-                return Channel.Search(q, name, nameEquals, maxRows, startRow, lang, resultStyle, userName);
+                return Channel.Search(q, name, nameEquals, maxRows, startRow, lang, resultStyle, userName, searchlang);
             }
             catch (WebException ex)
             {
                 if (retry < RetryLimit && ex.Message.StartsWith(ClosedConnectionMessage, StringComparison.Ordinal))
-                    return Channel.Search(q, name, nameEquals, maxRows, startRow, lang, resultStyle, userName);
+                    return Channel.Search(q, name, nameEquals, maxRows, startRow, lang, resultStyle, userName, searchlang);
                 throw;
             }
         }

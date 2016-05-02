@@ -110,12 +110,12 @@ namespace NGeo.GeoNames
 
         [OperationContract(Name = "searchJSON")]
         [WebInvoke(
-            UriTemplate = "searchJSON?q={q}&name={name}&name_equals={nameEquals}&maxRows={maxRows}&startRow={startRow}&lang={lang}&style={resultStyle}&username={userName}",
+            UriTemplate = "searchJSON?q={q}&name={name}&name_equals={nameEquals}&maxRows={maxRows}&startRow={startRow}&lang={lang}&style={resultStyle}&username={userName}&searchlang={searchlang}",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare
         )]
-        Results<Toponym> Search(string q, string name, string nameEquals, int maxRows, int startRow, string lang, ResultStyle resultStyle, string userName);
+        Results<Toponym> Search(string q, string name, string nameEquals, int maxRows, int startRow, string lang, ResultStyle resultStyle, string userName, string searchlang);
 
         [OperationContract(Name = "timezone")]
         [WebInvoke(

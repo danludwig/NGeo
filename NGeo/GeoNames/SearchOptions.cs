@@ -8,7 +8,7 @@ namespace NGeo.GeoNames
     public class SearchOptions
     {
         /// <summary>
-        /// Default property values are: Language = "local", MaxRows = 100, Style = ResultStyle.Full.
+        /// Default property values are: Language = "local", MaxRows = 100, Style = ResultStyle.Full, searchlang = null.
         /// </summary>
         public SearchOptions(SearchType searchType, string text)
         {
@@ -17,6 +17,7 @@ namespace NGeo.GeoNames
             Style = ResultStyle.Medium;
             SearchType = searchType;
             Text = text;
+            SearchLang = null;
         }
 
         /// <summary>
@@ -49,6 +50,12 @@ namespace NGeo.GeoNames
         /// Don't return any more than this number of results. Default value is 100.
         /// </summary>
         public int MaxRows { get; set; }
+
+        /// <summary>
+        /// In combination with the name parameter, the search will only consider names in the specified language. Used for instance to query for IATA airport codes.
+        /// Default value is 'null'.
+        /// </summary>
+        public string SearchLang { get; set; }
 
         /// <summary>
         /// Amount of detail returned by the GeoNames service. Default value is Full.
